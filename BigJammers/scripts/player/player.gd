@@ -19,6 +19,7 @@ var motion: Vector2 = Vector2.ZERO
 var jumping : bool = false
 var was_on_floor : bool = false
 var gravity: Vector3 = Vector3.DOWN
+var moving := true
 
 
 func _ready():
@@ -31,6 +32,16 @@ func _ready():
 func _process(delta):
 	#_flip_sprite()
 	pass
+
+# Call on level ready on level start, and on level start when animation of 
+# start level is complete
+func on_level_ready():
+	moving = false
+
+# Give specific time
+func on_level_start(time: float):
+	moving = true
+	start_heartbeat_timer(time)
 
 func start_heartbeat_timer(time: float):
 	heartbeat_timer.start(time)
