@@ -5,7 +5,7 @@ var player
 
 
 func _ready() -> void:
-	Events.LevelLose.connect(_on_level_lose)
+	Events.level_lose.connect(_on_level_lose)
 	player = get_tree().get_first_node_in_group(GroupManager.PLAYERGROUP)
 	if player is Player:
 		(player as Player).health_depleted.connect(_on_level_lose)
@@ -21,7 +21,7 @@ func _check_win() -> void:
 		return
 	
 	print("win")
-	Events.LevelWin.emit()
+	Events.level_win.emit()
 
 
 func _on_level_lose() -> void:
