@@ -19,6 +19,9 @@ var gravity: Vector3 = Vector3.DOWN
 
 
 func _ready():
+	# Get block count TEST DELETE
+	var t = get_tree().get_nodes_in_group(GroupManager.BLOCKGROUP).size()
+	print(t)
 	pass 
 
 func _process(delta):
@@ -90,6 +93,9 @@ func JumpBuffer(jump_pressed: bool, on_floor: bool) -> bool:
 func CheckJump():
 	var on_floor : bool = is_on_floor()
 	var jump_pressed : bool = Input.is_action_just_pressed(InputManager.jump_input)
+	
+	if on_floor:
+		motion.y = 0
 	
 	if CoyoteTime(jump_pressed, on_floor) or JumpBuffer(jump_pressed, on_floor):
 		return

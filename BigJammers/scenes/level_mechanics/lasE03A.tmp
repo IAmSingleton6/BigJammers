@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://c6urmskx7xp83"]
+
+[ext_resource type="Texture2D" uid="uid://dxvoxorpid8br" path="res://icon.svg" id="1_1ncth"]
+[ext_resource type="Script" path="res://scripts/level_mechanics/laser.gd" id="1_exmxl"]
+
+[sub_resource type="Gradient" id="Gradient_y5svs"]
+offsets = PackedFloat32Array(0, 0.655602, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xqpl3"]
+gradient = SubResource("Gradient_y5svs")
+
+[sub_resource type="Curve" id="Curve_o0ysw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.594796, 0.990046), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_sgiko"]
+curve = SubResource("Curve_o0ysw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_odn3u"]
+particle_flag_disable_z = true
+initial_velocity_min = 120.0
+initial_velocity_max = 120.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_sgiko")
+color_ramp = SubResource("GradientTexture1D_xqpl3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2b0bd"]
+particle_flag_disable_z = true
+initial_velocity_min = 250.0
+initial_velocity_max = 250.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_sgiko")
+color_ramp = SubResource("GradientTexture1D_xqpl3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rhe2h"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 98, 0)
+tangential_accel_min = 100.0
+tangential_accel_max = 100.0
+
+[sub_resource type="Environment" id="Environment_2h0if"]
+background_mode = 3
+glow_enabled = true
+glow_levels/4 = 1.0
+glow_intensity = 0.5
+glow_blend_mode = 0
+glow_hdr_luminance_cap = 2.0
+
+[node name="Laser" type="RayCast2D"]
+script = ExtResource("1_exmxl")
+
+[node name="Line2D" type="Line2D" parent="."]
+
+[node name="CollisionParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_odn3u")
+texture = ExtResource("1_1ncth")
+
+[node name="CastingParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_2b0bd")
+texture = ExtResource("1_1ncth")
+
+[node name="BeamParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_rhe2h")
+texture = ExtResource("1_1ncth")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2h0if")
