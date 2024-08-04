@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmywqjbbah30o"]
+
+[ext_resource type="Script" path="res://scripts/level_mechanics/door.gd" id="1_nvykc"]
+[ext_resource type="Texture2D" uid="uid://ulnbymdr1xoa" path="res://images/glow_circle.png" id="1_ucwe1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vxlpp"]
+
+[node name="Door" type="StaticBody2D"]
+script = ExtResource("1_nvykc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("1_ucwe1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vxlpp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

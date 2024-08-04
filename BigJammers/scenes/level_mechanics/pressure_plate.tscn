@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://3eg5vctj206g"]
+
+[ext_resource type="Script" path="res://scripts/level_mechanics/pressure_plate.gd" id="1_31brg"]
+[ext_resource type="Texture2D" uid="uid://dxvoxorpid8br" path="res://icon.svg" id="2_ss6v7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sfnt7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ftntt"]
+font_size = 1000
+
+[node name="PressurePlate" type="Area2D"]
+script = ExtResource("1_31brg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("2_ss6v7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sfnt7")
+
+[node name="WeightText" type="Node2D" parent="."]
+scale = Vector2(0.01, 0.01)
+
+[node name="Label" type="Label" parent="WeightText"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -285.5
+offset_top = -681.0
+offset_right = 285.5
+offset_bottom = 681.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "8
+"
+label_settings = SubResource("LabelSettings_ftntt")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
