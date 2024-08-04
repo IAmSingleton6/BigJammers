@@ -24,8 +24,12 @@ func _physics_process(delta):
 		collision_particles.global_rotation = get_collision_normal().angle()
 		collision_particles.position = cast_point
 		
-		if get_collider().has_method("on_laser_hit"):
-			get_collider().laser_hit()
+		var collider := get_collider()
+		if collider is Node:
+			if collider.is_in_group(GroupManager.WATERGROUP):
+				# manipulate the block in some way some way
+				#bcall a specific function in parent if has for example
+				print("laser hit water group block: ", collider.name)
 	
 	line_2d.points[1] = cast_point
 	beam_particles.position = cast_point * 0.5
