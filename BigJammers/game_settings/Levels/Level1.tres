@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://ciyuredhl30p1"]
+[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://ciyuredhl30p1"]
 
+[ext_resource type="PackedScene" uid="uid://bjtxawunkxuhh" path="res://scenes/test_scene.tscn" id="1_ev0pi"]
 [ext_resource type="Script" path="res://scripts/map/level_resource.gd" id="1_owmkq"]
 
 [resource]
 script = ExtResource("1_owmkq")
-level_name = "Happy Beginnings"
+level_name = "Big minds"
+scene = ExtResource("1_ev0pi")

@@ -1,36 +1,24 @@
 extends Node2D
 class_name LevelIcon
 
-@onready var area_2d = $Area2D
-@onready var level_label = $Control/Label
+@onready var level_label = $Label
+
 @export var level_data: LevelData
 
-var level_currently_selectable := false 
+@export var level_right: LevelIcon
+@export var level_left: LevelIcon
+@export var level_up: LevelIcon
+@export var level_down: LevelIcon
 
+var completed := false
+var unlocked := false
 
 func _ready():
+	_get_save_data()
 	level_label.text = str(level_data.level_name)
-	area_2d.body_entered.connect(_on_body_entered)
-	area_2d.body_exited.connect(_on_body_exited)
 
 
-func _process(_delta):
-	if level_currently_selectable:
-		if Input.is_action_just_pressed("Jump"):
-			on_level_selected()
-
-
-func _on_body_entered(other):
-	# Safety check
-	if other.is_in_group(GroupManager.PLAYERGROUP):
-		level_currently_selectable = true
-
-
-func _on_body_exited(other):
-	# Safety check
-	if other.is_in_group(GroupManager.PLAYERGROUP):
-		level_currently_selectable = false
-
-
-func on_level_selected():
-	SceneTransitions.change_scene_path(level_data.scene)
+func _get_save_data():
+	var save_data = SaveSystem.load_data(level_data.level_name)
+	completed = save_data["completed"] if typeof(save_data) == TYPE_DICTIONARY and save_data.has("completed") else false
+	unlocked = save_data["unlocked"] if typeof(save_data) == TYPE_DICTIONARY and save_data.has("unlocked") else level_data.level_unlocked

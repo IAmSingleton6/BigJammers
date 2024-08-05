@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://8qb4pv2ttx4v"]
+[gd_scene load_steps=6 format=3 uid="uid://8qb4pv2ttx4v"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_j518t"]
 [ext_resource type="Texture2D" uid="uid://dxvoxorpid8br" path="res://icon.svg" id="2_g42j2"]
 [ext_resource type="Script" path="res://scripts/player/heartbeat.gd" id="3_yjc7d"]
+[ext_resource type="AudioStream" uid="uid://f2dd6j8vujj2" path="res://audio/heart_beat.wav" id="4_4y7hd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdsbr"]
 
@@ -22,6 +23,12 @@ shape = SubResource("RectangleShape2D_rdsbr")
 
 [node name="Heartbeat" type="Node2D" parent="."]
 script = ExtResource("3_yjc7d")
+max_health = 20
+
+[node name="AudioStreamPlayer_heartbeat" type="AudioStreamPlayer2D" parent="Heartbeat"]
+stream = ExtResource("4_4y7hd")
+
+[node name="HeartbeatTimer" type="Timer" parent="Heartbeat"]
 
 [node name="Area2D" type="Area2D" parent="." groups=["Heart"]]
 

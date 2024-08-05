@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://d2a3gtnn347qx"]
+
+[ext_resource type="Script" path="res://scripts/map/level_resource.gd" id="1_m3kjf"]
+
+[resource]
+script = ExtResource("1_m3kjf")
+level_name = "Happy Beginnings"
