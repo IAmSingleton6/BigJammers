@@ -6,8 +6,11 @@ class_name GroupManager
 # Each block should have its specific group 
 # Each level mechanic should have its specific group
 
-# Used to find the player in the scene or check for player in interaction
+# Used to find the player in the scene or check for entire player body in interaction
 static var PLAYERGROUP = "Player"
+
+# Used to detect if heart should take damage
+static var HEARTGROUP = "Heart"
 
 # Used to check amount of blocks in the scene (apply to root of blocks)
 static var BLOCKGROUP = "Block"

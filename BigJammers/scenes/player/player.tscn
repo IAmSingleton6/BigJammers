@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://8qb4pv2ttx4v"]
+[gd_scene load_steps=5 format=3 uid="uid://8qb4pv2ttx4v"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_j518t"]
 [ext_resource type="Texture2D" uid="uid://dxvoxorpid8br" path="res://icon.svg" id="2_g42j2"]
+[ext_resource type="Script" path="res://scripts/player/heartbeat.gd" id="3_yjc7d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdsbr"]
 
@@ -19,4 +20,10 @@ shape = SubResource("RectangleShape2D_rdsbr")
 
 [node name="JumpBufferTimer" type="Timer" parent="."]
 
-[node name="HeartbeatTimer" type="Timer" parent="."]
+[node name="Heartbeat" type="Node2D" parent="."]
+script = ExtResource("3_yjc7d")
+
+[node name="Area2D" type="Area2D" parent="." groups=["Heart"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_rdsbr")

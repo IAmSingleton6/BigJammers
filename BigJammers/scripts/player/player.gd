@@ -5,7 +5,7 @@ signal health_depleted
 
 @onready var jump_buffer_timer : Timer = $JumpBufferTimer
 @onready var coyote_timer : Timer = $CoyoteTimer
-@onready var heartbeat_timer : Timer = $HeartbeatTimer
+@onready var heartbeat : HeartBeat = $Heartbeat
 
 @export var MOVEMENTSPEED = 5
 @export var DAMPING = 5
@@ -26,7 +26,6 @@ func _ready():
 	# Get block count TEST DELETE
 	var t = get_tree().get_nodes_in_group(GroupManager.BLOCKGROUP).size()
 	print(t)
-	heartbeat_timer.timeout.connect(_on_health_depleted)
 	pass 
 
 func _process(delta):
@@ -41,10 +40,7 @@ func on_level_ready():
 # Give specific time
 func on_level_start(time: float):
 	moving = true
-	start_heartbeat_timer(time)
 
-func start_heartbeat_timer(time: float):
-	heartbeat_timer.start(time)
 #func _flip_sprite() -> void:
 	#var x : float = InputManager.get_movement().x
 	#var flip_h: bool = sprite.flip_h

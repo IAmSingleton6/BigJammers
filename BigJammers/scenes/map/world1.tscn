@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxltmjmeyrjqd"]
+
+[ext_resource type="Texture2D" uid="uid://dxvoxorpid8br" path="res://icon.svg" id="1_ye0ey"]
+[ext_resource type="Script" path="res://scripts/map/level_icon.gd" id="2_70o6g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_it6nn"]
+
+[node name="World1" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(6.975, 6.975)
+texture = ExtResource("1_ye0ey")
+
+[node name="Levels" type="Node2D" parent="."]
+
+[node name="Level1" type="Node2D" parent="Levels"]
+position = Vector2(-273, -293)
+script = ExtResource("2_70o6g")
+
+[node name="Sprite2D" type="Sprite2D" parent="Levels/Level1"]
+texture = ExtResource("1_ye0ey")
+
+[node name="Area2D" type="Area2D" parent="Levels/Level1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Levels/Level1/Area2D"]
+shape = SubResource("RectangleShape2D_it6nn")
+
+[node name="Control" type="Control" parent="Levels/Level1"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -23.0
+offset_top = -113.0
+offset_right = 17.0
+offset_bottom = -73.0
+
+[node name="Panel" type="Panel" parent="Levels/Level1/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Levels/Level1/Control"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "hello"

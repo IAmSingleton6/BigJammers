@@ -8,13 +8,17 @@ enum TransitionType {
 	SWIPE
 }
 
-func change_scene_path(next_scene_path: String, transition_type: TransitionType = TransitionType.SWIPE) -> void:
-	if not ResourceLoader.exists(next_scene_path):
-		push_warning("Scene at path does not exist so will not switch scene: %s" % next_scene_path)
-		return
+func change_scene_path(next_scene, transition_type: TransitionType = TransitionType.SWIPE) -> void:
+	if next_scene is String:
+		if not ResourceLoader.exists(next_scene):
+			push_warning("Scene at path does not exist so will not switch scene: %s" % next_scene)
+			return
 	
 	await play_transition(transition_type)
-	get_tree().change_scene_to_file(next_scene_path)
+	if next_scene is String:
+		get_tree().change_scene_to_file(next_scene)
+	elif next_scene is PackedScene:
+		get_tree().change_scene_to_packed(next_scene)
 
 
 func restart_scene(transition_type: TransitionType = TransitionType.SWIPE) -> void:
