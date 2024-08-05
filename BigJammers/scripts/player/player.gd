@@ -125,7 +125,7 @@ func _check_jump():
 	was_on_floor = on_floor
 
 func _jump():
-	jumping = true	
+	jumping = true
 	motion.y = -abs(JUMPVELOCITY)
 
 func _gravity(delta: float):
