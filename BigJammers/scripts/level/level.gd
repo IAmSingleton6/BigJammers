@@ -1,7 +1,7 @@
 extends Node
 class_name Level
 
-@export var level_start_time = 2
+@export var level_start_time := 2
 
 var player
 var won := false
@@ -18,6 +18,8 @@ func _ready() -> void:
 
 func _process(_delta) -> void:
 	_check_win()
+	if Input.is_action_just_pressed(InputManager.restart_level):
+		SceneTransitions.restart_scene()
 
 
 func _check_win() -> void:

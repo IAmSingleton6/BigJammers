@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://kvcpy477te5c"]
+
+[ext_resource type="Script" path="res://scripts/level_mechanics/rotation_plate.gd" id="1_ygebu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b0351"]
+
+[node name="RotationPlate" type="Area2D"]
+script = ExtResource("1_ygebu")
+
+[node name="Area2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_b0351")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
