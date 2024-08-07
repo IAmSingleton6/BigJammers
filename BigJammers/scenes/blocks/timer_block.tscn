@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://27dv2va7nifm"]
 
 [ext_resource type="Script" path="res://scripts/blocks/timer_block.gd" id="1_2m85q"]
-[ext_resource type="Texture2D" uid="uid://dxvoxorpid8br" path="res://icon.svg" id="1_7xby5"]
+[ext_resource type="Texture2D" uid="uid://cspacsbmuxjgp" path="res://assets/assets/clk.png" id="2_4xy33"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8j68n"]
 
@@ -17,8 +17,11 @@ script = ExtResource("1_2m85q")
 [node name="TimeoutTimer" type="Timer" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.155, 0.155)
-texture = ExtResource("1_7xby5")
+position = Vector2(-4.76837e-07, -4.76837e-07)
+scale = Vector2(1.11111, 1.11111)
+texture = ExtResource("2_4xy33")
+region_enabled = true
+region_rect = Rect2(8, 7, 18, 18)
 
 [node name="TimerText" type="Node2D" parent="."]
 scale = Vector2(0.01, 0.01)
