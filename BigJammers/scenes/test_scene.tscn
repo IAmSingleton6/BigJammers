@@ -4,13 +4,13 @@
 [ext_resource type="Script" path="res://scripts/level/level.gd" id="1_vlnka"]
 [ext_resource type="PackedScene" uid="uid://27dv2va7nifm" path="res://scenes/blocks/timer_block.tscn" id="2_2jm1o"]
 [ext_resource type="Texture2D" uid="uid://dxvoxorpid8br" path="res://icon.svg" id="2_y78ey"]
-[ext_resource type="PackedScene" path="res://scenes/blocks/water_block.tscn" id="4_aoorf"]
+[ext_resource type="PackedScene" uid="uid://c76ksqqw3n176" path="res://scenes/blocks/water_block.tscn" id="4_aoorf"]
 [ext_resource type="PackedScene" uid="uid://3eg5vctj206g" path="res://scenes/level_mechanics/pressure_plate.tscn" id="4_hmsqc"]
-[ext_resource type="PackedScene" path="res://scenes/blocks/fire_block.tscn" id="5_ey2ad"]
+[ext_resource type="PackedScene" uid="uid://msculdcaewa3" path="res://scenes/blocks/fire_block.tscn" id="5_ey2ad"]
 [ext_resource type="PackedScene" uid="uid://bxoy0mykgi768" path="res://scenes/level_mechanics/wind.tscn" id="6_7a7t6"]
-[ext_resource type="PackedScene" path="res://scenes/blocks/ice_block.tscn" id="6_760pd"]
+[ext_resource type="PackedScene" uid="uid://75no6pmiwmm3" path="res://scenes/blocks/ice_block.tscn" id="6_760pd"]
 [ext_resource type="PackedScene" uid="uid://b1upejn1y0uk3" path="res://scenes/level_mechanics/fire.tscn" id="9_nofno"]
-[ext_resource type="PackedScene" path="res://scenes/level_mechanics/lava.tscn" id="11_cp0h5"]
+[ext_resource type="PackedScene" uid="uid://bu6byhr4s7tn2" path="res://scenes/level_mechanics/lava.tscn" id="11_cp0h5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v1rp8"]
 
