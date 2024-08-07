@@ -21,6 +21,8 @@ func _ready():
 	Events.level_start.connect(_on_level_start)
 	heartbeat_timer.timeout.connect(_on_heartbeat_timeout)
 	heartbeat_timer.start(_get_heartbeat_interval())
+	if anim_sprite:
+		anim_sprite.material.set_shader_parameter("cutoff", 1.0)
 
 
 func _on_level_start():
@@ -32,7 +34,7 @@ func _process(delta):
 		health -= delta
 		health = max(health, 0)
 		shade = health/max_health
-		if health>0:
+		if health>0 and anim_sprite:
 			anim_sprite.material.set_shader_parameter("cutoff", shade )
 	
 	if health <= 0:
