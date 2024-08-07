@@ -56,7 +56,6 @@ level_data = ExtResource("5_8tjev")
 level_right = NodePath("../LevelIcon3")
 level_left = NodePath("../LevelIcon")
 
-<<<<<<< Updated upstream
 [node name="Sprite2D" type="Sprite2D" parent="Levels/LevelIcon2"]
 texture = ExtResource("1_ye0ey")
 
@@ -120,10 +119,3 @@ texture = ExtResource("4_7e8oa")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(10, -127)
-=======
-[node name="Label" type="Label" parent="Levels/Level1/Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "hello"
->>>>>>> Stashed changes
