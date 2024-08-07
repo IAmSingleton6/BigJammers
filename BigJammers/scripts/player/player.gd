@@ -96,10 +96,9 @@ func _coyote_time(jump_pressed: bool, on_floor: bool) -> bool:
 func _jump_buffer(jump_pressed: bool, on_floor: bool) -> bool:
 	if on_floor and not was_on_floor:
 		if not jump_buffer_timer.is_stopped():
-			if Input.is_action_just_pressed(InputManager.jump_input):
-				jump_buffer_timer.stop()
-				_jump()
-				return true
+			jump_buffer_timer.stop()
+			_jump()
+			return true
 	
 	if jump_pressed:
 		if not on_floor:

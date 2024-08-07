@@ -17,7 +17,7 @@ steam_particle_scene = ExtResource("2_dy1ow")
 scale = Vector2(0.155, 0.155)
 texture = ExtResource("2_pqbs6")
 
-[node name="Area2D" type="Area2D" parent="." groups=["Water"]]
+[node name="Area2D" type="Area2D" parent="." groups=["Ice"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_cvrfv")

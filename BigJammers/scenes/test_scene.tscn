@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bjtxawunkxuhh"]
+[gd_scene load_steps=13 format=3 uid="uid://bjtxawunkxuhh"]
 
 [ext_resource type="PackedScene" uid="uid://8qb4pv2ttx4v" path="res://scenes/player/player.tscn" id="1_8vqvh"]
 [ext_resource type="Script" path="res://scripts/level/level.gd" id="1_vlnka"]
@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://3eg5vctj206g" path="res://scenes/level_mechanics/pressure_plate.tscn" id="4_hmsqc"]
 [ext_resource type="PackedScene" uid="uid://msculdcaewa3" path="res://scenes/blocks/fire_block.tscn" id="5_ey2ad"]
 [ext_resource type="PackedScene" uid="uid://bxoy0mykgi768" path="res://scenes/level_mechanics/wind.tscn" id="6_7a7t6"]
+[ext_resource type="PackedScene" uid="uid://75no6pmiwmm3" path="res://scenes/blocks/ice_block.tscn" id="6_760pd"]
 [ext_resource type="PackedScene" uid="uid://b1upejn1y0uk3" path="res://scenes/level_mechanics/fire.tscn" id="9_nofno"]
+[ext_resource type="PackedScene" uid="uid://bu6byhr4s7tn2" path="res://scenes/level_mechanics/lava.tscn" id="11_cp0h5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v1rp8"]
 
@@ -19,6 +21,7 @@ script = ExtResource("1_vlnka")
 MOVEMENTSPEED = 100
 DAMPING = 45
 GRAVITY = 5
+JUMPBUFFERTIME = 1.0
 JUMPVELOCITY = 150.0
 
 [node name="TimerBlock" parent="Player" instance=ExtResource("2_2jm1o")]
@@ -27,8 +30,11 @@ position = Vector2(9.715, 20.64)
 [node name="WaterBlock" parent="Player" instance=ExtResource("4_aoorf")]
 position = Vector2(23, -1)
 
-[node name="Fire" parent="Player" instance=ExtResource("5_ey2ad")]
+[node name="FireBlock" parent="Player" instance=ExtResource("5_ey2ad")]
 position = Vector2(36, 21)
+
+[node name="IceBlock" parent="Player" instance=ExtResource("6_760pd")]
+position = Vector2(60, 21)
 
 [node name="floor" type="StaticBody2D" parent="."]
 position = Vector2(0, 40.135)
@@ -60,4 +66,8 @@ position = Vector2(116, 33)
 position = Vector2(172, 21)
 
 [node name="Fire" parent="." instance=ExtResource("9_nofno")]
+visible = false
 position = Vector2(210, 20)
+
+[node name="Lava" parent="." instance=ExtResource("11_cp0h5")]
+position = Vector2(226, 18)

@@ -20,12 +20,15 @@ func melt() -> void:
 	water_instance.global_position = global_position
 	water_instance.global_rotation = global_rotation
 	water_instance.global_scale = global_scale
-	water_instance.reparent(get_parent(), true)
+	get_parent().add_child(water_instance)
 	var steam = steam_particle_scene.instantiate()
 	get_tree().root.add_child(steam)
 	steam.global_position = global_position
-	queue_free()
+	destroy_block()
 
 
 func destroy_block() -> void:
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	await get_tree().physics_frame
 	queue_free()

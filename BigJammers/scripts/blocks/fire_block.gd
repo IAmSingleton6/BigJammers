@@ -1,9 +1,10 @@
 extends CollisionShape2D
 class_name FireBlock
 
+@onready var sprite_2d = $Sprite2D
 @onready var area_2d: Area2D = $Area2D
-@export var steam_particle_scene: PackedScene
 
+@export var steam_particle_scene: PackedScene
 
 func _ready():
 	area_2d.area_entered.connect(_on_area_entered)

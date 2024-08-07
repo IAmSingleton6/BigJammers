@@ -15,6 +15,9 @@ script = ExtResource("1_j518t")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3.985, 3.985)
 script = ExtResource("5_sj204")
+max_offset = null
+max_roll = null
+shakeReduction = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.142578, 0.142578)

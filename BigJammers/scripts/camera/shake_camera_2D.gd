@@ -10,8 +10,9 @@ var shake : float = 0.0
 
 
 # TODO: Add in some sort of rotation reset.
-func _process(_delta):  
-	_process_shake(global_transform.origin, 0.0, _delta)
+func _process(_delta): 
+	pass 
+	#_process_shake(global_transform.origin, 0.0, _delta)
 
 
 func _process_shake(center, angle, delta) -> void:
@@ -22,9 +23,8 @@ func _process_shake(center, angle, delta) -> void:
 	os.x = (max_offset * shake * _get_noise(randi(), delta + 1.0))
 	os.y = (max_offset * shake * _get_noise(randi(), delta + 2.0))
 	
-	offset.x = center.x + os.x
-	offset.y = center.y + os.y
-		
+	offset = center + os
+	
 	stress -= (shakeReduction / 100.0)
 	
 	stress = clamp(stress, 0.0, 1.0)
@@ -35,9 +35,9 @@ func _get_noise(noise_seed, time) -> float:
 	n.noise_type = FastNoiseLite.TYPE_SIMPLEX
 	
 	n.seed = noise_seed
-	n.octaves = 4
-	n.period = 20.0
-	n.persistence = 0.8
+	n.fractal_octaves = 4
+	n.frequency = 20.0
+	n.fractal_gain = 0.8
 	
 	return n.get_noise_1d(time)
 

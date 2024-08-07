@@ -19,4 +19,6 @@ func _on_area_entered(other):
 
 
 func destroy_block():
+	await get_tree().physics_frame
+	# await get_tree().create_timer(0.5).timeout
 	queue_free()
