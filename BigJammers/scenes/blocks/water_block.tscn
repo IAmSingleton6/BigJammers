@@ -1,12 +1,15 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=6 format=3 uid="uid://c76ksqqw3n176"]
 
 [ext_resource type="Script" path="res://scripts/blocks/water_block.gd" id="1_4ax4h"]
 [ext_resource type="Texture2D" uid="uid://dxvoxorpid8br" path="res://icon.svg" id="2_5jw41"]
 [ext_resource type="PackedScene" uid="uid://c0ktkj7b3ullk" path="res://scenes/particles/steam.tscn" id="2_lvdu6"]
+=======
 [gd_scene load_steps=14 format=3 uid="uid://c76ksqqw3n176"]
 
 [ext_resource type="Script" path="res://scripts/blocks/water_block.gd" id="1_4ax4h"]
 [ext_resource type="Texture2D" uid="uid://bfgcs8ocfs4he" path="res://assets/assets/Water.png" id="2_mke51"]
+>>>>>>> Stashed changes
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i23e2"]
 
@@ -81,12 +84,19 @@ shape = SubResource("RectangleShape2D_i23e2")
 script = ExtResource("1_4ax4h")
 steam_particle_scene = ExtResource("2_lvdu6")
 
+<<<<<<< Updated upstream
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 1, 1)
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("2_5jw41")
+=======
 [node name="Water_drop" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2.38419e-07, -2.38419e-07)
 scale = Vector2(0.625, 0.625)
 sprite_frames = SubResource("SpriteFrames_845ph")
 autoplay = "default"
 frame_progress = 0.020007
+>>>>>>> Stashed changes
 
 [node name="Area2D" type="Area2D" parent="." groups=["Water"]]
 

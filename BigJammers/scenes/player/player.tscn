@@ -1,24 +1,62 @@
-[gd_scene load_steps=7 format=3 uid="uid://8qb4pv2ttx4v"]
+[gd_scene load_steps=9 format=3 uid="uid://8qb4pv2ttx4v"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_j518t"]
-[ext_resource type="Texture2D" uid="uid://dxvoxorpid8br" path="res://icon.svg" id="2_g42j2"]
-[ext_resource type="Script" path="res://scripts/player/heartbeat.gd" id="3_yjc7d"]
-[ext_resource type="AudioStream" uid="uid://f2dd6j8vujj2" path="res://audio/heart_beat.wav" id="4_4y7hd"]
-[ext_resource type="Script" path="res://scripts/camera/shake_camera_2D.gd" id="5_sj204"]
+[ext_resource type="Texture2D" uid="uid://b3yvoka08exy3" path="res://assets/assets/Hearts.png" id="2_w052g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ff3qj"]
+atlas = ExtResource("2_w052g")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st7wj"]
+atlas = ExtResource("2_w052g")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5m80"]
+atlas = ExtResource("2_w052g")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0alcb"]
+atlas = ExtResource("2_w052g")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_puvc3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ff3qj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_st7wj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5m80")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0alcb")
+}],
+"loop": true,
+"name": &"Feels",
+"speed": 1.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdsbr"]
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 5
 script = ExtResource("1_j518t")
+MOVEMENTSPEED = 100
+DAMPING = 45
+GRAVITY = 5
+JUMPVELOCITY = 150.0
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3.985, 3.985)
-script = ExtResource("5_sj204")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.142578, 0.142578)
-texture = ExtResource("2_g42j2")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 0.5)
+scale = Vector2(1, 0.96875)
+sprite_frames = SubResource("SpriteFrames_puvc3")
+animation = &"Feels"
+autoplay = "Feels"
+frame = 2
+frame_progress = 0.961687
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rdsbr")
