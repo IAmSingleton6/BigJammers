@@ -8,4 +8,4 @@ func _ready():
 
 func _on_body_entered(other):
 	if other.is_in_group(GroupManager.PLAYERGROUP):
-		other.
+		print("rotation plate stepped on")

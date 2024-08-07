@@ -70,4 +70,4 @@ visible = false
 position = Vector2(210, 20)
 
 [node name="Lava" parent="." instance=ExtResource("11_cp0h5")]
-position = Vector2(296, -9)
+position = Vector2(226, 18)

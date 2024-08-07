@@ -1681,5 +1681,5 @@ GRAVITY = 5
 FALL_GRAVITY_MULTIPLIER = 3
 JUMPVELOCITY = 150.0
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D2" type="Camera2D" parent="Player"]
 zoom = Vector2(3, 3)

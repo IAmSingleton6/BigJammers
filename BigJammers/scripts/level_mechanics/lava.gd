@@ -16,11 +16,14 @@ func _ready():
 
 
 func _on_area_entered(other):
-	print("entered")
 	if other.is_in_group(GroupManager.WATERGROUP):
-		_solidify()
+		if other.get_parent() is Block:
+			other.get_parent().destroy_block(GroupManager.FIREGROUP)
+			call_deferred("_solidify")
 	if other.is_in_group(GroupManager.ICEGROUP):
-		_solidify()
+		if other.get_parent() is Block:
+			other.get_parent().destroy_block(GroupManager.FIREGROUP)
+			call_deferred("_solidify")
 
 
 # Change sprite + make solid with sprite + smoke particles
@@ -28,7 +31,9 @@ func _solidify():
 	collision_shape_2d.reparent(static_body_2d)
 	var steam = steam_particle_scene.instantiate()
 	get_tree().root.add_child(steam)
+	
 	steam.global_position = global_position
 	sprite_2d.visible = false
 	solid_block_sprite.visible = true
+	
 	animation_player.play("solidify")

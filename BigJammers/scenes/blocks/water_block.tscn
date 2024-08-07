@@ -1,75 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://c76ksqqw3n176"]
+[gd_scene load_steps=6 format=3 uid="uid://c76ksqqw3n176"]
 
 [ext_resource type="Script" path="res://scripts/blocks/water_block.gd" id="1_4ax4h"]
+[ext_resource type="Texture2D" uid="uid://dxvoxorpid8br" path="res://icon.svg" id="2_5jw41"]
 [ext_resource type="PackedScene" uid="uid://c0ktkj7b3ullk" path="res://scenes/particles/steam.tscn" id="2_lvdu6"]
-[ext_resource type="Texture2D" uid="uid://cvrp6ar62v6ia" path="res://assets/assets/Water.png" id="3_psthm"]
-[ext_resource type="Texture2D" uid="uid://qk0uobtsycff" path="res://assets/assets/border.png" id="4_jhrql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i23e2"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n6v20"]
-atlas = ExtResource("3_psthm")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ppycn"]
-atlas = ExtResource("3_psthm")
-region = Rect2(32, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3g3wk"]
-atlas = ExtResource("3_psthm")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wje1y"]
-atlas = ExtResource("3_psthm")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v6igm"]
-atlas = ExtResource("3_psthm")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hkkq0"]
-atlas = ExtResource("3_psthm")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yyatw"]
-atlas = ExtResource("3_psthm")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1e2ib"]
-atlas = ExtResource("3_psthm")
-region = Rect2(64, 32, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_nackj"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n6v20")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ppycn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3g3wk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wje1y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v6igm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hkkq0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yyatw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1e2ib")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvrfv"]
 
@@ -78,21 +13,12 @@ shape = SubResource("RectangleShape2D_i23e2")
 script = ExtResource("1_4ax4h")
 steam_particle_scene = ExtResource("2_lvdu6")
 
-[node name="Drop" type="AnimatedSprite2D" parent="."]
-position = Vector2(2.98023e-07, 2.98023e-07)
-scale = Vector2(0.5625, 0.5625)
-sprite_frames = SubResource("SpriteFrames_nackj")
-autoplay = "default"
-frame_progress = 0.665762
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 1, 1)
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("2_5jw41")
 
 [node name="Area2D" type="Area2D" parent="." groups=["Water"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_cvrfv")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1.49012e-07, -1.49012e-07)
-scale = Vector2(0.714286, 0.714286)
-texture = ExtResource("4_jhrql")
-region_enabled = true
-region_rect = Rect2(2, 2, 28, 28)
