@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://75no6pmiwmm3"]
+[gd_scene load_steps=6 format=3 uid="uid://cuhtif5ajptts"]
 
 [ext_resource type="Script" path="res://scripts/blocks/ice_block.gd" id="1_gnc0r"]
 [ext_resource type="PackedScene" uid="uid://c0ktkj7b3ullk" path="res://scenes/particles/steam.tscn" id="2_dy1ow"]

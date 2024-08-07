@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://3eg5vctj206g" path="res://scenes/level_mechanics/pressure_plate.tscn" id="4_hmsqc"]
 [ext_resource type="PackedScene" uid="uid://msculdcaewa3" path="res://scenes/blocks/fire_block.tscn" id="5_ey2ad"]
 [ext_resource type="PackedScene" uid="uid://bxoy0mykgi768" path="res://scenes/level_mechanics/wind.tscn" id="6_7a7t6"]
-[ext_resource type="PackedScene" uid="uid://75no6pmiwmm3" path="res://scenes/blocks/ice_block.tscn" id="6_760pd"]
+[ext_resource type="PackedScene" uid="uid://cuhtif5ajptts" path="res://scenes/blocks/ice_block.tscn" id="6_760pd"]
 [ext_resource type="PackedScene" uid="uid://b1upejn1y0uk3" path="res://scenes/level_mechanics/fire.tscn" id="9_nofno"]
-[ext_resource type="PackedScene" uid="uid://bu6byhr4s7tn2" path="res://scenes/level_mechanics/lava.tscn" id="11_cp0h5"]
+[ext_resource type="PackedScene" path="res://scenes/level_mechanics/lava.tscn" id="11_cp0h5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v1rp8"]
 

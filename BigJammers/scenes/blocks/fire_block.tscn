@@ -1,10 +1,61 @@
-[gd_scene load_steps=6 format=3 uid="uid://msculdcaewa3"]
+[gd_scene load_steps=14 format=3 uid="uid://msculdcaewa3"]
 
 [ext_resource type="Script" path="res://scripts/blocks/fire_block.gd" id="1_3b683"]
 [ext_resource type="PackedScene" uid="uid://dksj4h11n7g0p" path="res://scenes/particles/steam_2.tscn" id="2_7mqia"]
-[ext_resource type="Texture2D" uid="uid://dxvoxorpid8br" path="res://icon.svg" id="2_mbptl"]
+[ext_resource type="Texture2D" uid="uid://du6brugeeelhr" path="res://assets/fire_2.png" id="3_vlhfb"]
+[ext_resource type="Texture2D" uid="uid://qk0uobtsycff" path="res://assets/assets/border.png" id="4_6m1wh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i23e2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqvs1"]
+atlas = ExtResource("3_vlhfb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pny10"]
+atlas = ExtResource("3_vlhfb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74k6v"]
+atlas = ExtResource("3_vlhfb")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8grf8"]
+atlas = ExtResource("3_vlhfb")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwadl"]
+atlas = ExtResource("3_vlhfb")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llrib"]
+atlas = ExtResource("3_vlhfb")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2rnrm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqvs1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pny10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74k6v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8grf8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwadl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_llrib")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvrfv"]
 
@@ -13,12 +64,21 @@ shape = SubResource("RectangleShape2D_i23e2")
 script = ExtResource("1_3b683")
 steam_particle_scene = ExtResource("2_7mqia")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(1, 0, 0, 1)
-scale = Vector2(0.155, 0.155)
-texture = ExtResource("2_mbptl")
+[node name="Flames" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3.8743e-07, 3.57628e-07)
+scale = Vector2(0.5625, 0.5625)
+sprite_frames = SubResource("SpriteFrames_2rnrm")
+autoplay = "default"
+frame_progress = 0.409852
 
 [node name="Area2D" type="Area2D" parent="." groups=["Fire"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_cvrfv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-5.66244e-07, -5.66244e-07)
+scale = Vector2(0.714286, 0.714286)
+texture = ExtResource("4_6m1wh")
+region_enabled = true
+region_rect = Rect2(2, 2, 28, 28)

@@ -1,10 +1,46 @@
-[gd_scene load_steps=7 format=3 uid="uid://8qb4pv2ttx4v"]
+[gd_scene load_steps=12 format=3 uid="uid://8qb4pv2ttx4v"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_j518t"]
-[ext_resource type="Texture2D" uid="uid://dxvoxorpid8br" path="res://icon.svg" id="2_g42j2"]
+[ext_resource type="Texture2D" uid="uid://b3yvoka08exy3" path="res://assets/assets/Hearts.png" id="3_1qskk"]
 [ext_resource type="Script" path="res://scripts/player/heartbeat.gd" id="3_yjc7d"]
 [ext_resource type="AudioStream" uid="uid://f2dd6j8vujj2" path="res://audio/heart_beat.wav" id="4_4y7hd"]
 [ext_resource type="Script" path="res://scripts/camera/shake_camera_2D.gd" id="5_sj204"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgthx"]
+atlas = ExtResource("3_1qskk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_is5sx"]
+atlas = ExtResource("3_1qskk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yoov2"]
+atlas = ExtResource("3_1qskk")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7k54"]
+atlas = ExtResource("3_1qskk")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cjmpe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgthx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_is5sx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yoov2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7k54")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdsbr"]
 
@@ -16,9 +52,12 @@ script = ExtResource("1_j518t")
 zoom = Vector2(3.985, 3.985)
 script = ExtResource("5_sj204")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.142578, 0.142578)
-texture = ExtResource("2_g42j2")
+[node name="Feels" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4.76837e-07, -4.76837e-07)
+scale = Vector2(0.625, 0.625)
+sprite_frames = SubResource("SpriteFrames_cjmpe")
+autoplay = "default"
+frame_progress = 0.140059
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rdsbr")
