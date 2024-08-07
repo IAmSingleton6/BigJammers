@@ -5,7 +5,7 @@ signal health_depleted
 
 @onready var jump_buffer_timer : Timer = $JumpBufferTimer
 @onready var coyote_timer : Timer = $CoyoteTimer
-@onready var heartbeat : HeartBeat = $Heartbeat
+#@onready var heartbeat : HeartBeat = $Heartbeat
 
 @export var MOVEMENTSPEED = 5
 @export var DAMPING = 5
