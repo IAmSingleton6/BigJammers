@@ -1,15 +1,12 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=6 format=3 uid="uid://msculdcaewa3"]
+#[gd_scene load_steps=6 format=3 uid="uid://msculdcaewa3"]
 
 [ext_resource type="Script" path="res://scripts/blocks/fire_block.gd" id="1_3b683"]
 [ext_resource type="PackedScene" uid="uid://dksj4h11n7g0p" path="res://scenes/particles/steam_2.tscn" id="2_7mqia"]
 [ext_resource type="Texture2D" uid="uid://dxvoxorpid8br" path="res://icon.svg" id="2_mbptl"]
-=======
 [gd_scene load_steps=12 format=3 uid="uid://msculdcaewa3"]
 
 [ext_resource type="Script" path="res://scripts/blocks/water_block.gd" id="1_jyecp"]
 [ext_resource type="Texture2D" uid="uid://8oi2gu5gxsgy" path="res://assets/assets/Fire.png" id="2_ekgke"]
->>>>>>> Stashed changes
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i23e2"]
 
@@ -70,17 +67,14 @@ shape = SubResource("RectangleShape2D_i23e2")
 script = ExtResource("1_3b683")
 steam_particle_scene = ExtResource("2_7mqia")
 
-<<<<<<< Updated upstream
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(1, 0, 0, 1)
 scale = Vector2(0.155, 0.155)
 texture = ExtResource("2_mbptl")
-=======
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tv1q7")
 autoplay = "default"
 frame_progress = 0.750243
->>>>>>> Stashed changes
 
 [node name="Area2D" type="Area2D" parent="." groups=["Fire"]]
 
