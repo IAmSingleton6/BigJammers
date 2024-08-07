@@ -1,4 +1,5 @@
 extends Area2D
+class_name PressurePlate
 
 signal pressure_plate_activated
 signal pressure_plate_deactivated

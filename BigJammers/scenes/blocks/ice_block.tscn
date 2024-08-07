@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://75no6pmiwmm3"]
+
+[ext_resource type="Script" path="res://scripts/blocks/ice_block.gd" id="1_gnc0r"]
+[ext_resource type="PackedScene" uid="uid://c0ktkj7b3ullk" path="res://scenes/particles/steam.tscn" id="2_dy1ow"]
+[ext_resource type="Texture2D" uid="uid://dxvoxorpid8br" path="res://icon.svg" id="2_pqbs6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i23e2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvrfv"]
+
+[node name="IceBlock" type="CollisionShape2D" groups=["Block"]]
+shape = SubResource("RectangleShape2D_i23e2")
+script = ExtResource("1_gnc0r")
+steam_particle_scene = ExtResource("2_dy1ow")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("2_pqbs6")
+
+[node name="Area2D" type="Area2D" parent="." groups=["Water"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_cvrfv")

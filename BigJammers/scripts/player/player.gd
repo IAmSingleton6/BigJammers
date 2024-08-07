@@ -6,11 +6,12 @@ signal health_depleted
 @onready var jump_buffer_timer : Timer = $JumpBufferTimer
 @onready var coyote_timer : Timer = $CoyoteTimer
 @onready var heartbeat : HeartBeat = $Heartbeat
+@onready var camera_2d: ShakeCamera2D = $Camera2D
 
 @export var MOVEMENTSPEED = 5
 @export var DAMPING = 5
 @export var GRAVITY = 2
-@export var FALL_GRAVITY_MULTIPLIER = 2
+@export var FALL_GRAVITY_MULTIPLIER: float = 2
 @export var JUMPBUFFERTIME : float = 0.3
 @export var JUMPVELOCITY : float = 50
 @export var COYOTETIME : float = 0.3
@@ -21,6 +22,9 @@ var was_on_floor : bool = false
 var gravity: Vector3 = Vector3.DOWN
 var moving := true
 
+# Powerup controls
+var can_jump := true
+
 
 func _ready():
 	# Get block count TEST DELETE
@@ -28,7 +32,7 @@ func _ready():
 	print(t)
 	pass 
 
-func _process(delta):
+func _process(_delta):
 	#_flip_sprite()
 	pass
 
@@ -38,7 +42,7 @@ func on_level_ready():
 	moving = false
 
 # Give specific time
-func on_level_start(time: float):
+func on_level_start(_time: float):
 	moving = true
 
 #func _flip_sprite() -> void:
@@ -61,7 +65,7 @@ func _physics_process(delta):
 	velocity = motion
 	move_and_slide()
 
-func _movement(delta: float):
+func _movement(_delta: float):
 	var movement : Vector2 = InputManager.get_movement()
 	motion.x += movement.x * MOVEMENTSPEED
 
@@ -125,10 +129,12 @@ func _check_jump():
 	was_on_floor = on_floor
 
 func _jump():
+	if not can_jump:
+		return
 	jumping = true
 	motion.y = -abs(JUMPVELOCITY)
 
-func _gravity(delta: float):
+func _gravity(_delta: float):
 	var gravity_multiplier : float = 1.0 if jumping else FALL_GRAVITY_MULTIPLIER
 	motion.y += GRAVITY * gravity_multiplier
 

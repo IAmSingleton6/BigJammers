@@ -19,13 +19,7 @@ script = ExtResource("1_vlnka")
 MOVEMENTSPEED = 100
 DAMPING = 45
 GRAVITY = 5
-FALL_GRAVITY_MULTIPLIER = 3
 JUMPVELOCITY = 150.0
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(3.985, 3.985)
-
-[node name="Blocks" type="Node2D" parent="Player"]
 
 [node name="TimerBlock" parent="Player" instance=ExtResource("2_2jm1o")]
 position = Vector2(9.715, 20.64)

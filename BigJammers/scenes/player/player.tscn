@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://8qb4pv2ttx4v"]
+[gd_scene load_steps=7 format=3 uid="uid://8qb4pv2ttx4v"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_j518t"]
 [ext_resource type="Texture2D" uid="uid://dxvoxorpid8br" path="res://icon.svg" id="2_g42j2"]
 [ext_resource type="Script" path="res://scripts/player/heartbeat.gd" id="3_yjc7d"]
 [ext_resource type="AudioStream" uid="uid://f2dd6j8vujj2" path="res://audio/heart_beat.wav" id="4_4y7hd"]
+[ext_resource type="Script" path="res://scripts/camera/shake_camera_2D.gd" id="5_sj204"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdsbr"]
 
@@ -34,3 +35,7 @@ stream = ExtResource("4_4y7hd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_rdsbr")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3.985, 3.985)
+script = ExtResource("5_sj204")

@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://bu6byhr4s7tn2"]
+
+[ext_resource type="Script" path="res://scripts/level_mechanics/lava.gd" id="1_656tb"]
+[ext_resource type="Texture2D" uid="uid://ulnbymdr1xoa" path="res://images/glow_circle.png" id="1_886jn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvnk4"]
+
+[sub_resource type="Animation" id="Animation_s5gkd"]
+resource_name = "solidify"
+
+[sub_resource type="Animation" id="Animation_48grc"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ka5b"]
+_data = {
+"RESET": SubResource("Animation_48grc"),
+"solidify": SubResource("Animation_s5gkd")
+}
+
+[node name="Lava" type="Area2D"]
+script = ExtResource("1_656tb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0, 0, 1)
+texture = ExtResource("1_886jn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yvnk4")
+disabled = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2ka5b")
+}

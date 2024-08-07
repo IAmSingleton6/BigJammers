@@ -1,4 +1,5 @@
 extends CollisionShape2D
+class_name TimerBlock
 
 @onready var timeout_timer: Timer = $TimeoutTimer
 @onready var label: Label = $TimerText/Label
@@ -17,7 +18,7 @@ func start_timer():
 	timeout_timer.start(timeout)
 
 
-func _process(delta):
+func _process(_delta):
 	label.text = str(timeout_timer.time_left + 1).pad_decimals(0)
 
 

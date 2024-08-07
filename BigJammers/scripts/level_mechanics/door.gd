@@ -1,4 +1,5 @@
 extends Node
+class_name Door
 
 @onready var animation_player = $AnimationPlayer
 

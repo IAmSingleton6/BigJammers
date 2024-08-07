@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx8tslqgu5wdu"]
+
+[ext_resource type="Script" path="res://scripts/level_mechanics/water.gd" id="1_alr0o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2jxg"]
+
+[node name="Water" type="Area2D"]
+script = ExtResource("1_alr0o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_g2jxg")
