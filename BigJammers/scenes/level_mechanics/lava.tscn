@@ -5,11 +5,11 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yvnk4"]
 
-[sub_resource type="Animation" id="Animation_s5gkd"]
-resource_name = "solidify"
-
 [sub_resource type="Animation" id="Animation_48grc"]
 length = 0.001
+
+[sub_resource type="Animation" id="Animation_s5gkd"]
+resource_name = "solidify"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2ka5b"]
 _data = {
