@@ -7,12 +7,14 @@ signal damage_taken
 @onready var audio_stream_player_heartbeat = $AudioStreamPlayer_heartbeat
 @onready var heartbeat_timer = $HeartbeatTimer
 
+@export var anim_sprite : AnimatedSprite2D
 @export var min_time_between_heartbeats := 0.5
 @export var max_time_between_heartbeats := 2.3
-@export var max_health := 60
+@export var max_health := 20
 
 var health: float
 var reduce_health_with_time := false
+var shade: float
 
 func _ready():
 	health = max_health
@@ -29,8 +31,12 @@ func _process(delta):
 	if reduce_health_with_time:
 		health -= delta
 		health = max(health, 0)
+		shade = health/max_health
+		if health>0:
+			anim_sprite.material.set_shader_parameter("cutoff", shade )
 	
 	if health <= 0:
+		anim_sprite.material.set_shader_parameter("cutoff", 0 )
 		health_depleted.emit()
 		set_process(false)
 

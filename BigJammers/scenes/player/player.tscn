@@ -1,45 +1,51 @@
-[gd_scene load_steps=12 format=3 uid="uid://8qb4pv2ttx4v"]
+[gd_scene load_steps=14 format=3 uid="uid://8qb4pv2ttx4v"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_j518t"]
-[ext_resource type="Texture2D" uid="uid://b3yvoka08exy3" path="res://assets/assets/Hearts.png" id="3_1qskk"]
+[ext_resource type="Shader" path="res://shaders/heart.gdshader" id="3_xawhs"]
 [ext_resource type="Script" path="res://scripts/player/heartbeat.gd" id="3_yjc7d"]
 [ext_resource type="AudioStream" uid="uid://f2dd6j8vujj2" path="res://audio/heart_beat.wav" id="4_4y7hd"]
+[ext_resource type="Texture2D" uid="uid://bq0ahxcd0fmxe" path="res://assets/Hearts_2.png" id="4_fwo1s"]
 [ext_resource type="Script" path="res://scripts/camera/shake_camera_2D.gd" id="5_sj204"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jgthx"]
-atlas = ExtResource("3_1qskk")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q5geo"]
+shader = ExtResource("3_xawhs")
+shader_parameter/color = Color(0.0542521, 0.0110136, 0.00220488, 1)
+shader_parameter/cutoff = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdkya"]
+atlas = ExtResource("4_fwo1s")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_is5sx"]
-atlas = ExtResource("3_1qskk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnc82"]
+atlas = ExtResource("4_fwo1s")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yoov2"]
-atlas = ExtResource("3_1qskk")
-region = Rect2(0, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_njjeh"]
+atlas = ExtResource("4_fwo1s")
+region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i7k54"]
-atlas = ExtResource("3_1qskk")
-region = Rect2(32, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_xga6t"]
+atlas = ExtResource("4_fwo1s")
+region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_cjmpe"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_6t11w"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jgthx")
+"texture": SubResource("AtlasTexture_cdkya")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_is5sx")
+"texture": SubResource("AtlasTexture_cnc82")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yoov2")
+"texture": SubResource("AtlasTexture_njjeh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i7k54")
+"texture": SubResource("AtlasTexture_xga6t")
 }],
 "loop": true,
 "name": &"default",
-"speed": 2.0
+"speed": 1.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdsbr"]
@@ -53,11 +59,12 @@ zoom = Vector2(3.985, 3.985)
 script = ExtResource("5_sj204")
 
 [node name="Feels" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_q5geo")
 position = Vector2(-4.76837e-07, -4.76837e-07)
 scale = Vector2(0.625, 0.625)
-sprite_frames = SubResource("SpriteFrames_cjmpe")
+sprite_frames = SubResource("SpriteFrames_6t11w")
 autoplay = "default"
-frame_progress = 0.140059
+frame_progress = 0.250142
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rdsbr")
@@ -66,9 +73,9 @@ shape = SubResource("RectangleShape2D_rdsbr")
 
 [node name="JumpBufferTimer" type="Timer" parent="."]
 
-[node name="Heartbeat" type="Node2D" parent="."]
+[node name="Heartbeat" type="Node2D" parent="." node_paths=PackedStringArray("anim_sprite")]
 script = ExtResource("3_yjc7d")
-max_health = 20
+anim_sprite = NodePath("../Feels")
 
 [node name="AudioStreamPlayer_heartbeat" type="AudioStreamPlayer2D" parent="Heartbeat"]
 stream = ExtResource("4_4y7hd")
