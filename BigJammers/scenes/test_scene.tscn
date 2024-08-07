@@ -18,14 +18,11 @@
 script = ExtResource("1_vlnka")
 
 [node name="Player" parent="." instance=ExtResource("1_8vqvh")]
-<<<<<<< Updated upstream
 MOVEMENTSPEED = 100
 DAMPING = 45
 GRAVITY = 5
 JUMPBUFFERTIME = 1.0
 JUMPVELOCITY = 150.0
-=======
->>>>>>> Stashed changes
 
 [node name="TimerBlock" parent="Player" instance=ExtResource("2_2jm1o")]
 position = Vector2(9.715, 20.64)
