@@ -1,6 +1,8 @@
 extends Node
 class_name Level
 
+# has to be load, not preload, or else the world scene corrupts
+@onready var world_scene = load("res://scenes/map/world1.tscn")
 @export var level_start_time := 2
 
 var player
@@ -17,7 +19,8 @@ func _ready() -> void:
 
 
 func _process(_delta) -> void:
-	_check_win()
+	# TODO: ADD BACK 
+	# _check_win()
 	if Input.is_action_just_pressed(InputManager.restart_level):
 		SceneTransitions.restart_scene()
 
@@ -33,7 +36,10 @@ func _check_win() -> void:
 	print("win")
 	Events.level_win.emit()
 	won = true
+	
+	LevelManager.set_current_level_completed()
+	SceneTransitions.change_scene_path(world_scene)
 
 
 func _on_level_lose() -> void:
-	pass
+	SceneTransitions.restart_scene()

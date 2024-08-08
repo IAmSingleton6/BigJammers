@@ -75,7 +75,7 @@ func _drag(delta: float) -> void:
 
 func _get_damping() -> float:
 	return DAMPING
-	return PhysicsServer2D.body_get_direct_state(get_rid()).total_linear_damp
+	# return PhysicsServer2D.body_get_direct_state(get_rid()).total_linear_damp
 	
 func _coyote_time(jump_pressed: bool, on_floor: bool) -> bool:
 	if not on_floor and was_on_floor:
@@ -140,3 +140,7 @@ func _gravity(_delta: float):
 
 func _on_health_depleted():
 	health_depleted.emit()
+
+
+func kill():
+	heartbeat.kill()

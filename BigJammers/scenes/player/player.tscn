@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://8qb4pv2ttx4v"]
+[gd_scene load_steps=15 format=3 uid="uid://8qb4pv2ttx4v"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_j518t"]
 [ext_resource type="Shader" path="res://shaders/heart.gdshader" id="3_7767l"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://f2dd6j8vujj2" path="res://audio/heart_beat.wav" id="4_4y7hd"]
 [ext_resource type="Texture2D" uid="uid://bq0ahxcd0fmxe" path="res://assets/Hearts_2.png" id="4_uyqsl"]
 [ext_resource type="Script" path="res://scripts/camera/shake_camera_2D.gd" id="5_sj204"]
+[ext_resource type="PackedScene" uid="uid://b1uaf8b2rlqsq" path="res://scenes/particles/dust.tscn" id="7_pcr3b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8berp"]
 shader = ExtResource("3_7767l")
@@ -75,6 +76,7 @@ shape = SubResource("RectangleShape2D_rdsbr")
 [node name="Heartbeat" type="Node2D" parent="." node_paths=PackedStringArray("anim_sprite")]
 script = ExtResource("3_yjc7d")
 anim_sprite = NodePath("../Feels")
+max_health = 60
 
 [node name="AudioStreamPlayer_heartbeat" type="AudioStreamPlayer2D" parent="Heartbeat"]
 stream = ExtResource("4_4y7hd")
@@ -85,3 +87,7 @@ stream = ExtResource("4_4y7hd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_rdsbr")
+
+[node name="Dust" parent="." instance=ExtResource("7_pcr3b")]
+
+[connection signal="area_entered" from="Area2D" to="Heartbeat" method="_on_heart_area_entered"]

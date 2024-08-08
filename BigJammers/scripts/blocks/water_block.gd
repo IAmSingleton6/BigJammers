@@ -9,11 +9,13 @@ func _ready():
 	area_2d.area_entered.connect(_on_area_entered)
 
 
-func _on_area_entered(other):
+func _on_area_entered(_other):
 	pass
 
 
 func destroy_block(group_name: String) -> void:
+	super(group_name)
+	
 	if group_name == GroupManager.FIREGROUP:
 		print("evaporate water via fire")
 		var steam = steam_particle_scene.instantiate()

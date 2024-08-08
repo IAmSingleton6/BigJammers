@@ -10,11 +10,13 @@ func _ready() -> void:
 	area_2d.area_entered.connect(_on_area_entered)
 
 
-func _on_area_entered(other) -> void:
+func _on_area_entered(_other) -> void:
 	pass
 
 
 func destroy_block(group_name: String) -> void:
+	super(group_name)
+		
 	if group_name == GroupManager.FIREGROUP:
 		call_deferred("melt")
 

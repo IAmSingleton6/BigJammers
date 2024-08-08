@@ -56,8 +56,6 @@ func save_all_data() -> void:
 
 
 func save_data(unique_name: String, new_data: Dictionary) -> void:
-	if DEBUG_DISABLE:
-		return
 	data[unique_name] = new_data
 
 

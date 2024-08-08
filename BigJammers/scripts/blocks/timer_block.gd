@@ -22,7 +22,7 @@ func _process(_delta):
 	label.text = str(timeout_timer.time_left + 1).pad_decimals(0)
 
 
-func _on_area_entered(other):
+func _on_area_entered(_other):
 	pass
 
 

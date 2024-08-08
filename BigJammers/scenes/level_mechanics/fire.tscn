@@ -1,15 +1,43 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1upejn1y0uk3"]
+[gd_scene load_steps=7 format=3 uid="uid://bk2cqcbyapave"]
 
-[ext_resource type="Texture2D" uid="uid://ulnbymdr1xoa" path="res://images/glow_circle.png" id="1_jixi3"]
+[ext_resource type="Script" path="res://scripts/level_mechanics/fire.gd" id="1_qj4fv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l28br"]
+[sub_resource type="Gradient" id="Gradient_h2pl3"]
+offsets = PackedFloat32Array(0.0241546, 0.299517, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.346535, 0.228305, 1, 1, 1, 0.658824, 1)
 
-[node name="Fire" type="Area2D" groups=["Fire"]]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qx0lj"]
+gradient = SubResource("Gradient_h2pl3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_l28br")
+[sub_resource type="Curve" id="Curve_t5dpo"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.276596, 1), 0.0, 0.0, 0, 0, Vector2(0.817021, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0, 0, 1)
-scale = Vector2(0.038, 0.038)
-texture = ExtResource("1_jixi3")
+[sub_resource type="CurveTexture" id="CurveTexture_l6u6a"]
+curve = SubResource("Curve_t5dpo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7sfbd"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 20.0
+direction = Vector3(0, -1, 0)
+gravity = Vector3(0, -98, 0)
+radial_accel_min = -24.43
+radial_accel_max = -18.32
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_l6u6a")
+color_ramp = SubResource("GradientTexture1D_qx0lj")
+turbulence_enabled = true
+turbulence_noise_strength = 0.05
+turbulence_noise_scale = 1.645
+
+[node name="Fire" type="RayCast2D"]
+target_position = Vector2(0, -50)
+collide_with_areas = true
+collide_with_bodies = false
+script = ExtResource("1_qj4fv")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_7sfbd")
+lifetime = 2.0

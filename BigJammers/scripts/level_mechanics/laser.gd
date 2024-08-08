@@ -1,20 +1,19 @@
-extends RayCast2D
+extends RaycastElement
 class_name Laser
 
+@onready var tween: Tween
 @onready var line_2d: Line2D = $Line2D 
-@onready var tween: Tween = create_tween()
 @onready var casting_particles = $CastingParticles
 @onready var collision_particles = $CollisionParticles
 @onready var beam_particles = $BeamParticles
 
-var is_casting:= false : set = _set_is_casting
-
 
 func _ready():
 	line_2d.points[1] = Vector2.ZERO
-	is_casting = true
+	super()
 
-func _physics_process(delta):
+
+func _physics_process(_delta):
 	var cast_point := target_position
 	force_raycast_update()
 	
@@ -25,11 +24,13 @@ func _physics_process(delta):
 		collision_particles.position = cast_point
 		
 		var collider := get_collider()
-		if collider is Node:
-			if collider.is_in_group(GroupManager.WATERGROUP):
-				# manipulate the block in some way some way
-				#bcall a specific function in parent if has for example
-				print("laser hit water group block: ", collider.name)
+		if on_hit_timer.is_stopped():
+			if collider.get_parent() is Block:
+				(collider.get_parent() as Block).destroy_block(GroupManager.LASERGROUP)
+				on_hit_timer.start(time_between_successive_hits)
+			if collider.get_parent() is Player:
+				(collider.get_parent() as Player).kill()
+				on_hit_timer.start(time_between_successive_hits)
 	
 	line_2d.points[1] = cast_point
 	beam_particles.position = cast_point * 0.5
@@ -37,26 +38,20 @@ func _physics_process(delta):
 
 
 func _set_is_casting(cast: bool) -> void:
-	is_casting = cast
-	
+	super(cast)
 	beam_particles.emitting = is_casting
 	casting_particles.emitting = is_casting
-	if is_casting:
-		appear()
-	else:
+	if not is_casting:
 		collision_particles.emitting = false
-		disappear()
-	
-	set_physics_process(is_casting)
 
 
 func appear() -> void:
-	tween.stop()
-	tween.tween_property(line_2d, "width", 10.0, 0.2)
+	tween = get_tree().create_tween()
+	tween.tween_property(line_2d, "width", 5.0, 0.2)
 	tween.play()
 
 
 func disappear() -> void:
-	tween.stop()
-	tween.tween_property(line_2d, "width", 0, 0.2)
+	tween = get_tree().create_tween()
+	tween.tween_property(line_2d, "width", 0.0, 0.2)
 	tween.play()

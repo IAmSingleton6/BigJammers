@@ -1,9 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://x8wex3fqevro"]
+[gd_scene load_steps=6 format=3 uid="uid://x8wex3fqevro"]
 
 [ext_resource type="Script" path="res://scripts/level/level.gd" id="1_a2qhi"]
 [ext_resource type="PackedScene" uid="uid://8qb4pv2ttx4v" path="res://scenes/player/player.tscn" id="2_oeqtc"]
-[ext_resource type="PackedScene" uid="uid://c76ksqqw3n176" path="res://scenes/blocks/water_block.tscn" id="4_v48d8"]
-[ext_resource type="PackedScene" uid="uid://75no6pmiwmm3" path="res://scenes/blocks/ice_block.tscn" id="6_d8ug8"]
 [ext_resource type="Texture2D" uid="uid://dxvoxorpid8br" path="res://icon.svg" id="7_slcyk"]
 [ext_resource type="PackedScene" uid="uid://bu6byhr4s7tn2" path="res://scenes/level_mechanics/lava.tscn" id="11_f8vki"]
 
@@ -13,17 +11,12 @@
 script = ExtResource("1_a2qhi")
 
 [node name="Player" parent="." instance=ExtResource("2_oeqtc")]
+collision_layer = 1
 MOVEMENTSPEED = 100
 DAMPING = 45
 GRAVITY = 5
 JUMPBUFFERTIME = 1.0
 JUMPVELOCITY = 150.0
-
-[node name="WaterBlock" parent="Player" instance=ExtResource("4_v48d8")]
-position = Vector2(-25, -1)
-
-[node name="IceBlock" parent="Player" instance=ExtResource("6_d8ug8")]
-position = Vector2(23, -2)
 
 [node name="floor" type="StaticBody2D" parent="."]
 position = Vector2(0, 40.135)
@@ -33,6 +26,18 @@ scale = Vector2(30, 0.6)
 shape = SubResource("RectangleShape2D_v1rp8")
 
 [node name="Sprite2D" type="Sprite2D" parent="floor"]
+scale = Vector2(0.145, 0.145)
+texture = ExtResource("7_slcyk")
+
+[node name="floor3" type="StaticBody2D" parent="."]
+position = Vector2(118, 19)
+rotation = 1.5708
+scale = Vector2(30, 0.6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor3"]
+shape = SubResource("RectangleShape2D_v1rp8")
+
+[node name="Sprite2D" type="Sprite2D" parent="floor3"]
 scale = Vector2(0.145, 0.145)
 texture = ExtResource("7_slcyk")
 

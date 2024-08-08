@@ -40,12 +40,18 @@ func _process(delta):
 	if health <= 0:
 		anim_sprite.material.set_shader_parameter("cutoff", 0 )
 		health_depleted.emit()
+		Events.level_lose.emit()
 		set_process(false)
 
 
 func take_damage(amount: float) -> void:
 	health -= amount
 	damage_taken.emit()
+
+
+func kill():
+	print("Heart killed")
+	take_damage(health)
 
 
 func _get_heartbeat_interval() -> float:
@@ -55,3 +61,12 @@ func _get_heartbeat_interval() -> float:
 func _on_heartbeat_timeout() -> void:
 	audio_stream_player_heartbeat.play()
 	heartbeat_timer.start(_get_heartbeat_interval())
+
+
+func _on_heart_area_entered(other) -> void:
+	if other.is_in_group(GroupManager.FIREGROUP):
+		kill()
+	if other.is_in_group(GroupManager.WATERGROUP):
+		kill()
+	if other.is_in_group(GroupManager.LASERGROUP):
+		kill()

@@ -2,15 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://8qb4pv2ttx4v" path="res://scenes/player/player.tscn" id="1_8vqvh"]
 [ext_resource type="Script" path="res://scripts/level/level.gd" id="1_vlnka"]
-[ext_resource type="PackedScene" uid="uid://27dv2va7nifm" path="res://scenes/blocks/timer_block.tscn" id="2_2jm1o"]
 [ext_resource type="Texture2D" uid="uid://dxvoxorpid8br" path="res://icon.svg" id="2_y78ey"]
 [ext_resource type="PackedScene" uid="uid://c76ksqqw3n176" path="res://scenes/blocks/water_block.tscn" id="4_aoorf"]
 [ext_resource type="PackedScene" uid="uid://3eg5vctj206g" path="res://scenes/level_mechanics/pressure_plate.tscn" id="4_hmsqc"]
-[ext_resource type="PackedScene" uid="uid://msculdcaewa3" path="res://scenes/blocks/fire_block.tscn" id="5_ey2ad"]
 [ext_resource type="PackedScene" uid="uid://bxoy0mykgi768" path="res://scenes/level_mechanics/wind.tscn" id="6_7a7t6"]
-[ext_resource type="PackedScene" uid="uid://75no6pmiwmm3" path="res://scenes/blocks/ice_block.tscn" id="6_760pd"]
-[ext_resource type="PackedScene" uid="uid://b1upejn1y0uk3" path="res://scenes/level_mechanics/fire.tscn" id="9_nofno"]
+[ext_resource type="PackedScene" uid="uid://bk2cqcbyapave" path="res://scenes/level_mechanics/fire.tscn" id="9_nofno"]
+[ext_resource type="PackedScene" uid="uid://c6urmskx7xp83" path="res://scenes/level_mechanics/laser.tscn" id="10_c01wq"]
 [ext_resource type="PackedScene" uid="uid://bu6byhr4s7tn2" path="res://scenes/level_mechanics/lava.tscn" id="11_cp0h5"]
+[ext_resource type="PackedScene" uid="uid://dnj8agfql6nuo" path="res://scenes/level_mechanics/water_fall.tscn" id="11_kulo0"]
+[ext_resource type="PackedScene" uid="uid://dx8tslqgu5wdu" path="res://scenes/level_mechanics/water.tscn" id="12_wpm0u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v1rp8"]
 
@@ -24,17 +24,8 @@ GRAVITY = 5
 JUMPBUFFERTIME = 1.0
 JUMPVELOCITY = 150.0
 
-[node name="TimerBlock" parent="Player" instance=ExtResource("2_2jm1o")]
-position = Vector2(9.715, 20.64)
-
 [node name="WaterBlock" parent="Player" instance=ExtResource("4_aoorf")]
 position = Vector2(23, -1)
-
-[node name="FireBlock" parent="Player" instance=ExtResource("5_ey2ad")]
-position = Vector2(36, 21)
-
-[node name="IceBlock" parent="Player" instance=ExtResource("6_760pd")]
-position = Vector2(60, 21)
 
 [node name="floor" type="StaticBody2D" parent="."]
 position = Vector2(0, 40.135)
@@ -66,8 +57,24 @@ position = Vector2(116, 33)
 position = Vector2(172, 21)
 
 [node name="Fire" parent="." instance=ExtResource("9_nofno")]
-visible = false
-position = Vector2(210, 20)
+position = Vector2(50, 27)
+timed = true
 
 [node name="Lava" parent="." instance=ExtResource("11_cp0h5")]
-position = Vector2(296, -9)
+position = Vector2(248, 19)
+
+[node name="Lava2" parent="." instance=ExtResource("11_cp0h5")]
+position = Vector2(142, 19)
+
+[node name="Lava3" parent="." instance=ExtResource("11_cp0h5")]
+position = Vector2(192, 19)
+
+[node name="Water" parent="." instance=ExtResource("12_wpm0u")]
+position = Vector2(-83, -6)
+
+[node name="Laser" parent="." instance=ExtResource("10_c01wq")]
+position = Vector2(84, -42)
+rotation = 1.5708
+
+[node name="WaterFall" parent="." instance=ExtResource("11_kulo0")]
+position = Vector2(-43, -46)

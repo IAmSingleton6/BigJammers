@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dx8tslqgu5wdu"]
+[gd_scene load_steps=6 format=3 uid="uid://dx8tslqgu5wdu"]
 
 [ext_resource type="Script" path="res://scripts/level_mechanics/water.gd" id="1_alr0o"]
+[ext_resource type="Texture2D" uid="uid://ulnbymdr1xoa" path="res://images/glow_circle.png" id="2_l8gyb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2jxg"]
 
@@ -12,15 +13,21 @@ _data = {
 "solidify": SubResource("Animation_ocxu5")
 }
 
-[node name="Water" type="Area2D"]
+[node name="Water" type="Area2D" groups=["Water"]]
 script = ExtResource("1_alr0o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_g2jxg")
 
-[node name="solid_block_sprite" type="Sprite2D" parent="."]
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0, 1, 1, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_l8gyb")
+
+[node name="SolidBlockSprite" type="Sprite2D" parent="."]
+self_modulate = Color(0, 1, 1, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_l8gyb")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

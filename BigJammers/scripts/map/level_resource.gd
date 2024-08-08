@@ -1,6 +1,7 @@
 extends Resource
 class_name LevelData
 
+static var LEVELSAVEUNIQUENAME = "Levels"
+
 @export var level_name: String
-@export var scene: PackedScene
-@export var level_unlocked: bool = true
+@export_file var scene: String
