@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://eveulyut3a7u"]
+
+[ext_resource type="Script" path="res://scripts/utility/feel/feel_squash_and_stretch.gd" id="1_0fw0m"]
+
+[node name="FeelSquashAndStretch" type="Node"]
+script = ExtResource("1_0fw0m")
+order = "Sequential"

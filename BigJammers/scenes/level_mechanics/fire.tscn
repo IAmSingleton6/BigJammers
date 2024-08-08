@@ -34,7 +34,6 @@ turbulence_noise_scale = 1.645
 [node name="Fire" type="RayCast2D"]
 target_position = Vector2(0, -50)
 collide_with_areas = true
-collide_with_bodies = false
 script = ExtResource("1_qj4fv")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]

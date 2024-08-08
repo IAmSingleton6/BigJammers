@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://r74n263n6h5o"]
+
+[ext_resource type="Script" path="res://scripts/utility/feel/FeelScenes/FeelPostProcess/feel_brightness.gd" id="1_a8nhq"]
+
+[node name="FeelBrightness" type="Node"]
+script = ExtResource("1_a8nhq")
+time = 5
+order = "Sequential"

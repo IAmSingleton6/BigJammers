@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://1q0ca4lxpoac"]
+
+[ext_resource type="Script" path="res://scripts/utility/feel/FeelScenes/FeelPostProcess/FeelWorldEnvironment.gd" id="1_02wfh"]
+[ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="2_v1kax"]
+
+[sub_resource type="Environment" id="Environment_d16lx"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 8.0
+glow_strength = 1.13
+glow_blend_mode = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gf1mx"]
+shader = ExtResource("2_v1kax")
+shader_parameter/inner_radius = 0.2
+shader_parameter/outer_radius = 1.0
+shader_parameter/intensity = 0.0
+shader_parameter/dither_strength = 0.03
+shader_parameter/vignette_color = null
+
+[node name="PostProcessing" type="Node2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." node_paths=PackedStringArray("vignette")]
+environment = SubResource("Environment_d16lx")
+script = ExtResource("1_02wfh")
+vignette = NodePath("../CanvasLayer/ColorRect2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_gf1mx")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_gf1mx")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

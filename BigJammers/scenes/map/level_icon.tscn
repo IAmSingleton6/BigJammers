@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://d4lfs68qurh06"]
+
+[ext_resource type="Script" path="res://scripts/map/level_icon.gd" id="1_jjqia"]
+[ext_resource type="Texture2D" uid="uid://qk0uobtsycff" path="res://assets/assets/border.png" id="2_k8jjd"]
+
+[sub_resource type="Theme" id="Theme_tgthe"]
+
+[node name="LevelIcon" type="Node2D"]
+top_level = true
+script = ExtResource("1_jjqia")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.71, 1.71)
+texture = ExtResource("2_k8jjd")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -73.705
+offset_right = 41.0
+offset_bottom = -25.705
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_tgthe")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1

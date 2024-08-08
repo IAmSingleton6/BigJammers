@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bjtxawunkxuhh"]
+[gd_scene load_steps=13 format=3 uid="uid://bjtxawunkxuhh"]
 
 [ext_resource type="PackedScene" uid="uid://8qb4pv2ttx4v" path="res://scenes/player/player.tscn" id="1_8vqvh"]
 [ext_resource type="Script" path="res://scripts/level/level.gd" id="1_vlnka"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://c6urmskx7xp83" path="res://scenes/level_mechanics/laser.tscn" id="10_c01wq"]
 [ext_resource type="PackedScene" uid="uid://bu6byhr4s7tn2" path="res://scenes/level_mechanics/lava.tscn" id="11_cp0h5"]
 [ext_resource type="PackedScene" uid="uid://dnj8agfql6nuo" path="res://scenes/level_mechanics/water_fall.tscn" id="11_kulo0"]
-[ext_resource type="PackedScene" uid="uid://1q0ca4lxpoac" path="res://scenes/post_processing.tscn" id="12_lna78"]
 [ext_resource type="PackedScene" uid="uid://dx8tslqgu5wdu" path="res://scenes/level_mechanics/water.tscn" id="12_wpm0u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v1rp8"]
@@ -58,7 +57,7 @@ position = Vector2(116, 33)
 position = Vector2(172, 21)
 
 [node name="Fire" parent="." instance=ExtResource("9_nofno")]
-position = Vector2(50, 36)
+position = Vector2(50, 27)
 timed = true
 
 [node name="Lava" parent="." instance=ExtResource("11_cp0h5")]
@@ -71,13 +70,11 @@ position = Vector2(142, 19)
 position = Vector2(192, 19)
 
 [node name="Water" parent="." instance=ExtResource("12_wpm0u")]
-position = Vector2(24, -49)
+position = Vector2(-83, -6)
 
 [node name="Laser" parent="." instance=ExtResource("10_c01wq")]
 position = Vector2(84, -42)
 rotation = 1.5708
 
 [node name="WaterFall" parent="." instance=ExtResource("11_kulo0")]
-position = Vector2(69, -39)
-
-[node name="PostProcessing" parent="." instance=ExtResource("12_lna78")]
+position = Vector2(-43, -46)

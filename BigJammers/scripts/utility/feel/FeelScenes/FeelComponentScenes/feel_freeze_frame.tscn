@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://1ofnyv2i5gjv"]
+
+[ext_resource type="Script" path="res://scripts/utility/feel/feel_freeze_frame.gd" id="1_ivpfa"]
+
+[node name="FeelFreezeFrame" type="Node"]
+script = ExtResource("1_ivpfa")
+time_scale = 0.2

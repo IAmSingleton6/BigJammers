@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc0quqdxc3prc"]
+
+[ext_resource type="Script" path="res://scripts/utility/feel/FeelScenes/FeelPostProcess/FeelVignette.gd" id="1_e30ri"]
+
+[node name="FeelVignette" type="Node"]
+script = ExtResource("1_e30ri")
+order = "Sequential"

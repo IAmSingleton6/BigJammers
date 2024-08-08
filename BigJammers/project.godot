@@ -21,6 +21,7 @@ Events="*res://scripts/globals/events.gd"
 SceneTransitions="*res://scenes/globals/scene_transitions.tscn"
 SaveSystem="*res://scripts/globals/save_system.gd"
 LevelManager="*res://scripts/globals/level_manager.gd"
+TimeManager="*res://scripts/globals/time_manager.gd"
 
 [input]
 
@@ -68,3 +69,4 @@ RestartLevel={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

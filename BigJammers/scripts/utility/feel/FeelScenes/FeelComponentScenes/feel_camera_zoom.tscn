@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cafh57u5rwlti"]
+
+[ext_resource type="Script" path="res://scripts/utility/feel/feel_camera_zoom.gd" id="1_0pvb2"]
+
+[node name="FeelCameraZoom" type="Node"]
+script = ExtResource("1_0pvb2")
+duration = 0.1
+order = "Sequential"

@@ -11,8 +11,6 @@ var won := false
 func _ready() -> void:
 	Events.level_lose.connect(_on_level_lose)
 	player = get_tree().get_first_node_in_group(GroupManager.PLAYERGROUP)
-	if player is Player:
-		(player as Player).health_depleted.connect(_on_level_lose)
 	
 	await get_tree().create_timer(level_start_time).timeout
 	Events.level_start.emit()

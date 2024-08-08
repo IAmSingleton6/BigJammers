@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0lxegub261fx"]
+
+[ext_resource type="Script" path="res://scripts/utility/feel/feel_screen_shake.gd" id="1_o26f2"]
+
+[node name="FeelScreenShake" type="Node"]
+script = ExtResource("1_o26f2")

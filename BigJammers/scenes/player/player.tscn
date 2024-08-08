@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://8qb4pv2ttx4v"]
+[gd_scene load_steps=26 format=3 uid="uid://8qb4pv2ttx4v"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_j518t"]
 [ext_resource type="Shader" path="res://shaders/heart.gdshader" id="3_7767l"]
@@ -7,11 +7,22 @@
 [ext_resource type="Texture2D" uid="uid://bq0ahxcd0fmxe" path="res://assets/Hearts_2.png" id="4_uyqsl"]
 [ext_resource type="Script" path="res://scripts/camera/shake_camera_2D.gd" id="5_sj204"]
 [ext_resource type="PackedScene" uid="uid://b1uaf8b2rlqsq" path="res://scenes/particles/dust.tscn" id="7_pcr3b"]
+[ext_resource type="PackedScene" uid="uid://dn3miw5oo0am7" path="res://scripts/utility/feel/FeelScenes/feel_controller.tscn" id="8_d31ga"]
+[ext_resource type="PackedScene" uid="uid://cyayqf1ku4so6" path="res://scripts/utility/feel/FeelScenes/feel_package.tscn" id="9_2huso"]
+[ext_resource type="PackedScene" uid="uid://1ofnyv2i5gjv" path="res://scripts/utility/feel/FeelScenes/FeelComponentScenes/feel_freeze_frame.tscn" id="10_c5nr4"]
+[ext_resource type="PackedScene" uid="uid://eveulyut3a7u" path="res://scripts/utility/feel/FeelScenes/FeelComponentScenes/feel_squash_and_stretch.tscn" id="11_k1sfi"]
+[ext_resource type="PackedScene" uid="uid://cafh57u5rwlti" path="res://scripts/utility/feel/FeelScenes/FeelComponentScenes/feel_camera_zoom.tscn" id="12_lqtsm"]
+[ext_resource type="PackedScene" uid="uid://dc0quqdxc3prc" path="res://scripts/utility/feel/FeelScenes/FeelPostProcess/feel_vignette.tscn" id="13_c3y2j"]
+[ext_resource type="PackedScene" uid="uid://bxjp6vxap0khy" path="res://scripts/utility/feel/FeelScenes/FeelComponentScenes/feel_modulate_color_changer.tscn" id="13_mkjec"]
+[ext_resource type="PackedScene" uid="uid://d03jfh8kybrkw" path="res://scripts/utility/feel/FeelScenes/FeelComponentScenes/feel_scene_spawner.tscn" id="14_tn2x4"]
+[ext_resource type="PackedScene" uid="uid://dksj4h11n7g0p" path="res://scenes/particles/steam_2.tscn" id="15_131n6"]
+[ext_resource type="PackedScene" uid="uid://cwgw3bhbbeanl" path="res://scripts/utility/feel/FeelScenes/FeelComponentScenes/feel_play_audio.tscn" id="17_75nxg"]
+[ext_resource type="AudioStream" uid="uid://co4u3r0tw0fyq" path="res://assets/assets/brackeys_platformer_assets/music/time_for_adventure.mp3" id="18_ti02o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8berp"]
 shader = ExtResource("3_7767l")
 shader_parameter/color = null
-shader_parameter/cutoff = null
+shader_parameter/cutoff = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_itwhi"]
 atlas = ExtResource("4_uyqsl")
@@ -57,7 +68,10 @@ script = ExtResource("1_j518t")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3.985, 3.985)
+process_callback = 0
+position_smoothing_enabled = true
 script = ExtResource("5_sj204")
+shake_reduction = 50.0
 
 [node name="Feels" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_8berp")
@@ -90,4 +104,46 @@ shape = SubResource("RectangleShape2D_rdsbr")
 
 [node name="Dust" parent="." instance=ExtResource("7_pcr3b")]
 
+[node name="DeathFeedback" parent="." instance=ExtResource("8_d31ga")]
+
+[node name="FeelPackage" parent="DeathFeedback" instance=ExtResource("9_2huso")]
+
+[node name="FeelFreezeFrame" parent="DeathFeedback/FeelPackage" instance=ExtResource("10_c5nr4")]
+
+[node name="FeelCameraZoom" parent="DeathFeedback/FeelPackage" node_paths=PackedStringArray("camera") instance=ExtResource("12_lqtsm")]
+camera = NodePath("../../../Camera2D")
+zoom_scale = 2.0
+duration = 1.0
+order = "Parallel"
+
+[node name="FeelVignette" parent="DeathFeedback/FeelPackage" instance=ExtResource("13_c3y2j")]
+duration = 0.3
+order = "Parallel"
+
+[node name="FeelModulateColorChanger" parent="DeathFeedback/FeelPackage" node_paths=PackedStringArray("node_to_change") instance=ExtResource("13_mkjec")]
+node_to_change = NodePath("../../../Feels")
+color = Color(0, 0, 0, 0)
+duration = 0.3
+
+[node name="FeelSceneSpawner" parent="DeathFeedback/FeelPackage" node_paths=PackedStringArray("node_to_parent") instance=ExtResource("14_tn2x4")]
+scene_to_spawn = ExtResource("15_131n6")
+node_to_parent = NodePath("../../..")
+
+[node name="JumpFeedback" parent="." instance=ExtResource("8_d31ga")]
+
+[node name="FeelPackage" parent="JumpFeedback" instance=ExtResource("9_2huso")]
+
+[node name="FeelSquashAndStretch" parent="JumpFeedback/FeelPackage" node_paths=PackedStringArray("node_to_change") instance=ExtResource("11_k1sfi")]
+node_to_change = NodePath("../../../Feels")
+target_scale = Vector3(0.8, 1.4, 1)
+duration = 0.08
+order = "Parallel"
+
+[node name="FeelPlayAudio" parent="JumpFeedback/FeelPackage" node_paths=PackedStringArray("parent_node") instance=ExtResource("17_75nxg")]
+audio = ExtResource("18_ti02o")
+parent_node = NodePath("../../..")
+order = "Parallel"
+
+[connection signal="jump_started" from="." to="JumpFeedback" method="play"]
+[connection signal="health_depleted" from="Heartbeat" to="DeathFeedback" method="play"]
 [connection signal="area_entered" from="Area2D" to="Heartbeat" method="_on_heart_area_entered"]

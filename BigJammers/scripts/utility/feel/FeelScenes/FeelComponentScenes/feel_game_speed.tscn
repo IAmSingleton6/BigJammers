@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://camvpqwgb6xj5"]
+
+[ext_resource type="Script" path="res://scripts/utility/feel/feel_game_speed.gd" id="1_qyvog"]
+
+[node name="FeelGameSpeed" type="Node"]
+script = ExtResource("1_qyvog")
+time_scale = 0.2

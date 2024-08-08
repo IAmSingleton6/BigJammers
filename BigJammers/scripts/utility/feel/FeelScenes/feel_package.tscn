@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyayqf1ku4so6"]
+
+[ext_resource type="Script" path="res://scripts/utility/feel/feel_package.gd" id="1_8u4un"]
+
+[node name="FeelPackage" type="Node"]
+script = ExtResource("1_8u4un")

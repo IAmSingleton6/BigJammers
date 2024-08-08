@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d03jfh8kybrkw"]
+
+[ext_resource type="Script" path="res://scripts/utility/feel/feel_scene_spawner.gd" id="1_ybma5"]
+
+[node name="FeelSceneSpawner" type="Node"]
+script = ExtResource("1_ybma5")

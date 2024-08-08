@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-signal health_depleted
+signal jump_started
 
 @onready var jump_buffer_timer : Timer = $JumpBufferTimer
 @onready var coyote_timer : Timer = $CoyoteTimer
@@ -130,17 +130,14 @@ func _check_jump():
 func _jump():
 	if not can_jump:
 		return
+	jump_started.emit()
 	jumping = true
 	motion.y = -abs(JUMPVELOCITY)
 
 func _gravity(_delta: float):
 	var gravity_multiplier : float = 1.0 if jumping else FALL_GRAVITY_MULTIPLIER
 	motion.y += GRAVITY * gravity_multiplier
-
-
-func _on_health_depleted():
-	health_depleted.emit()
-
+	motion.y = min(motion.y, 2000.0)
 
 func kill():
 	heartbeat.kill()

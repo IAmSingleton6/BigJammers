@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://pao7cw6plth3"]
+
+[ext_resource type="Script" path="res://scripts/utility/feel/feel_pause.gd" id="1_34hul"]
+
+[node name="FeelPause" type="Node"]
+script = ExtResource("1_34hul")

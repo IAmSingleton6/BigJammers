@@ -1,4 +1,5 @@
 shader_type canvas_item;
+render_mode blend_mix;
 
 uniform vec4 color : source_color;
 uniform float cutoff : hint_range(0.0, 1.0);
@@ -10,5 +11,5 @@ void fragment() {
         col = vec4(1,1,1,1);
     } 
 	
-	COLOR = texture(TEXTURE, UV) * col;
+	COLOR *= texture(TEXTURE, UV) * col;
 }

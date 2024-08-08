@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxjp6vxap0khy"]
+
+[ext_resource type="Script" path="res://scripts/utility/feel/feel_modulate_color_changer.gd" id="1_n6n2r"]
+
+[node name="FeelModulateColorChanger" type="Node"]
+script = ExtResource("1_n6n2r")

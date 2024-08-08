@@ -1,15 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxltmjmeyrjqd"]
+[gd_scene load_steps=11 format=3 uid="uid://bxltmjmeyrjqd"]
 
 [ext_resource type="Texture2D" uid="uid://dxvoxorpid8br" path="res://icon.svg" id="1_ye0ey"]
 [ext_resource type="Script" path="res://scripts/map/level_select.gd" id="1_yr0tu"]
-[ext_resource type="Script" path="res://scripts/map/level_icon.gd" id="2_70o6g"]
 [ext_resource type="Script" path="res://scripts/map/player_icon.gd" id="3_tjgb5"]
-[ext_resource type="Texture2D" uid="uid://ulnbymdr1xoa" path="res://images/glow_circle.png" id="4_7e8oa"]
+[ext_resource type="PackedScene" uid="uid://d4lfs68qurh06" path="res://scenes/map/level_icon.tscn" id="3_xras3"]
 [ext_resource type="Resource" uid="uid://ciyuredhl30p1" path="res://game_settings/Levels/Level1.tres" id="4_v1lvp"]
 [ext_resource type="Resource" uid="uid://d2a3gtnn347qx" path="res://game_settings/Levels/Level2.tres" id="5_8tjev"]
 [ext_resource type="Resource" uid="uid://7ic1i5vrbe3q" path="res://game_settings/Levels/Level3.tres" id="6_s2nh0"]
+[ext_resource type="Texture2D" uid="uid://bq0ahxcd0fmxe" path="res://assets/Hearts_2.png" id="8_oefl6"]
+[ext_resource type="Texture2D" uid="uid://bhtc1mo4tjele" path="res://images/dashed_line.png" id="9_dw1jk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_it6nn"]
+[sub_resource type="Environment" id="Environment_kfxrd"]
+adjustment_enabled = true
+adjustment_brightness = 6.97
 
 [node name="World1" type="Node2D"]
 script = ExtResource("1_yr0tu")
@@ -20,93 +23,17 @@ texture = ExtResource("1_ye0ey")
 
 [node name="Levels" type="Node2D" parent="."]
 
-[node name="LevelIcon" type="Node2D" parent="Levels" node_paths=PackedStringArray("level_right")]
-position = Vector2(-273, -293)
-script = ExtResource("2_70o6g")
+[node name="LevelIcon" parent="Levels" instance=ExtResource("3_xras3")]
+position = Vector2(-297, -305)
 level_data = ExtResource("4_v1lvp")
-level_right = NodePath("../LevelIcon2")
 
-[node name="Sprite2D" type="Sprite2D" parent="Levels/LevelIcon"]
-texture = ExtResource("1_ye0ey")
-
-[node name="Area2D" type="Area2D" parent="Levels/LevelIcon"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Levels/LevelIcon/Area2D"]
-shape = SubResource("RectangleShape2D_it6nn")
-
-[node name="Label" type="Label" parent="Levels/LevelIcon"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -19.5
-offset_top = -11.5
-offset_right = 19.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "1"
-horizontal_alignment = 1
-
-[node name="LevelIcon2" type="Node2D" parent="Levels" node_paths=PackedStringArray("level_right", "level_left")]
-position = Vector2(97, -289)
-script = ExtResource("2_70o6g")
+[node name="LevelIcon2" parent="Levels" instance=ExtResource("3_xras3")]
+position = Vector2(91, -295)
 level_data = ExtResource("5_8tjev")
-level_right = NodePath("../LevelIcon3")
-level_left = NodePath("../LevelIcon")
 
-[node name="Sprite2D" type="Sprite2D" parent="Levels/LevelIcon2"]
-texture = ExtResource("1_ye0ey")
-
-[node name="Area2D" type="Area2D" parent="Levels/LevelIcon2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Levels/LevelIcon2/Area2D"]
-shape = SubResource("RectangleShape2D_it6nn")
-
-[node name="Label" type="Label" parent="Levels/LevelIcon2"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -19.5
-offset_top = -11.5
-offset_right = 19.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "1"
-horizontal_alignment = 1
-
-[node name="LevelIcon3" type="Node2D" parent="Levels" node_paths=PackedStringArray("level_up")]
-position = Vector2(317, -73)
-script = ExtResource("2_70o6g")
+[node name="LevelIcon3" parent="Levels" instance=ExtResource("3_xras3")]
+position = Vector2(323, -60)
 level_data = ExtResource("6_s2nh0")
-level_up = NodePath("../LevelIcon2")
-
-[node name="Sprite2D" type="Sprite2D" parent="Levels/LevelIcon3"]
-texture = ExtResource("1_ye0ey")
-
-[node name="Area2D" type="Area2D" parent="Levels/LevelIcon3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Levels/LevelIcon3/Area2D"]
-shape = SubResource("RectangleShape2D_it6nn")
-
-[node name="Label" type="Label" parent="Levels/LevelIcon3"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -19.5
-offset_top = -11.5
-offset_right = 19.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "1"
-horizontal_alignment = 1
 
 [node name="PlayerIcon" type="Node2D" parent="."]
 position = Vector2(268, -284)
@@ -114,8 +41,25 @@ script = ExtResource("3_tjgb5")
 speed = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerIcon"]
-scale = Vector2(0.275, 0.275)
-texture = ExtResource("4_7e8oa")
+texture = ExtResource("8_oefl6")
+hframes = 5
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(10, -127)
+
+[node name="Line2D" type="Line2D" parent="."]
+texture_repeat = 2
+points = PackedVector2Array(67, -297, -269, -304)
+width = 30.0
+texture = ExtResource("9_dw1jk")
+texture_mode = 1
+
+[node name="Line2D2" type="Line2D" parent="."]
+texture_repeat = 2
+points = PackedVector2Array(110, -276, 308, -82)
+width = 30.0
+texture = ExtResource("9_dw1jk")
+texture_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kfxrd")
