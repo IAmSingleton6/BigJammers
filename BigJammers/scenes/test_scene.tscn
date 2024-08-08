@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bxoy0mykgi768" path="res://scenes/level_mechanics/wind.tscn" id="6_7a7t6"]
 [ext_resource type="PackedScene" uid="uid://bk2cqcbyapave" path="res://scenes/level_mechanics/fire.tscn" id="9_nofno"]
 [ext_resource type="PackedScene" uid="uid://c6urmskx7xp83" path="res://scenes/level_mechanics/laser.tscn" id="10_c01wq"]
-[ext_resource type="PackedScene" uid="uid://bu6byhr4s7tn2" path="res://scenes/level_mechanics/lava.tscn" id="11_cp0h5"]
+[ext_resource type="PackedScene" path="res://scenes/level_mechanics/lava.tscn" id="11_cp0h5"]
 [ext_resource type="PackedScene" uid="uid://dnj8agfql6nuo" path="res://scenes/level_mechanics/water_fall.tscn" id="11_kulo0"]
 [ext_resource type="PackedScene" uid="uid://dx8tslqgu5wdu" path="res://scenes/level_mechanics/water.tscn" id="12_wpm0u"]
 
