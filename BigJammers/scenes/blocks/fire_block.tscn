@@ -69,7 +69,7 @@ position = Vector2(2.38419e-07, 2.38419e-07)
 scale = Vector2(0.625, 0.625)
 sprite_frames = SubResource("SpriteFrames_7mcoy")
 autoplay = "default"
-frame_progress = 0.768661
+frame_progress = 0.114917
 
 [node name="Area2D" type="Area2D" parent="." groups=["Fire"]]
 

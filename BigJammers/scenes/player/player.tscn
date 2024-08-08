@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://8qb4pv2ttx4v"]
+[gd_scene load_steps=16 format=3 uid="uid://8qb4pv2ttx4v"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_j518t"]
 [ext_resource type="Shader" path="res://shaders/heart.gdshader" id="3_7767l"]
@@ -49,7 +49,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rdsbr"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_0hfov"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gwtem"]
+radius = 5.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 5
@@ -67,7 +71,7 @@ sprite_frames = SubResource("SpriteFrames_80hjr")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_rdsbr")
+shape = SubResource("CircleShape2D_0hfov")
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 
@@ -86,7 +90,7 @@ stream = ExtResource("4_4y7hd")
 [node name="Area2D" type="Area2D" parent="." groups=["Heart"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_rdsbr")
+shape = SubResource("CircleShape2D_gwtem")
 
 [node name="Dust" parent="." instance=ExtResource("7_pcr3b")]
 

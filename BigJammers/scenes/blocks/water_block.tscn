@@ -83,7 +83,7 @@ position = Vector2(-2.38419e-07, 2.38419e-07)
 scale = Vector2(0.625, 0.625)
 sprite_frames = SubResource("SpriteFrames_g57uk")
 autoplay = "default"
-frame_progress = 0.905655
+frame_progress = 0.0578282
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 4.76837e-07)

@@ -3,7 +3,7 @@ extends Area2D
 @onready var animation_player = $AnimationPlayer
 @onready var static_body_2d = $StaticBody2D
 @onready var collision_shape_2d = $CollisionShape2D
-@onready var sprite_2d = $Sprite2D
+@onready var sprite_2d = $Lava_anim
 @onready var solid_block_sprite = $SolidBlockSprite
 
 @export var steam_particle_scene: PackedScene
