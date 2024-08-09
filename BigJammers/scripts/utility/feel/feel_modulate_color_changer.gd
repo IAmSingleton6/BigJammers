@@ -1,5 +1,5 @@
 extends FeelComponent
-class_name FeelVisibilityTrigger
+class_name FeelModulateColorChanger
 
 @export var node_to_change: CanvasItem
 @export var color: Color
