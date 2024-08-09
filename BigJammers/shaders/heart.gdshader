@@ -11,5 +11,5 @@ void fragment() {
         col = vec4(1,1,1,1);
     } 
 	
-	COLOR *= texture(TEXTURE, UV) * col;
+	COLOR *= col;
 }

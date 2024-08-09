@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://8qb4pv2ttx4v"]
+[gd_scene load_steps=25 format=3 uid="uid://8qb4pv2ttx4v"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_j518t"]
 [ext_resource type="Shader" path="res://shaders/heart.gdshader" id="3_7767l"]
@@ -16,13 +16,11 @@
 [ext_resource type="PackedScene" uid="uid://bxjp6vxap0khy" path="res://scripts/utility/feel/FeelScenes/FeelComponentScenes/feel_modulate_color_changer.tscn" id="13_mkjec"]
 [ext_resource type="PackedScene" uid="uid://d03jfh8kybrkw" path="res://scripts/utility/feel/FeelScenes/FeelComponentScenes/feel_scene_spawner.tscn" id="14_tn2x4"]
 [ext_resource type="PackedScene" uid="uid://dksj4h11n7g0p" path="res://scenes/particles/steam_2.tscn" id="15_131n6"]
-[ext_resource type="PackedScene" uid="uid://cwgw3bhbbeanl" path="res://scripts/utility/feel/FeelScenes/FeelComponentScenes/feel_play_audio.tscn" id="17_75nxg"]
-[ext_resource type="AudioStream" uid="uid://co4u3r0tw0fyq" path="res://assets/assets/brackeys_platformer_assets/music/time_for_adventure.mp3" id="18_ti02o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8berp"]
 shader = ExtResource("3_7767l")
-shader_parameter/color = null
-shader_parameter/cutoff = 1.0
+shader_parameter/color = Color(0.470588, 0, 0, 1)
+shader_parameter/cutoff = 0.485
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_itwhi"]
 atlas = ExtResource("4_uyqsl")
@@ -141,11 +139,6 @@ node_to_parent = NodePath("../../..")
 node_to_change = NodePath("../../../Feels")
 target_scale = Vector3(0.8, 1.4, 1)
 duration = 0.08
-order = "Parallel"
-
-[node name="FeelPlayAudio" parent="JumpFeedback/FeelPackage" node_paths=PackedStringArray("parent_node") instance=ExtResource("17_75nxg")]
-audio = ExtResource("18_ti02o")
-parent_node = NodePath("../../..")
 order = "Parallel"
 
 [connection signal="jump_started" from="." to="JumpFeedback" method="play"]
