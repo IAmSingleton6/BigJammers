@@ -1,9 +1,68 @@
-[gd_scene load_steps=6 format=3 uid="uid://dx8tslqgu5wdu"]
+[gd_scene load_steps=16 format=3 uid="uid://dx8tslqgu5wdu"]
 
 [ext_resource type="Script" path="res://scripts/level_mechanics/water.gd" id="1_alr0o"]
-[ext_resource type="Texture2D" uid="uid://ulnbymdr1xoa" path="res://images/glow_circle.png" id="2_l8gyb"]
+[ext_resource type="Texture2D" uid="uid://d3qvdldqfht02" path="res://assets/Sea_water.png" id="2_j0yy6"]
+[ext_resource type="Texture2D" uid="uid://cddmmtx1b13ic" path="res://assets/assets/PNG (Transparent)/flame_04.png" id="3_17c6g"]
+[ext_resource type="Texture2D" uid="uid://qk0uobtsycff" path="res://assets/assets/border.png" id="4_8ivfb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2jxg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fu3qo"]
+atlas = ExtResource("2_j0yy6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8tln"]
+atlas = ExtResource("2_j0yy6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46hsa"]
+atlas = ExtResource("2_j0yy6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pef5x"]
+atlas = ExtResource("2_j0yy6")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vanxx"]
+atlas = ExtResource("2_j0yy6")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iknot"]
+atlas = ExtResource("2_j0yy6")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3280g"]
+atlas = ExtResource("2_j0yy6")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_moaom"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fu3qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8tln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46hsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pef5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vanxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iknot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3280g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [sub_resource type="Animation" id="Animation_ocxu5"]
 resource_name = "solidify"
@@ -19,15 +78,19 @@ script = ExtResource("1_alr0o")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_g2jxg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0, 1, 1, 1)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_l8gyb")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.76837e-07, 4.76837e-07)
+scale = Vector2(0.625, 0.625)
+sprite_frames = SubResource("SpriteFrames_moaom")
+autoplay = "default"
+frame_progress = 0.0715286
 
 [node name="SolidBlockSprite" type="Sprite2D" parent="."]
-self_modulate = Color(0, 1, 1, 1)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_l8gyb")
+position = Vector2(4.76837e-07, 2.38419e-07)
+scale = Vector2(0.0576369, 0.0743494)
+texture = ExtResource("3_17c6g")
+region_enabled = true
+region_rect = Rect2(104, 90, 347, 269)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -35,3 +98,10 @@ texture = ExtResource("2_l8gyb")
 libraries = {
 "": SubResource("AnimationLibrary_uds6y")
 }
+
+[node name="border" type="Sprite2D" parent="."]
+position = Vector2(-2.38419e-07, -2.38419e-07)
+scale = Vector2(0.714286, 0.714286)
+texture = ExtResource("4_8ivfb")
+region_enabled = true
+region_rect = Rect2(2, 2, 28, 28)
