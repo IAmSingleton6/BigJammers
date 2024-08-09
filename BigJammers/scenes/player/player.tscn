@@ -1,10 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://8qb4pv2ttx4v"]
+[gd_scene load_steps=32 format=3 uid="uid://8qb4pv2ttx4v"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_j518t"]
 [ext_resource type="Shader" path="res://shaders/heart.gdshader" id="3_7767l"]
 [ext_resource type="Script" path="res://scripts/player/heartbeat.gd" id="3_yjc7d"]
 [ext_resource type="AudioStream" uid="uid://f2dd6j8vujj2" path="res://audio/heart_beat.wav" id="4_4y7hd"]
-[ext_resource type="Texture2D" uid="uid://bq0ahxcd0fmxe" path="res://assets/Hearts_2.png" id="4_uyqsl"]
+[ext_resource type="Texture2D" uid="uid://iqxbsocm5o85" path="res://assets/heart_pulse_row.png" id="4_7nyc1"]
 [ext_resource type="Script" path="res://scripts/camera/shake_camera_2D.gd" id="5_sj204"]
 [ext_resource type="PackedScene" uid="uid://b1uaf8b2rlqsq" path="res://scenes/particles/dust.tscn" id="7_pcr3b"]
 [ext_resource type="PackedScene" uid="uid://dn3miw5oo0am7" path="res://scripts/utility/feel/FeelScenes/feel_controller.tscn" id="8_d31ga"]
@@ -23,40 +23,102 @@ shader = ExtResource("3_7767l")
 shader_parameter/color = Color(0.470588, 0, 0, 1)
 shader_parameter/cutoff = 0.485
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_itwhi"]
-atlas = ExtResource("4_uyqsl")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_2735f"]
+atlas = ExtResource("4_7nyc1")
+region = Rect2(160, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ocf5r"]
-atlas = ExtResource("4_uyqsl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifm3t"]
+atlas = ExtResource("4_7nyc1")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1t5n"]
+atlas = ExtResource("4_7nyc1")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_voo6s"]
+atlas = ExtResource("4_7nyc1")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wx4n"]
+atlas = ExtResource("4_7nyc1")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_trb1m"]
-atlas = ExtResource("4_uyqsl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_le5r1"]
+atlas = ExtResource("4_7nyc1")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1g3ah"]
-atlas = ExtResource("4_uyqsl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3i8t"]
+atlas = ExtResource("4_7nyc1")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_80hjr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7gx7"]
+atlas = ExtResource("4_7nyc1")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brid4"]
+atlas = ExtResource("4_7nyc1")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njuec"]
+atlas = ExtResource("4_7nyc1")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gvlud"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_itwhi")
+"texture": SubResource("AtlasTexture_2735f")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ocf5r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_trb1m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1g3ah")
+"texture": SubResource("AtlasTexture_ifm3t")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"angry",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1t5n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_voo6s")
+}],
+"loop": true,
+"name": &"ecstatic",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wx4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_le5r1")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3i8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7gx7")
+}],
+"loop": true,
+"name": &"sad",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brid4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njuec")
+}],
+"loop": true,
+"name": &"scared",
+"speed": 3.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0hfov"]
@@ -78,10 +140,12 @@ shake_reduction = 50.0
 
 [node name="Feels" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_8berp")
-position = Vector2(-4.76837e-07, -4.76837e-07)
+position = Vector2(1.19209e-07, 1)
 scale = Vector2(0.625, 0.625)
-sprite_frames = SubResource("SpriteFrames_80hjr")
-autoplay = "default"
+sprite_frames = SubResource("SpriteFrames_gvlud")
+animation = &"happy"
+autoplay = "happy"
+frame_progress = 0.957298
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0hfov")
