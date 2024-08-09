@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://8qb4pv2ttx4v"]
+[gd_scene load_steps=26 format=3 uid="uid://8qb4pv2ttx4v"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_j518t"]
 [ext_resource type="Shader" path="res://shaders/heart.gdshader" id="3_7767l"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bxjp6vxap0khy" path="res://scripts/utility/feel/FeelScenes/FeelComponentScenes/feel_modulate_color_changer.tscn" id="13_mkjec"]
 [ext_resource type="PackedScene" uid="uid://d03jfh8kybrkw" path="res://scripts/utility/feel/FeelScenes/FeelComponentScenes/feel_scene_spawner.tscn" id="14_tn2x4"]
 [ext_resource type="PackedScene" uid="uid://dksj4h11n7g0p" path="res://scenes/particles/steam_2.tscn" id="15_131n6"]
+[ext_resource type="Texture2D" uid="uid://dwwd84sk4mlih" path="res://assets/Jail-3.png" id="17_7v28v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8berp"]
 shader = ExtResource("3_7767l")
@@ -140,6 +141,12 @@ node_to_change = NodePath("../../../Feels")
 target_scale = Vector3(0.8, 1.4, 1)
 duration = 0.08
 order = "Parallel"
+
+[node name="Jail" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.627451)
+position = Vector2(0.5, 8.9407e-07)
+scale = Vector2(0.59375, 0.5625)
+texture = ExtResource("17_7v28v")
 
 [connection signal="jump_started" from="." to="JumpFeedback" method="play"]
 [connection signal="health_depleted" from="Heartbeat" to="DeathFeedback" method="play"]
