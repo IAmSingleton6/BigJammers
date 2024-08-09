@@ -13,13 +13,29 @@ var current_world = 0
 func _ready():
 	# Get last completed level and set to first active map node
 	var last_level_completed := false
+	var last_level_just_completed := false
+	var level_set := false
 	for level in levels.get_children():
 		if level is LevelIcon:
+			# level just completed play anim
+			if last_level_just_completed:
+				last_level_just_completed = false
+				level.set_just_completed()
+			
+			# Play unlock anim
+			if level.level_data == LevelManager._current_level:
+				current_level = level
+				level_set = true
+				if LevelManager.current_level_just_completed:
+					last_level_just_completed = true
+					
+			
+			
 			level.completed = _get_completed(level.level_data)
 			level.unlocked = level.completed or last_level_completed
 			last_level_completed = level.completed
 			
-			if level.unlocked:
+			if not level_set and level.unlocked:
 				current_level = level
 	levels.get_children()[0].unlocked = true
 	

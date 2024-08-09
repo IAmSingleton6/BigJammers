@@ -7,14 +7,14 @@ extends Control
 @onready var options_menu = $options_menu as OptionsMenu
 @onready var margin_container = $MarginContainer as MarginContainer
 
-@onready var first_level = preload("res://scenes/level_0.tscn")
+@onready var world_map = load("res://scenes/map/world1.tscn")
 
 func _ready():
 	handle_connecting_signals()
 
 func _on_play_pressed():
 	print("Pressed Play")
-	SceneTransitions.change_scene_path(first_level)
+	SceneTransitions.change_scene_path(world_map)
 	
 func _on_options_pressed():
 	print("Pressed Options")

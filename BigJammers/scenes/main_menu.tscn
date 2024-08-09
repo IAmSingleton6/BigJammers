@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bp2ox0krkfd7q"]
+[gd_scene load_steps=6 format=3 uid="uid://bp2ox0krkfd7q"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_eji27"]
 [ext_resource type="Theme" uid="uid://b1xfdyvlbbwvk" path="res://game_settings/bestest_theme.tres" id="2_fxyad"]
 [ext_resource type="Texture2D" uid="uid://cj8cxksulqa7l" path="res://assets/menu_bg.png" id="2_gt7ud"]
-[ext_resource type="PackedScene" uid="uid://b4rrrwarh8jn2" path="res://scenes/options_menu.tscn" id="4_ou2x4"]
+[ext_resource type="PackedScene" uid="uid://b2jkbsmq6fwxr" path="res://scenes/ui/UISounds.tscn" id="2_h2i7y"]
+[ext_resource type="PackedScene" uid="uid://d2lk208ksndml" path="res://scenes/options_menu.tscn" id="4_ou2x4"]
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
@@ -13,6 +14,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_eji27")
+
+[node name="UiSounds" parent="." instance=ExtResource("2_h2i7y")]
+root_path = NodePath("../MarginContainer/HBoxContainer/VBoxContainer")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1

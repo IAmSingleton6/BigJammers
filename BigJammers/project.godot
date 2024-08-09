@@ -22,6 +22,7 @@ SceneTransitions="*res://scenes/globals/scene_transitions.tscn"
 SaveSystem="*res://scripts/globals/save_system.gd"
 LevelManager="*res://scripts/globals/level_manager.gd"
 TimeManager="*res://scripts/globals/time_manager.gd"
+MusicManager="*res://scenes/globals/music_manager.tscn"
 
 [input]
 

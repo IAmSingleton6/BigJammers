@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cp1luerusd1k4"]
+
+[ext_resource type="Script" path="res://scripts/globals/music_manager.gd" id="1_smbjr"]
+[ext_resource type="AudioStream" uid="uid://c7768huy2cag4" path="res://assets/audio/intro__HeartBreakEscape.wav" id="2_gp1a7"]
+[ext_resource type="AudioStream" uid="uid://bj558x1p12637" path="res://assets/audio/drums_HeartBreakEscape.ogg" id="3_liuso"]
+[ext_resource type="AudioStream" uid="uid://r8plwldqcji1" path="res://assets/audio/nodrums_HeartBreakEscape.ogg" id="4_npr8m"]
+
+[node name="MusicManager" type="Node2D"]
+script = ExtResource("1_smbjr")
+
+[node name="intro" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_gp1a7")
+bus = &"Music"
+
+[node name="drums" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_liuso")
+bus = &"Music"
+
+[node name="background" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_npr8m")
+bus = &"Music"

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4rrrwarh8jn2"]
+[gd_scene load_steps=5 format=3 uid="uid://d2lk208ksndml"]
 
 [ext_resource type="Theme" uid="uid://b1xfdyvlbbwvk" path="res://game_settings/bestest_theme.tres" id="1_1w8ti"]
 [ext_resource type="Script" path="res://scenes/options_menu.gd" id="1_ychvm"]
-[ext_resource type="PackedScene" uid="uid://v43bxq6hnque" path="res://scenes/settings_tab_container.tscn" id="3_t5egp"]
+[ext_resource type="PackedScene" uid="uid://b2jkbsmq6fwxr" path="res://scenes/ui/UISounds.tscn" id="2_en5br"]
+[ext_resource type="PackedScene" uid="uid://crcjlr4fxywt" path="res://scenes/settings_tab_container.tscn" id="3_t5egp"]
 
 [node name="options_menu" type="Control"]
 layout_mode = 3
@@ -12,6 +13,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ychvm")
+
+[node name="UiSounds" parent="." instance=ExtResource("2_en5br")]
+root_path = NodePath("../MarginContainer/VBoxContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

@@ -1,17 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://d4lfs68qurh06"]
 
 [ext_resource type="Script" path="res://scripts/map/level_icon.gd" id="1_jjqia"]
-[ext_resource type="Texture2D" uid="uid://qk0uobtsycff" path="res://assets/assets/border.png" id="2_k8jjd"]
+[ext_resource type="PackedScene" uid="uid://bh2ofek2n0tq8" path="res://scenes/jail_cell.tscn" id="2_cr5wc"]
 
 [sub_resource type="Theme" id="Theme_tgthe"]
 
 [node name="LevelIcon" type="Node2D"]
 top_level = true
 script = ExtResource("1_jjqia")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.71, 1.71)
-texture = ExtResource("2_k8jjd")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
@@ -29,3 +25,6 @@ theme = SubResource("Theme_tgthe")
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="JailCell" parent="." instance=ExtResource("2_cr5wc")]
+scale = Vector2(2.285, 2.285)

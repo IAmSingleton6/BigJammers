@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://v43bxq6hnque"]
+[gd_scene load_steps=2 format=3 uid="uid://crcjlr4fxywt"]
+
+[ext_resource type="PackedScene" uid="uid://b2jkbsmq6fwxr" path="res://scenes/ui/UISounds.tscn" id="1_si121"]
 
 [node name="Settings_Tab_Container" type="Control"]
 layout_mode = 3
@@ -7,6 +9,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="UiSounds" parent="." instance=ExtResource("1_si121")]
+root_path = NodePath("../TabContainer")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1

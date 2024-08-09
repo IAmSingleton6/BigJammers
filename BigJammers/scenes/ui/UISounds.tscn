@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2jkbsmq6fwxr"]
+
+[ext_resource type="Script" path="res://scripts/ui/button_audio_linker.gd" id="1_56efd"]
+
+[node name="UiSounds" type="Node2D"]
+script = ExtResource("1_56efd")

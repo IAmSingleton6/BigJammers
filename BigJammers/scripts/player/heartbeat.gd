@@ -10,14 +10,17 @@ signal damage_taken
 @export var anim_sprite : AnimatedSprite2D
 @export var min_time_between_heartbeats := 0.5
 @export var max_time_between_heartbeats := 2.3
-@export var max_health := 20
 
-var health: float
+var max_health := 20.0
+var health := 20.0
 var reduce_health_with_time := false
-var shade: float
+
+func init(new_max_health: float):
+	max_health = new_max_health
+	health = max_health
+
 
 func _ready():
-	health = max_health
 	Events.level_start.connect(_on_level_start)
 	heartbeat_timer.timeout.connect(_on_heartbeat_timeout)
 	heartbeat_timer.start(_get_heartbeat_interval())
@@ -33,9 +36,11 @@ func _process(delta):
 	if reduce_health_with_time:
 		health -= delta
 		health = max(health, 0)
-		shade = health/max_health
-		if health>0 and anim_sprite:
-			anim_sprite.material.set_shader_parameter("cutoff", shade )
+		var health_01 := health/max_health
+		if health>0:
+			if anim_sprite:
+				anim_sprite.material.set_shader_parameter("cutoff", health_01)
+			MusicManager.set_drums_volume_01(1 - max(health_01 - 0.5, 0.0))
 	
 	if health <= 0:
 		anim_sprite.material.set_shader_parameter("cutoff", 0 )
@@ -70,3 +75,7 @@ func _on_heart_area_entered(other) -> void:
 		kill()
 	if other.is_in_group(GroupManager.LASERGROUP):
 		kill()
+
+
+func _exit_tree():
+	MusicManager.set_drums_volume_01(0)

@@ -8,6 +8,7 @@ signal jump_started
 @onready var heartbeat : HeartBeat = $Heartbeat
 @onready var camera_2d: ShakeCamera2D = $Camera2D
 
+@export var HEARTBEAT_TIME := 20.0
 @export var MOVEMENTSPEED = 5
 @export var DAMPING = 5
 @export var GRAVITY = 2
@@ -15,6 +16,7 @@ signal jump_started
 @export var JUMPBUFFERTIME : float = 0.3
 @export var JUMPVELOCITY : float = 50
 @export var COYOTETIME : float = 0.3
+
 
 var motion: Vector2 = Vector2.ZERO
 var jumping : bool = false
@@ -27,10 +29,8 @@ var can_jump := true
 
 
 func _ready():
-	# Get block count TEST DELETE
-	var t = get_tree().get_nodes_in_group(GroupManager.BLOCKGROUP).size()
-	print(t)
-	pass 
+	Events.level_win.connect(_on_level_win)
+	heartbeat.init(HEARTBEAT_TIME)
 
 func _process(_delta):
 	#_flip_sprite()
@@ -96,9 +96,10 @@ func _coyote_time(jump_pressed: bool, on_floor: bool) -> bool:
 func _jump_buffer(jump_pressed: bool, on_floor: bool) -> bool:
 	if on_floor and not was_on_floor:
 		if not jump_buffer_timer.is_stopped():
-			jump_buffer_timer.stop()
-			_jump()
-			return true
+			if Input.is_action_pressed(InputManager.jump_input):
+				jump_buffer_timer.stop()
+				_jump()
+				return true
 	
 	if jump_pressed:
 		if not on_floor:
@@ -141,3 +142,9 @@ func _gravity(_delta: float):
 
 func kill():
 	heartbeat.kill()
+
+@onready var jail_cell = $JailCell
+func _on_level_win() -> void:
+	# horrible but speed
+	if jail_cell.get_child(0) is AnimationPlayer:
+		jail_cell.get_child(0).play("unlock")
