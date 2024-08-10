@@ -8,13 +8,13 @@ signal jump_started
 @onready var heartbeat : HeartBeat = $Heartbeat
 @onready var camera_2d: ShakeCamera2D = $Camera2D
 
-@export var HEARTBEAT_TIME := 20.0
-@export var MOVEMENTSPEED = 5
-@export var DAMPING = 5
-@export var GRAVITY = 2
+@export var HEARTBEAT_TIME := 30.0
+@export var MOVEMENTSPEED = 100 # was = 5
+@export var DAMPING = 45 # was = 5
+@export var GRAVITY = 5 #was = 2
 @export var FALL_GRAVITY_MULTIPLIER: float = 2
 @export var JUMPBUFFERTIME : float = 0.3
-@export var JUMPVELOCITY : float = 50
+@export var JUMPVELOCITY : float = 150 # was 50
 @export var COYOTETIME : float = 0.3
 
 

@@ -18,10 +18,6 @@ pause_menu_packed_scene = ExtResource("2_4hbja")
 [node name="UI_Container" type="CanvasLayer" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_5nhtn")]
-MOVEMENTSPEED = 150
-DAMPING = 45
-GRAVITY = 5
-JUMPVELOCITY = 150.0
 
 [node name="Camera2D2" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)

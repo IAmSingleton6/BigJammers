@@ -23,11 +23,7 @@ script = ExtResource("1_vlnka")
 
 [node name="Player" parent="." instance=ExtResource("1_8vqvh")]
 HEARTBEAT_TIME = 5.0
-MOVEMENTSPEED = 100
-DAMPING = 45
-GRAVITY = 5
 JUMPBUFFERTIME = 1.0
-JUMPVELOCITY = 150.0
 
 [node name="WaterBlock" parent="Player" instance=ExtResource("4_aoorf")]
 position = Vector2(22, 0)

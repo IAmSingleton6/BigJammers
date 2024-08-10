@@ -1,0 +1,41 @@
+[gd_scene load_steps=10 format=3 uid="uid://bsi5pacva333s"]
+
+[ext_resource type="TileSet" uid="uid://cx8on48oasopg" path="res://game_settings/main_tileset.tres" id="1_fm1ux"]
+[ext_resource type="Script" path="res://scenes/level_0.gd" id="1_yo06f"]
+[ext_resource type="PackedScene" uid="uid://bk2cqcbyapave" path="res://scenes/level_mechanics/fire.tscn" id="2_kdb47"]
+[ext_resource type="PackedScene" uid="uid://urfilus65567" path="res://scenes/pause_menu.tscn" id="2_sjrb8"]
+[ext_resource type="PackedScene" uid="uid://dnj8agfql6nuo" path="res://scenes/level_mechanics/water_fall.tscn" id="3_e013f"]
+[ext_resource type="PackedScene" uid="uid://8qb4pv2ttx4v" path="res://scenes/player/player.tscn" id="4_a36ee"]
+[ext_resource type="PackedScene" uid="uid://c5ldectpiibc5" path="res://scenes/level_mechanics/lava.tscn" id="4_ji4fa"]
+[ext_resource type="PackedScene" uid="uid://c76ksqqw3n176" path="res://scenes/blocks/water_block.tscn" id="5_2uxaf"]
+[ext_resource type="PackedScene" uid="uid://dwgdab0endmxb" path="res://scenes/Levels/killzone.tscn" id="7_17vjk"]
+
+[node name="level_2" type="Node2D"]
+script = ExtResource("1_yo06f")
+pause_menu_packed_scene = ExtResource("2_sjrb8")
+
+[node name="UI_container" type="CanvasLayer" parent="."]
+
+[node name="Level_2_tilemap" type="TileMap" parent="."]
+tile_set = ExtResource("1_fm1ux")
+format = 2
+layer_0/tile_data = PackedInt32Array(196606, 720897, 5, 196607, 720897, 5, 131072, 720897, 5, 131073, 720897, 5, 131074, 720897, 5, 131075, 720897, 5, 131076, 720897, 5, 131077, 720897, 5, 131078, 720897, 5, 196603, 720897, 5, 196604, 720897, 5, 196605, 720897, 5, 196601, 720897, 5, 196602, 720897, 5, 131082, 655361, 5, 131083, 720897, 5, 131084, 720897, 5, 131085, 720897, 5, 131086, 720897, 5, 131087, 720897, 5, 131088, 720897, 5, 131089, 786433, 5, 327695, 917505, 4, 327690, 983041, 4, 393223, 851969, 4, 393224, 851969, 4, 393225, 851969, 4, 393226, 851969, 4, 393227, 851969, 4, 393228, 851969, 4, 393229, 851969, 4, 393230, 851969, 4, 23, 655361, 5, 24, 720897, 5, 25, 720897, 5, 26, 720897, 5, 27, 786433, 5, 35, 655361, 5, 36, 720897, 5, -65499, 655361, 5, -65498, 655361, 5, -65497, 655361, 5, -65496, 655361, 5, -65495, 655361, 5, -65494, 786433, 5, 43, 720897, 5, 44, 720897, 5, 45, 720897, 5, 46, 786433, 5, 131124, 655361, 5, 131125, 720897, 5, 131126, 720897, 5, 131127, 720897, 5, 131128, 131072, 1, 131129, 131072, 1, 131130, 720897, 5, 131131, 720897, 5, 131132, 786433, 5, 196597, 786433, 5, 196596, 720897, 5, 196595, 720897, 5, 196594, 720897, 5, 196593, 720897, 5, 196592, 720897, 5, 196591, 720897, 5, 196590, 655361, 5, 327656, 786433, 5, 327655, 720897, 5, 327654, 720897, 5, 327653, 720897, 5, 327652, 655361, 5, 327644, 720897, 5, 327643, 720897, 5, 327642, 655361, 5, 524246, 720897, 5, 524245, 720897, 5, 524244, 655361, 5, 655310, 786433, 5, 655309, 720897, 5, 655308, 720897, 5, 655307, 720897, 5, 655306, 720897, 5, 655305, 720897, 5, 655304, 720897, 5, 655303, 720897, 5, 655302, 655361, 5, 131065, 786433, 4, 65542, 851969, 4, 589766, 983041, 2, 524230, 983041, 1, 458694, 65537, 11, 393158, 262145, 10, 327622, 589825, 17, 65595, 589825, 14, 65596, 589825, 14, 458713, 720897, 5, 458712, 720897, 5, 327645, 720897, 5, 327646, 786433, 5, 458711, 655361, 5)
+
+[node name="Level_Mechanics" type="Node2D" parent="."]
+
+[node name="Fire" parent="Level_Mechanics" instance=ExtResource("2_kdb47")]
+position = Vector2(960, 12)
+
+[node name="WaterFall" parent="Level_Mechanics" instance=ExtResource("3_e013f")]
+position = Vector2(-896, 70)
+
+[node name="Lava" parent="Level_Mechanics" instance=ExtResource("4_ji4fa")]
+position = Vector2(912, 41)
+
+[node name="Player" parent="." instance=ExtResource("4_a36ee")]
+
+[node name="WaterBlock" parent="Player" instance=ExtResource("5_2uxaf")]
+position = Vector2(25, 8)
+
+[node name="Killzone_Floor" parent="." instance=ExtResource("7_17vjk")]
+position = Vector2(0, 201)
