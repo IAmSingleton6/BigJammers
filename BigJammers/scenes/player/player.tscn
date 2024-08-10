@@ -146,7 +146,7 @@ JUMPBUFFERTIME = 0.15
 COYOTETIME = 0.15
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3.985, 3.985)
+zoom = Vector2(3, 3)
 process_callback = 0
 limit_bottom = 250
 limit_smoothed = true
