@@ -1,15 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://dd2oxqylh0wd0"]
+[gd_scene load_steps=11 format=3 uid="uid://dd2oxqylh0wd0"]
 
 [ext_resource type="PackedScene" uid="uid://8qb4pv2ttx4v" path="res://scenes/player/player.tscn" id="1_5nhtn"]
+[ext_resource type="Script" path="res://scenes/level_0.gd" id="1_rr24a"]
+[ext_resource type="PackedScene" uid="uid://urfilus65567" path="res://scenes/pause_menu.tscn" id="2_4hbja"]
 [ext_resource type="PackedScene" uid="uid://msculdcaewa3" path="res://scenes/blocks/fire_block.tscn" id="2_bqd5w"]
 [ext_resource type="PackedScene" uid="uid://27dv2va7nifm" path="res://scenes/blocks/timer_block.tscn" id="3_e1k1j"]
 [ext_resource type="PackedScene" uid="uid://c5ldectpiibc5" path="res://scenes/level_mechanics/lava.tscn" id="3_kihe4"]
 [ext_resource type="PackedScene" uid="uid://c76ksqqw3n176" path="res://scenes/blocks/water_block.tscn" id="4_2tdif"]
 [ext_resource type="PackedScene" uid="uid://dx8tslqgu5wdu" path="res://scenes/level_mechanics/water.tscn" id="4_q6gey"]
-[ext_resource type="TileSet" uid="uid://clideh6agfpyj" path="res://game_settings/main_tileset.tres" id="5_jxori"]
+[ext_resource type="TileSet" uid="uid://cx8on48oasopg" path="res://game_settings/main_tileset.tres" id="5_jxori"]
 [ext_resource type="PackedScene" uid="uid://3eg5vctj206g" path="res://scenes/level_mechanics/pressure_plate.tscn" id="5_wxxs8"]
 
 [node name="Level_0" type="Node2D"]
+script = ExtResource("1_rr24a")
+pause_menu_packed_scene = ExtResource("2_4hbja")
+
+[node name="UI_Container" type="CanvasLayer" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_5nhtn")]
 MOVEMENTSPEED = 150
