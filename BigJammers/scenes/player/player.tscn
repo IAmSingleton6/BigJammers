@@ -141,8 +141,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_0hfov"]
 radius = 8.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gwtem"]
-radius = 8.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2jk1"]
+size = Vector2(23, 23)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 5
@@ -186,7 +186,7 @@ stream = ExtResource("4_4y7hd")
 [node name="Area2D" type="Area2D" parent="." groups=["Heart"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_gwtem")
+shape = SubResource("RectangleShape2D_e2jk1")
 
 [node name="Dust" parent="." instance=ExtResource("7_pcr3b")]
 
