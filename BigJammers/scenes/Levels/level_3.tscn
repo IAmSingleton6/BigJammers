@@ -39,7 +39,7 @@ position = Vector2(1, -21)
 position = Vector2(0, 19)
 
 [node name="FireBlock" parent="Player" instance=ExtResource("8_yqhc3")]
-position = Vector2(-24, 0)
+position = Vector2(27, -1)
 
 [node name="Killzone_Floor" parent="." instance=ExtResource("3_tmygl")]
 position = Vector2(0, 152)

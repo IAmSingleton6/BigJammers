@@ -1,15 +1,26 @@
-[gd_scene load_steps=25 format=3 uid="uid://bxltmjmeyrjqd"]
+[gd_scene load_steps=28 format=3 uid="uid://bxltmjmeyrjqd"]
 
 [ext_resource type="Script" path="res://scripts/map/level_select.gd" id="1_yr0tu"]
 [ext_resource type="Script" path="res://scripts/map/player_icon.gd" id="3_tjgb5"]
 [ext_resource type="PackedScene" uid="uid://d4lfs68qurh06" path="res://scenes/map/level_icon.tscn" id="3_xras3"]
 [ext_resource type="Resource" uid="uid://ciyuredhl30p1" path="res://game_settings/Levels/Level1.tres" id="4_v1lvp"]
 [ext_resource type="Resource" uid="uid://d2a3gtnn347qx" path="res://game_settings/Levels/Level2.tres" id="5_8tjev"]
+[ext_resource type="Script" path="res://scripts/map/level_resource.gd" id="6_p3a2b"]
 [ext_resource type="Resource" uid="uid://7ic1i5vrbe3q" path="res://game_settings/Levels/Level3.tres" id="6_s2nh0"]
 [ext_resource type="Shader" path="res://shaders/heart.gdshader" id="8_0xcih"]
 [ext_resource type="Texture2D" uid="uid://iqxbsocm5o85" path="res://assets/heart_pulse_row.png" id="9_cj82g"]
 [ext_resource type="Texture2D" uid="uid://bhtc1mo4tjele" path="res://images/dashed_line.png" id="9_dw1jk"]
 [ext_resource type="TileSet" uid="uid://cx8on48oasopg" path="res://game_settings/main_tileset.tres" id="10_exrgs"]
+
+[sub_resource type="Resource" id="Resource_pjkqv"]
+script = ExtResource("6_p3a2b")
+level_name = "Level_5"
+scene = "res://scenes/Levels/level_4.tscn"
+
+[sub_resource type="Resource" id="Resource_los57"]
+script = ExtResource("6_p3a2b")
+level_name = "Level_5"
+scene = "res://scenes/Levels/level_5.tscn"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x02hn"]
 shader = ExtResource("8_0xcih")
@@ -147,11 +158,25 @@ level_right = NodePath("../LevelIcon3")
 level_left = NodePath("../LevelIcon")
 level_down = NodePath("../LevelIcon3")
 
-[node name="LevelIcon3" parent="Levels" node_paths=PackedStringArray("level_left", "level_up") instance=ExtResource("3_xras3")]
+[node name="LevelIcon3" parent="Levels" node_paths=PackedStringArray("level_right", "level_left", "level_up", "level_down") instance=ExtResource("3_xras3")]
 position = Vector2(-131, -253)
 level_data = ExtResource("6_s2nh0")
+level_right = NodePath("../LevelIcon4")
 level_left = NodePath("../LevelIcon2")
 level_up = NodePath("../LevelIcon2")
+level_down = NodePath("../LevelIcon4")
+
+[node name="LevelIcon4" parent="Levels" node_paths=PackedStringArray("level_left") instance=ExtResource("3_xras3")]
+position = Vector2(-61, -233)
+level_data = SubResource("Resource_pjkqv")
+level_right = NodePath("")
+level_left = NodePath("../LevelIcon3")
+
+[node name="LevelIcon5" parent="Levels" node_paths=PackedStringArray("level_left") instance=ExtResource("3_xras3")]
+position = Vector2(3, -203)
+level_data = SubResource("Resource_los57")
+level_right = NodePath("")
+level_left = NodePath("../LevelIcon4")
 
 [node name="PlayerIcon" type="Node2D" parent="."]
 position = Vector2(268, -284)

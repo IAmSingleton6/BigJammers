@@ -139,10 +139,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0hfov"]
-radius = 5.0
+radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gwtem"]
-radius = 5.0
+radius = 8.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 5
@@ -151,7 +151,7 @@ JUMPBUFFERTIME = 0.1
 COYOTETIME = 0.1
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
+zoom = Vector2(2, 2)
 process_callback = 0
 limit_bottom = 250
 limit_smoothed = true
