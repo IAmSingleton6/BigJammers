@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://3eg5vctj206g"]
+[gd_scene load_steps=6 format=3 uid="uid://3eg5vctj206g"]
 
 [ext_resource type="Script" path="res://scripts/level_mechanics/pressure_plate.gd" id="1_31brg"]
 [ext_resource type="Texture2D" uid="uid://b3cia80ng2gt" path="res://assets/assets/Plate.png" id="2_qeimq"]
+[ext_resource type="AudioStream" uid="uid://472p03jibtdh" path="res://assets/audio/sfx/click.wav" id="3_nswbn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sfnt7"]
 size = Vector2(18.5, 4.5)
@@ -43,3 +44,11 @@ text = "P
 label_settings = SubResource("LabelSettings_ftntt")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_nswbn")
+volume_db = -0.5
+pitch_scale = 0.9
+bus = &"SFX"
+
+[connection signal="pressure_plate_stepped_on" from="." to="AudioStreamPlayer2D" method="play"]

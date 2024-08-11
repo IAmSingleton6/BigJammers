@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://msculdcaewa3"]
+[gd_scene load_steps=15 format=3 uid="uid://msculdcaewa3"]
 
 [ext_resource type="Script" path="res://scripts/blocks/fire_block.gd" id="1_3b683"]
 [ext_resource type="PackedScene" uid="uid://dksj4h11n7g0p" path="res://scenes/particles/steam_2.tscn" id="2_7mqia"]
 [ext_resource type="Texture2D" uid="uid://du6brugeeelhr" path="res://assets/fire_2.png" id="3_hxklp"]
 [ext_resource type="Texture2D" uid="uid://qk0uobtsycff" path="res://assets/assets/border.png" id="4_71rof"]
+[ext_resource type="AudioStream" uid="uid://bvdpst2n0bpky" path="res://assets/audio/sfx/steam.wav" id="5_ooti8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i23e2"]
 
@@ -82,3 +83,8 @@ scale = Vector2(0.714286, 0.714286)
 texture = ExtResource("4_71rof")
 region_enabled = true
 region_rect = Rect2(2, 2, 28, 28)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ooti8")
+max_distance = 500.0
+bus = &"SFX"

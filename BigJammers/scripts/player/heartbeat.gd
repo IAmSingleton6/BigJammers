@@ -14,6 +14,7 @@ signal damage_taken
 var max_health := 20.0
 var health := 20.0
 var reduce_health_with_time := false
+var level_won := false
 
 func init(new_max_health: float):
 	max_health = new_max_health
@@ -22,6 +23,7 @@ func init(new_max_health: float):
 
 func _ready():
 	Events.level_start.connect(_on_level_start)
+	Events.level_win.connect(func(): level_won = true)
 	heartbeat_timer.timeout.connect(_on_heartbeat_timeout)
 	heartbeat_timer.start(_get_heartbeat_interval())
 	if anim_sprite:
@@ -57,6 +59,8 @@ func take_damage(amount: float) -> void:
 
 
 func kill():
+	if level_won:
+		return
 	print("Heart killed")
 	take_damage(health)
 	anim_sprite.animation = &"base"
@@ -100,6 +104,8 @@ func _on_heart_area_entered(other) -> void:
 	if other.is_in_group(GroupManager.WATERGROUP):
 		kill()
 	if other.is_in_group(GroupManager.LASERGROUP):
+		kill()
+	if other.is_in_group(GroupManager.KILLZONE):
 		kill()
 
 

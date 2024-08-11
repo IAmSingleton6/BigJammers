@@ -1,6 +1,7 @@
 extends Area2D
 class_name PressurePlate
 
+signal pressure_plate_stepped_on
 signal pressure_plate_activated
 signal pressure_plate_deactivated
 
@@ -29,6 +30,8 @@ func _on_body_entered(other):
 	
 	if not other.is_in_group("Player"):
 		return
+	
+	pressure_plate_stepped_on.emit()
 	
 	print("pressure plate entered")
 	stepped_on = true

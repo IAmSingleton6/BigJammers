@@ -4,4 +4,3 @@
 
 [node name="FeelPlayAudio" type="Node"]
 script = ExtResource("1_4o6gp")
-order = "Sequential"

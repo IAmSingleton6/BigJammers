@@ -25,3 +25,4 @@ static var ICEGROUP = "Ice"
 # Level mechanics
 static var LASERGROUP = "Laser"
 static var WINDGROUP = "Wind"
+static var KILLZONE = "Killzone"

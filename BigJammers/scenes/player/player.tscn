@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://8qb4pv2ttx4v"]
+[gd_scene load_steps=38 format=3 uid="uid://8qb4pv2ttx4v"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_j518t"]
 [ext_resource type="Shader" path="res://shaders/heart.gdshader" id="3_7767l"]
@@ -16,7 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://bxjp6vxap0khy" path="res://scripts/utility/feel/FeelScenes/FeelComponentScenes/feel_modulate_color_changer.tscn" id="13_mkjec"]
 [ext_resource type="PackedScene" uid="uid://d03jfh8kybrkw" path="res://scripts/utility/feel/FeelScenes/FeelComponentScenes/feel_scene_spawner.tscn" id="14_tn2x4"]
 [ext_resource type="PackedScene" uid="uid://dksj4h11n7g0p" path="res://scenes/particles/steam_2.tscn" id="15_131n6"]
+[ext_resource type="PackedScene" uid="uid://cwgw3bhbbeanl" path="res://scripts/utility/feel/FeelScenes/FeelComponentScenes/feel_play_audio.tscn" id="17_cdb06"]
 [ext_resource type="PackedScene" uid="uid://bh2ofek2n0tq8" path="res://scenes/jail_cell.tscn" id="17_e5cff"]
+[ext_resource type="AudioStream" uid="uid://b06sme77sbnhp" path="res://assets/audio/sfx/lose.wav" id="17_nb4ul"]
+[ext_resource type="AudioStream" uid="uid://cmvx55t5obsuf" path="res://assets/audio/sfx/win.wav" id="18_nr4ih"]
 [ext_resource type="PackedScene" uid="uid://urfilus65567" path="res://scenes/pause_menu.tscn" id="18_wmuyn"]
 [ext_resource type="PackedScene" uid="uid://d35bwsggj1njd" path="res://scenes/particles/fireworks.tscn" id="19_rddmx"]
 
@@ -212,6 +215,11 @@ duration = 0.3
 scene_to_spawn = ExtResource("15_131n6")
 node_to_parent = NodePath("../../..")
 
+[node name="FeelPlayAudio" parent="DeathFeedback/FeelPackage" node_paths=PackedStringArray("parent_node") instance=ExtResource("17_cdb06")]
+volume_db = -2
+audio = ExtResource("17_nb4ul")
+parent_node = NodePath("../../..")
+
 [node name="WinFeedback" parent="." instance=ExtResource("8_d31ga")]
 
 [node name="FeelPackage" parent="WinFeedback" instance=ExtResource("9_2huso")]
@@ -229,6 +237,10 @@ order = "Parallel"
 [node name="FeelSceneSpawner" parent="WinFeedback/FeelPackage" node_paths=PackedStringArray("node_to_parent") instance=ExtResource("14_tn2x4")]
 scene_to_spawn = ExtResource("19_rddmx")
 node_to_parent = NodePath("../../..")
+
+[node name="FeelPlayAudio" parent="WinFeedback/FeelPackage" node_paths=PackedStringArray("parent_node") instance=ExtResource("17_cdb06")]
+audio = ExtResource("18_nr4ih")
+parent_node = NodePath("../../..")
 
 [node name="JumpFeedback" parent="." instance=ExtResource("8_d31ga")]
 
