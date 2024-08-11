@@ -36,6 +36,7 @@ off_time = 3.0
 position = Vector2(-209, -446)
 rotation = 1.5708
 target_position = Vector2(150, 0)
+timed = false
 on_time = 1.0
 off_time = 3.0
 
@@ -43,6 +44,7 @@ off_time = 3.0
 position = Vector2(-200, -446)
 rotation = 1.5708
 target_position = Vector2(150, 0)
+timed = false
 on_time = 1.0
 off_time = 3.0
 
@@ -50,6 +52,7 @@ off_time = 3.0
 position = Vector2(-191, -446)
 rotation = 1.5708
 target_position = Vector2(150, 0)
+timed = false
 on_time = 1.0
 off_time = 3.0
 
@@ -57,6 +60,7 @@ off_time = 3.0
 position = Vector2(-182, -446)
 rotation = 1.5708
 target_position = Vector2(150, 0)
+timed = false
 on_time = 1.0
 off_time = 3.0
 
@@ -64,6 +68,7 @@ off_time = 3.0
 position = Vector2(-173, -446)
 rotation = 1.5708
 target_position = Vector2(150, 0)
+timed = false
 on_time = 1.0
 off_time = 3.0
 
@@ -71,6 +76,7 @@ off_time = 3.0
 position = Vector2(-163, -446)
 rotation = 1.5708
 target_position = Vector2(150, 0)
+timed = false
 on_time = 1.0
 off_time = 3.0
 
@@ -78,6 +84,7 @@ off_time = 3.0
 position = Vector2(-153, -446)
 rotation = 1.5708
 target_position = Vector2(150, 0)
+timed = false
 on_time = 1.0
 off_time = 3.0
 
@@ -85,6 +92,7 @@ off_time = 3.0
 position = Vector2(-144, -446)
 rotation = 1.5708
 target_position = Vector2(150, 0)
+timed = false
 on_time = 1.0
 off_time = 3.0
 
@@ -92,6 +100,7 @@ off_time = 3.0
 position = Vector2(-135, -446)
 rotation = 1.5708
 target_position = Vector2(150, 0)
+timed = false
 on_time = 1.0
 off_time = 3.0
 
@@ -99,6 +108,7 @@ off_time = 3.0
 position = Vector2(-126, -446)
 rotation = 1.5708
 target_position = Vector2(150, 0)
+timed = false
 on_time = 1.0
 off_time = 3.0
 
@@ -106,6 +116,7 @@ off_time = 3.0
 position = Vector2(-117, -446)
 rotation = 1.5708
 target_position = Vector2(150, 0)
+timed = false
 on_time = 1.0
 off_time = 3.0
 
@@ -113,6 +124,7 @@ off_time = 3.0
 position = Vector2(-107, -446)
 rotation = 1.5708
 target_position = Vector2(150, 0)
+timed = false
 on_time = 1.0
 off_time = 3.0
 
@@ -120,6 +132,7 @@ off_time = 3.0
 position = Vector2(-98, -446)
 rotation = 1.5708
 target_position = Vector2(150, 0)
+timed = false
 on_time = 1.0
 off_time = 3.0
 
@@ -127,6 +140,7 @@ off_time = 3.0
 position = Vector2(-89, -446)
 rotation = 1.5708
 target_position = Vector2(150, 0)
+timed = false
 on_time = 1.0
 off_time = 3.0
 
@@ -134,6 +148,7 @@ off_time = 3.0
 position = Vector2(-80, -446)
 rotation = 1.5708
 target_position = Vector2(150, 0)
+timed = false
 on_time = 1.0
 off_time = 3.0
 
@@ -141,6 +156,7 @@ off_time = 3.0
 position = Vector2(-71, -446)
 rotation = 1.5708
 target_position = Vector2(150, 0)
+timed = false
 on_time = 1.0
 off_time = 3.0
 
@@ -171,11 +187,11 @@ position = Vector2(-27, 0)
 
 [node name="TimerBlock2" parent="Player" instance=ExtResource("6_sc2xj")]
 position = Vector2(10, -48)
-timeout = 9.0
+timeout = 10.0
 
 [node name="TimerBlock3" parent="Player" instance=ExtResource("6_sc2xj")]
 position = Vector2(-10, -48)
-timeout = 9.0
+timeout = 10.0
 
 [node name="FireBlock" parent="Player" instance=ExtResource("7_ug46w")]
 position = Vector2(0, 25)

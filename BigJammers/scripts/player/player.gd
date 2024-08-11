@@ -72,19 +72,9 @@ func _physics_process(delta):
 	if stuck_to_wall:
 		if Input.is_action_just_pressed(InputManager.jump_input):
 			stuck_to_wall = false
-			#var hitting_roof: bool = false
-			#for child in get_children():
-				#if child is StickyBlock:
-					#var space_state = get_world_2d().direct_space_state
-					#var query = PhysicsRayQueryParameters2D.create(child.position, child.position - Vector2(0, 25), 0xFFFFFFFF, [self, child])
-					#var result = space_state.intersect_ray(query)
-					#print("RESULT")
-					#if result:
-						#print(result.collider.name)
-						#hitting_roof = true
-			#if hitting_roof:
-				#_jump(JUMP_MULT_ON_STICK)
 			_jump(JUMP_MULT_ON_STICK)
+		if Input.is_action_just_pressed(InputManager.move_down):
+			stuck_to_wall = false
 		return
 	
 	_gravity(delta)
