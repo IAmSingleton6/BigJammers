@@ -151,7 +151,7 @@ JUMPBUFFERTIME = 0.1
 COYOTETIME = 0.1
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2.3, 2.3)
+zoom = Vector2(2, 2)
 process_callback = 0
 limit_bottom = 250
 limit_smoothed = true
@@ -164,7 +164,7 @@ material = SubResource("ShaderMaterial_8berp")
 position = Vector2(-4.76837e-07, -4.76837e-07)
 scale = Vector2(0.625, 0.625)
 sprite_frames = SubResource("SpriteFrames_qt281")
-animation = &"ecstatic"
+animation = &"base"
 autoplay = "happy"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
