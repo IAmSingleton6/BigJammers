@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmj47wo7on1yp"]
+
+[ext_resource type="Script" path="res://scripts/level_mechanics/sad_pickup.gd" id="1_s6vvu"]
+[ext_resource type="Texture2D" uid="uid://dm0se6d0u0yn" path="res://assets/sad_pickup.png" id="2_7p705"]
+[ext_resource type="PackedScene" uid="uid://dksj4h11n7g0p" path="res://scenes/particles/steam_2.tscn" id="2_68xb8"]
+[ext_resource type="Script" path="res://scenes/level_mechanics/bob_up_and_down.gd" id="3_ak1r1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_16lh0"]
+
+[node name="SadPickup" type="Area2D"]
+scale = Vector2(0.78, 0.78)
+script = ExtResource("1_s6vvu")
+pickup_smoke = ExtResource("2_68xb8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_16lh0")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_7p705")
+script = ExtResource("3_ak1r1")
+amplitude = 3.5
+frequency = 2.2

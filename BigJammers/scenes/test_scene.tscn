@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bjtxawunkxuhh"]
+[gd_scene load_steps=17 format=3 uid="uid://bjtxawunkxuhh"]
 
 [ext_resource type="PackedScene" uid="uid://8qb4pv2ttx4v" path="res://scenes/player/player.tscn" id="1_8vqvh"]
 [ext_resource type="Script" path="res://scripts/level/level.gd" id="1_vlnka"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://1q0ca4lxpoac" path="res://scenes/post_processing.tscn" id="12_lna78"]
 [ext_resource type="PackedScene" uid="uid://dx8tslqgu5wdu" path="res://scenes/level_mechanics/water.tscn" id="12_wpm0u"]
 [ext_resource type="PackedScene" uid="uid://urfilus65567" path="res://scenes/pause_menu.tscn" id="14_5xhf7"]
+[ext_resource type="PackedScene" uid="uid://dmj47wo7on1yp" path="res://scenes/level_mechanics/sad_pickup.tscn" id="15_hk1bo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v1rp8"]
 
@@ -83,3 +84,6 @@ rotation = 1.5708
 position = Vector2(69, -39)
 
 [node name="PostProcessing" parent="." instance=ExtResource("12_lna78")]
+
+[node name="SadPickup" parent="." instance=ExtResource("15_hk1bo")]
+position = Vector2(-85, -7)
