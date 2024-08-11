@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://7wntjr7v5pe"]
+[gd_scene load_steps=9 format=3 uid="uid://7wntjr7v5pe"]
 
+[ext_resource type="Script" path="res://scripts/level/level.gd" id="1_1saib"]
 [ext_resource type="TileSet" uid="uid://cx8on48oasopg" path="res://game_settings/main_tileset.tres" id="1_h14cr"]
 [ext_resource type="PackedScene" uid="uid://bk2cqcbyapave" path="res://scenes/level_mechanics/fire.tscn" id="2_iif88"]
 [ext_resource type="PackedScene" uid="uid://dnj8agfql6nuo" path="res://scenes/level_mechanics/water_fall.tscn" id="3_5p4w5"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dwgdab0endmxb" path="res://scenes/Levels/killzone.tscn" id="7_8tn64"]
 
 [node name="level_6" type="Node2D"]
+script = ExtResource("1_1saib")
 
 [node name="Level_6_tilemap" type="TileMap" parent="."]
 tile_set = ExtResource("1_h14cr")
