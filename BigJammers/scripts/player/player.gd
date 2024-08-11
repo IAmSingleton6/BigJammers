@@ -8,6 +8,7 @@ signal level_win
 @onready var coyote_timer : Timer = $CoyoteTimer
 @onready var heartbeat : HeartBeat = $Heartbeat
 @onready var camera_2d: ShakeCamera2D = $Camera2D
+@onready var feels: AnimatedSprite2D = $Feels
 
 @export var HEARTBEAT_TIME := 30.0
 @export var MOVEMENTSPEED = 100 # was = 5
@@ -147,6 +148,7 @@ func kill():
 @onready var jail_cell = $JailCell
 func _on_level_win() -> void:
 	# horrible but speed
+	feels.animation = &"ecstatic"
 	level_win.emit()
 	if jail_cell.get_child(0) is AnimationPlayer:
 		jail_cell.get_child(0).play("unlock")

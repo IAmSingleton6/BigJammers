@@ -164,7 +164,7 @@ material = SubResource("ShaderMaterial_8berp")
 position = Vector2(-4.76837e-07, -4.76837e-07)
 scale = Vector2(0.625, 0.625)
 sprite_frames = SubResource("SpriteFrames_qt281")
-animation = &"base"
+animation = &"ecstatic"
 autoplay = "happy"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
