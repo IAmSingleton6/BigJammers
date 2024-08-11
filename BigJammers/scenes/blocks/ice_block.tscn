@@ -1,11 +1,40 @@
-[gd_scene load_steps=7 format=3 uid="uid://75no6pmiwmm3"]
+[gd_scene load_steps=11 format=3 uid="uid://75no6pmiwmm3"]
 
 [ext_resource type="Script" path="res://scripts/blocks/ice_block.gd" id="1_gnc0r"]
 [ext_resource type="PackedScene" uid="uid://c0ktkj7b3ullk" path="res://scenes/particles/steam.tscn" id="2_dy1ow"]
-[ext_resource type="Texture2D" uid="uid://dxvoxorpid8br" path="res://icon.svg" id="2_pqbs6"]
+[ext_resource type="Texture2D" uid="uid://dv3sudxss1e6h" path="res://assets/Snowflake_2.png" id="3_doseg"]
 [ext_resource type="AudioStream" uid="uid://bvdpst2n0bpky" path="res://assets/audio/sfx/steam.wav" id="4_ja1k1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i23e2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7y7a7"]
+atlas = ExtResource("3_doseg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6iod"]
+atlas = ExtResource("3_doseg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vh7uk"]
+atlas = ExtResource("3_doseg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s2rgv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7y7a7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6iod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vh7uk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvrfv"]
 
@@ -14,9 +43,12 @@ shape = SubResource("RectangleShape2D_i23e2")
 script = ExtResource("1_gnc0r")
 steam_particle_scene = ExtResource("2_dy1ow")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.155, 0.155)
-texture = ExtResource("2_pqbs6")
+[node name="Snowflake" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.38419e-07, -2.38419e-07)
+scale = Vector2(0.625, 0.625)
+sprite_frames = SubResource("SpriteFrames_s2rgv")
+autoplay = "default"
+frame_progress = 0.327463
 
 [node name="Area2D" type="Area2D" parent="." groups=["Ice"]]
 
