@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bxltmjmeyrjqd"]
+[gd_scene load_steps=32 format=3 uid="uid://bxltmjmeyrjqd"]
 
 [ext_resource type="Script" path="res://scripts/map/level_select.gd" id="1_yr0tu"]
 [ext_resource type="Script" path="res://scripts/map/player_icon.gd" id="3_tjgb5"]
@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://bhtc1mo4tjele" path="res://images/dashed_line.png" id="9_dw1jk"]
 [ext_resource type="TileSet" uid="uid://cx8on48oasopg" path="res://game_settings/main_tileset.tres" id="10_exrgs"]
 [ext_resource type="AudioStream" uid="uid://dmjhxg1jg5225" path="res://assets/audio/sfx/select_level.wav" id="12_8iv17"]
+[ext_resource type="PackedScene" uid="uid://dn3miw5oo0am7" path="res://scripts/utility/feel/FeelScenes/feel_controller.tscn" id="13_uutly"]
+[ext_resource type="PackedScene" uid="uid://cyayqf1ku4so6" path="res://scripts/utility/feel/FeelScenes/feel_package.tscn" id="14_mawqn"]
+[ext_resource type="PackedScene" uid="uid://cafh57u5rwlti" path="res://scripts/utility/feel/FeelScenes/FeelComponentScenes/feel_camera_zoom.tscn" id="15_5gre1"]
 
 [sub_resource type="Resource" id="Resource_pjkqv"]
 script = ExtResource("6_p3a2b")
@@ -226,4 +229,15 @@ stream = ExtResource("12_8iv17")
 volume_db = -3.0
 bus = &"SFX"
 
+[node name="FeelController" parent="." instance=ExtResource("13_uutly")]
+
+[node name="FeelPackage" parent="FeelController" instance=ExtResource("14_mawqn")]
+
+[node name="FeelCameraZoom" parent="FeelController/FeelPackage" node_paths=PackedStringArray("camera") instance=ExtResource("15_5gre1")]
+camera = NodePath("../../../PlayerIcon/Camera2D")
+zoom_scale = 5.0
+duration = 2.0
+restore_original_zoom = false
+
 [connection signal="level_selected" from="." to="AudioStreamPlayer" method="play"]
+[connection signal="level_selected" from="." to="FeelController" method="play"]
