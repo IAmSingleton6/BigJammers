@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://de6165hw10myi"]
 
 [ext_resource type="Script" path="res://scripts/blocks/solid_block.gd" id="1_rxbde"]
-[ext_resource type="Texture2D" uid="uid://dpkk52enxywqr" path="res://assets/solid_block.png" id="3_c4vni"]
+[ext_resource type="Texture2D" uid="uid://duvdrj0he03dc" path="res://assets/pixel.png" id="2_f3yv3"]
 [ext_resource type="Texture2D" uid="uid://qk0uobtsycff" path="res://assets/assets/border.png" id="4_2udv4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5a1o"]
@@ -18,8 +18,9 @@ script = ExtResource("1_rxbde")
 shape = SubResource("RectangleShape2D_y3ryu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.625, 0.625)
-texture = ExtResource("3_c4vni")
+self_modulate = Color(0.8, 0.8, 0.8, 1)
+scale = Vector2(19.13, 19.13)
+texture = ExtResource("2_f3yv3")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(0, 4.76837e-07)

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dwgdab0endmxb" path="res://scenes/Levels/killzone.tscn" id="3_tmygl"]
 [ext_resource type="PackedScene" uid="uid://c5ldectpiibc5" path="res://scenes/level_mechanics/lava.tscn" id="4_g2rws"]
 [ext_resource type="PackedScene" uid="uid://c76ksqqw3n176" path="res://scenes/blocks/water_block.tscn" id="7_3vkjc"]
-[ext_resource type="PackedScene" path="res://scenes/level_mechanics/water_fall_straight.tscn" id="8_es23c"]
+[ext_resource type="PackedScene" uid="uid://c6ue3gpxvqsyn" path="res://scenes/level_mechanics/water_fall_straight.tscn" id="8_es23c"]
 [ext_resource type="PackedScene" uid="uid://msculdcaewa3" path="res://scenes/blocks/fire_block.tscn" id="8_yqhc3"]
 
 [node name="level_3" type="Node2D"]

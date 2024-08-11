@@ -25,6 +25,7 @@ var jumping : bool = false
 var was_on_floor : bool = false
 var gravity: Vector3 = Vector3.DOWN
 var moving := true
+var stuck_to_wall := false
 
 # Powerup controls
 var can_jump := true
@@ -33,6 +34,12 @@ var can_jump := true
 func _ready():
 	Events.level_win.connect(_on_level_win)
 	heartbeat.init(HEARTBEAT_TIME)
+	for block in get_children():
+		if block is StickyBlock:
+			block.wall_entered.connect(_sticky_wall_entered)
+
+func _sticky_wall_entered():
+	stuck_to_wall = true
 
 func _process(_delta):
 	#_flip_sprite()
@@ -59,6 +66,12 @@ func on_level_start(_time: float):
 			#flip_h = true
 
 func _physics_process(delta):
+	if stuck_to_wall:
+		if Input.is_action_just_pressed(InputManager.jump_input):
+			stuck_to_wall = false
+			_jump()
+		return
+	
 	_gravity(delta)
 	_check_jump()
 	_movement(delta)

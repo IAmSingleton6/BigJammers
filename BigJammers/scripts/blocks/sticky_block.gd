@@ -1,18 +1,25 @@
-class_name WaterBlock
+class_name StickyBlock
 extends Block
 
-@onready var audio_stream_player_2d = $AudioStreamPlayer2D
+signal wall_entered
+
+@onready var sprite_2d = $Sprite2D
 @onready var area_2d: Area2D = $Area2D
+@onready var audio_stream_player_2d = $AudioStreamPlayer2D
 
 @export var steam_particle_scene: PackedScene
 
 
 func _ready():
-	area_2d.area_entered.connect(_on_area_entered)
+	area_2d.body_entered.connect(_on_body_entered)
 
 
-func _on_area_entered(_other):
-	pass
+func _on_body_entered(other):
+	if other.name == "Player":
+		return
+	print(other.name)
+	wall_entered.emit()
+	audio_stream_player_2d.play()
 
 
 func destroy_block(group_name: String) -> void:

@@ -21,3 +21,8 @@ func destroy_block(group_name: String) -> void:
 		
 		print("block distinguishes by laser")
 		queue_free()
+
+
+func _init():
+	if not is_in_group(GroupManager.BLOCKGROUP):
+		add_to_group(GroupManager.BLOCKGROUP)

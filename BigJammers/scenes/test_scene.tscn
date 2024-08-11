@@ -1,12 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://bjtxawunkxuhh"]
+[gd_scene load_steps=18 format=3 uid="uid://bjtxawunkxuhh"]
 
 [ext_resource type="PackedScene" uid="uid://8qb4pv2ttx4v" path="res://scenes/player/player.tscn" id="1_8vqvh"]
 [ext_resource type="Script" path="res://scripts/level/level.gd" id="1_vlnka"]
 [ext_resource type="Texture2D" uid="uid://dxvoxorpid8br" path="res://icon.svg" id="2_y78ey"]
-[ext_resource type="PackedScene" uid="uid://c76ksqqw3n176" path="res://scenes/blocks/water_block.tscn" id="4_aoorf"]
 [ext_resource type="PackedScene" uid="uid://3eg5vctj206g" path="res://scenes/level_mechanics/pressure_plate.tscn" id="4_hmsqc"]
-[ext_resource type="PackedScene" uid="uid://msculdcaewa3" path="res://scenes/blocks/fire_block.tscn" id="4_wsiu5"]
 [ext_resource type="PackedScene" uid="uid://bxoy0mykgi768" path="res://scenes/level_mechanics/wind.tscn" id="6_7a7t6"]
+[ext_resource type="PackedScene" uid="uid://b2lg5vehvadom" path="res://scenes/blocks/sticky_block.tscn" id="6_28ye2"]
 [ext_resource type="PackedScene" uid="uid://de6165hw10myi" path="res://scenes/blocks/solid_block.tscn" id="6_nhpnj"]
 [ext_resource type="PackedScene" uid="uid://27dv2va7nifm" path="res://scenes/blocks/timer_block.tscn" id="7_aupqg"]
 [ext_resource type="PackedScene" uid="uid://bk2cqcbyapave" path="res://scenes/level_mechanics/fire.tscn" id="9_nofno"]
@@ -26,18 +25,16 @@ script = ExtResource("1_vlnka")
 [node name="CanvasLayer" parent="." instance=ExtResource("14_5xhf7")]
 
 [node name="Player" parent="." instance=ExtResource("1_8vqvh")]
-
-[node name="WaterBlock" parent="Player" instance=ExtResource("4_aoorf")]
-position = Vector2(22, 0)
-
-[node name="FireBlock" parent="Player" instance=ExtResource("4_wsiu5")]
-position = Vector2(0, 20.22)
+position = Vector2(-244, 3)
 
 [node name="SolidBlock" parent="Player" instance=ExtResource("6_nhpnj")]
 position = Vector2(-21, -1)
 
 [node name="TimerBlock" parent="Player" instance=ExtResource("7_aupqg")]
 position = Vector2(0, -24)
+
+[node name="StickyBlock" parent="Player" instance=ExtResource("6_28ye2")]
+position = Vector2(27, -12)
 
 [node name="floor" type="StaticBody2D" parent="."]
 position = Vector2(0, 40.135)
@@ -51,8 +48,8 @@ scale = Vector2(0.145, 0.145)
 texture = ExtResource("2_y78ey")
 
 [node name="floor2" type="StaticBody2D" parent="."]
-position = Vector2(-22.66, 40.135)
-rotation = 0.383972
+position = Vector2(-67, 37)
+rotation = 1.5708
 scale = Vector2(30, 0.6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor2"]
@@ -85,7 +82,7 @@ position = Vector2(192, 19)
 position = Vector2(24, -49)
 
 [node name="Laser" parent="." instance=ExtResource("10_c01wq")]
-position = Vector2(-126, -89)
+position = Vector2(99, -61)
 rotation = 1.5708
 
 [node name="WaterFall" parent="." instance=ExtResource("11_kulo0")]
@@ -94,4 +91,4 @@ position = Vector2(69, -39)
 [node name="PostProcessing" parent="." instance=ExtResource("12_lna78")]
 
 [node name="SadPickup" parent="." instance=ExtResource("15_hk1bo")]
-position = Vector2(-85, -7)
+position = Vector2(-27, 22)
