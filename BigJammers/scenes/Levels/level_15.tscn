@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=3 uid="uid://cjjg57a6xvpis"]
+
+[ext_resource type="TileSet" uid="uid://cx8on48oasopg" path="res://game_settings/main_tileset.tres" id="1_8y5gl"]
+[ext_resource type="Script" path="res://scripts/level/level.gd" id="1_ewsj0"]
+[ext_resource type="PackedScene" uid="uid://dx8tslqgu5wdu" path="res://scenes/level_mechanics/water.tscn" id="2_txlwn"]
+[ext_resource type="PackedScene" uid="uid://c6urmskx7xp83" path="res://scenes/level_mechanics/laser.tscn" id="3_a0b0a"]
+[ext_resource type="PackedScene" uid="uid://8qb4pv2ttx4v" path="res://scenes/player/player.tscn" id="4_eatwp"]
+[ext_resource type="PackedScene" uid="uid://b2lg5vehvadom" path="res://scenes/blocks/sticky_block.tscn" id="5_rssy0"]
+[ext_resource type="PackedScene" uid="uid://msculdcaewa3" path="res://scenes/blocks/fire_block.tscn" id="6_y03p7"]
+[ext_resource type="PackedScene" uid="uid://dwgdab0endmxb" path="res://scenes/Levels/killzone.tscn" id="7_rla3c"]
+
+[node name="level_15" type="Node2D"]
+script = ExtResource("1_ewsj0")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_8y5gl")
+format = 2
+layer_0/tile_data = PackedInt32Array(196605, 720897, 5, 196606, 720897, 5, 196607, 720897, 5, 131072, 720897, 5, 131073, 720897, 5, 131074, 720897, 5, 131075, 720897, 5, 131076, 720897, 5, 131077, 720897, 5, 131078, 720897, 5, 131079, 720897, 5, 131080, 720897, 5, 131081, 720897, 5, 131082, 720897, 5, 131083, 720897, 5, 131084, 720897, 5, 131085, 720897, 5, -393202, 655361, 6, -327666, 655361, 6, -262130, 655361, 6, -196594, 655361, 6, -131058, 655361, 6, -65522, 655361, 6, 14, 655361, 6, 65550, 655361, 6, -458738, 655361, 5, -458737, 720897, 5, -458736, 720897, 5, -458735, 720897, 5, -458734, 720897, 5, -458733, 720897, 5, -458732, 720897, 5, -458731, 720897, 5, -458730, 720897, 5)
+
+[node name="Level_Mechanics" type="Node2D" parent="."]
+
+[node name="Water" parent="Level_Mechanics" instance=ExtResource("2_txlwn")]
+position = Vector2(128, -2)
+
+[node name="Laser" parent="Level_Mechanics" instance=ExtResource("3_a0b0a")]
+position = Vector2(305, -212)
+rotation = 1.5708
+
+[node name="Player" parent="." instance=ExtResource("4_eatwp")]
+
+[node name="StickyBlock" parent="Player" instance=ExtResource("5_rssy0")]
+position = Vector2(25, -6)
+
+[node name="FireBlock" parent="Player" instance=ExtResource("6_y03p7")]
+position = Vector2(49, -7)
+
+[node name="Killzone_Floor" parent="." instance=ExtResource("7_rla3c")]
+position = Vector2(0, 180)
