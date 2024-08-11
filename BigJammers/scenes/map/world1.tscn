@@ -1,6 +1,5 @@
-[gd_scene load_steps=27 format=3 uid="uid://bxltmjmeyrjqd"]
+[gd_scene load_steps=25 format=3 uid="uid://bxltmjmeyrjqd"]
 
-[ext_resource type="Texture2D" uid="uid://dxvoxorpid8br" path="res://icon.svg" id="1_ye0ey"]
 [ext_resource type="Script" path="res://scripts/map/level_select.gd" id="1_yr0tu"]
 [ext_resource type="Script" path="res://scripts/map/player_icon.gd" id="3_tjgb5"]
 [ext_resource type="PackedScene" uid="uid://d4lfs68qurh06" path="res://scenes/map/level_icon.tscn" id="3_xras3"]
@@ -8,15 +7,14 @@
 [ext_resource type="Resource" uid="uid://d2a3gtnn347qx" path="res://game_settings/Levels/Level2.tres" id="5_8tjev"]
 [ext_resource type="Resource" uid="uid://7ic1i5vrbe3q" path="res://game_settings/Levels/Level3.tres" id="6_s2nh0"]
 [ext_resource type="Shader" path="res://shaders/heart.gdshader" id="8_0xcih"]
-[ext_resource type="Texture2D" uid="uid://bq0ahxcd0fmxe" path="res://assets/Hearts_2.png" id="8_oefl6"]
 [ext_resource type="Texture2D" uid="uid://iqxbsocm5o85" path="res://assets/heart_pulse_row.png" id="9_cj82g"]
 [ext_resource type="Texture2D" uid="uid://bhtc1mo4tjele" path="res://images/dashed_line.png" id="9_dw1jk"]
 [ext_resource type="TileSet" uid="uid://cx8on48oasopg" path="res://game_settings/main_tileset.tres" id="10_exrgs"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0cp3h"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x02hn"]
 shader = ExtResource("8_0xcih")
 shader_parameter/color = Color(0.470588, 0, 0, 1)
-shader_parameter/cutoff = 0.485
+shader_parameter/cutoff = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mmoyw"]
 atlas = ExtResource("9_cj82g")
@@ -138,19 +136,19 @@ script = ExtResource("1_yr0tu")
 [node name="Levels" type="Node2D" parent="."]
 
 [node name="LevelIcon" parent="Levels" node_paths=PackedStringArray("level_right") instance=ExtResource("3_xras3")]
-position = Vector2(-297, -305)
+position = Vector2(-298, -305)
 level_data = ExtResource("4_v1lvp")
 level_right = NodePath("../LevelIcon2")
 
 [node name="LevelIcon2" parent="Levels" node_paths=PackedStringArray("level_right", "level_left", "level_down") instance=ExtResource("3_xras3")]
-position = Vector2(91, -295)
+position = Vector2(-220, -303)
 level_data = ExtResource("5_8tjev")
 level_right = NodePath("../LevelIcon3")
 level_left = NodePath("../LevelIcon")
 level_down = NodePath("../LevelIcon3")
 
 [node name="LevelIcon3" parent="Levels" node_paths=PackedStringArray("level_left", "level_up") instance=ExtResource("3_xras3")]
-position = Vector2(323, -60)
+position = Vector2(-131, -253)
 level_data = ExtResource("6_s2nh0")
 level_left = NodePath("../LevelIcon2")
 level_up = NodePath("../LevelIcon2")
@@ -160,16 +158,12 @@ position = Vector2(268, -284)
 script = ExtResource("3_tjgb5")
 speed = 8
 
-[node name="Sprite2D" type="Sprite2D" parent="PlayerIcon"]
-scale = Vector2(1.995, 1.995)
-texture = ExtResource("8_oefl6")
-hframes = 5
-
 [node name="Camera2D" type="Camera2D" parent="PlayerIcon"]
-zoom = Vector2(1.2, 1.2)
+zoom = Vector2(3.54, 3.54)
+position_smoothing_enabled = true
 
 [node name="Feels" type="AnimatedSprite2D" parent="PlayerIcon"]
-material = SubResource("ShaderMaterial_0cp3h")
+material = SubResource("ShaderMaterial_x02hn")
 position = Vector2(-4.76837e-07, -4.76837e-07)
 scale = Vector2(0.625, 0.625)
 sprite_frames = SubResource("SpriteFrames_bl6or")
@@ -178,23 +172,19 @@ autoplay = "happy"
 
 [node name="Line2D" type="Line2D" parent="."]
 texture_repeat = 2
-points = PackedVector2Array(67, -297, -269, -304)
-width = 30.0
+position = Vector2(-15, -1)
+points = PackedVector2Array(-223, -303, -264, -304)
+width = 9.3
 texture = ExtResource("9_dw1jk")
 texture_mode = 1
 
 [node name="Line2D2" type="Line2D" parent="."]
 texture_repeat = 2
-points = PackedVector2Array(110, -276, 308, -82)
-width = 30.0
+position = Vector2(-318, -26)
+points = PackedVector2Array(116, -277, 186, -243)
+width = 9.3
 texture = ExtResource("9_dw1jk")
 texture_mode = 1
-
-[node name="Background" type="Sprite2D" parent="."]
-visible = false
-z_index = -1
-scale = Vector2(6.975, 6.975)
-texture = ExtResource("1_ye0ey")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kfxrd")

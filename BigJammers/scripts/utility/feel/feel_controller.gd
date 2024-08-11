@@ -81,3 +81,7 @@ func on_component_manager_finished() -> void:
 			active_component_managers = 0
 			return
 		playing = false
+
+
+func _on_player_level_win():
+	pass # Replace with function body.

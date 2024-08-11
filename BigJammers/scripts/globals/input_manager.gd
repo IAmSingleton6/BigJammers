@@ -1,6 +1,7 @@
 class_name InputManager
 
 static var jump_input = "Jump"
+static var pause_input = "Pause"
 static var move_right = "MoveRight"
 static var move_left = "MoveLeft"
 static var move_up = "MoveUp"

@@ -1,6 +1,6 @@
 extends Node
 
-@export var drum_volume_seek_speed := 3
+@export var drum_volume_seek_speed := 7
 @export var minimum_drum_volume := 20.0
 
 @onready var intro: AudioStreamPlayer = $intro
@@ -32,21 +32,27 @@ func set_drums_volume_01(vol: float) -> void:
 	drums_volume_01 = vol
 
 
-var lpf_pause_tween: Tween
+var pause_tween: Tween
+
 func on_pause_start() -> void:
 	# get low pass effect
-	var effect = AudioServer.get_bus_effect(1, 0)
-	if effect:
-		lpf_pause_tween = get_tree().create_tween()
-		lpf_pause_tween.tween_property(effect, "cutoff_hz", 400, 1)
-		lpf_pause_tween.play()
+	print("music pause start")
+	pause_tween = get_tree().create_tween()
+	pause_tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	pause_tween.tween_property(drums, "pitch_scale", 0.9, 1)
+	pause_tween.tween_property(background, "pitch_scale", 0.9, 1)
+	pause_tween.tween_property(drums, "volume_db", -5, 1)
+	pause_tween.tween_property(background, "volume_db", -5, 1)
+	pause_tween.play()
 
 
 func on_pause_end():
 	# get low pass effect
-	var effect = AudioServer.get_bus_effect(1, 0)
-	if effect:
-		lpf_pause_tween = get_tree().create_tween()
-		lpf_pause_tween.tween_property(effect, "cutoff_hz", 10000, 1)
-		lpf_pause_tween.play()
-	
+	print("music pause end")
+	pause_tween = get_tree().create_tween()
+	pause_tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	pause_tween.tween_property(drums, "pitch_scale", 1, 1)
+	pause_tween.tween_property(background, "pitch_scale", 1, 1)
+	pause_tween.tween_property(drums, "volume_db", 0, 1)
+	pause_tween.tween_property(background, "volume_db", 0, 1)
+	pause_tween.play()

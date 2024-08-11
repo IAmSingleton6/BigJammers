@@ -1,19 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://r3t48ko6vr4o"]
+[gd_scene load_steps=8 format=3 uid="uid://r3t48ko6vr4o"]
 
 [ext_resource type="TileSet" uid="uid://cx8on48oasopg" path="res://game_settings/main_tileset.tres" id="1_47iq4"]
-[ext_resource type="Script" path="res://scenes/level_0.gd" id="1_lq02h"]
+[ext_resource type="Script" path="res://scripts/level/level.gd" id="1_t8xnj"]
 [ext_resource type="PackedScene" uid="uid://dnj8agfql6nuo" path="res://scenes/level_mechanics/water_fall.tscn" id="2_s5m3n"]
-[ext_resource type="PackedScene" uid="uid://urfilus65567" path="res://scenes/pause_menu.tscn" id="2_xocw2"]
 [ext_resource type="PackedScene" uid="uid://bk2cqcbyapave" path="res://scenes/level_mechanics/fire.tscn" id="3_r4bsn"]
 [ext_resource type="PackedScene" uid="uid://8qb4pv2ttx4v" path="res://scenes/player/player.tscn" id="4_yh6mi"]
 [ext_resource type="PackedScene" uid="uid://msculdcaewa3" path="res://scenes/blocks/fire_block.tscn" id="5_1x28e"]
 [ext_resource type="PackedScene" uid="uid://dwgdab0endmxb" path="res://scenes/Levels/killzone.tscn" id="6_ou52a"]
 
 [node name="level_1" type="Node2D"]
-script = ExtResource("1_lq02h")
-pause_menu_packed_scene = ExtResource("2_xocw2")
-
-[node name="UI_Container" type="CanvasLayer" parent="."]
+script = ExtResource("1_t8xnj")
 
 [node name="Level_1_tilemap" type="TileMap" parent="."]
 tile_set = ExtResource("1_47iq4")

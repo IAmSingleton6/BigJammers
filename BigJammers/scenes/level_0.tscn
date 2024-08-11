@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dd2oxqylh0wd0"]
+[gd_scene load_steps=10 format=3 uid="uid://dd2oxqylh0wd0"]
 
 [ext_resource type="PackedScene" uid="uid://8qb4pv2ttx4v" path="res://scenes/player/player.tscn" id="1_5nhtn"]
-[ext_resource type="Script" path="res://scenes/level_0.gd" id="1_rr24a"]
-[ext_resource type="PackedScene" uid="uid://urfilus65567" path="res://scenes/pause_menu.tscn" id="2_4hbja"]
+[ext_resource type="Script" path="res://scripts/level/level.gd" id="1_wvmkm"]
 [ext_resource type="PackedScene" uid="uid://msculdcaewa3" path="res://scenes/blocks/fire_block.tscn" id="2_bqd5w"]
 [ext_resource type="PackedScene" uid="uid://27dv2va7nifm" path="res://scenes/blocks/timer_block.tscn" id="3_e1k1j"]
 [ext_resource type="PackedScene" uid="uid://c5ldectpiibc5" path="res://scenes/level_mechanics/lava.tscn" id="3_kihe4"]
@@ -12,10 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://3eg5vctj206g" path="res://scenes/level_mechanics/pressure_plate.tscn" id="5_wxxs8"]
 
 [node name="Level_0" type="Node2D"]
-script = ExtResource("1_rr24a")
-pause_menu_packed_scene = ExtResource("2_4hbja")
-
-[node name="UI_Container" type="CanvasLayer" parent="."]
+script = ExtResource("1_wvmkm")
 
 [node name="Player" parent="." instance=ExtResource("1_5nhtn")]
 

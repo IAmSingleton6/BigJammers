@@ -1,19 +1,45 @@
 class_name PauseMenu
 extends Control
 
+@onready var margin_container = $MarginContainer
+@onready var options_menu = $options_menu
+
+var paused := false : set = _on_pause
+
+
+func _on_pause(value) -> void:
+	paused = value
+	if paused:
+		MusicManager.on_pause_start()
+		get_tree().paused = true
+		visible = value
+	else:
+		MusicManager.on_pause_end()
+		get_tree().paused = false
+		_on_exit_options_menu()
+		visible = false
+
 func _ready():
-	get_tree().paused = true
+	options_menu.exit_options_menu.connect(_on_exit_options_menu)
+
+func _process(_delta):
+	if Input.is_action_just_pressed(InputManager.pause_input):
+		paused = !paused
 
 func _on_resume_pressed():
-	get_tree().paused = false
-	queue_free()
+	paused = false
 
-
-#func _on_options_pressed():
-	#get_tree().paused = false
-	#get_tree().change_scene_to_file("res://scenes/options_menu.tscn")
-
+func _on_exit_options_menu():
+	margin_container.visible = true
+	options_menu.set_process(false)
+	options_menu.visible = false
 
 func _on_exit_to_main_menu_pressed():
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	paused = false
+	SceneTransitions.change_scene_path("res://scenes/map/world1.tscn")
+
+func _on_options_menu_pressed():
+	print("Pressed Options")
+	margin_container.visible = false
+	options_menu.set_process(true)
+	options_menu.visible = true

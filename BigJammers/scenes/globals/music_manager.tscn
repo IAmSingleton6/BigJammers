@@ -5,17 +5,20 @@
 [ext_resource type="AudioStream" uid="uid://bj558x1p12637" path="res://assets/audio/drums_HeartBreakEscape.ogg" id="3_liuso"]
 [ext_resource type="AudioStream" uid="uid://r8plwldqcji1" path="res://assets/audio/nodrums_HeartBreakEscape.ogg" id="4_npr8m"]
 
-[node name="MusicManager" type="Node2D"]
+[node name="MusicManager" type="Node"]
 script = ExtResource("1_smbjr")
 
 [node name="intro" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("2_gp1a7")
 bus = &"Music"
 
 [node name="drums" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("3_liuso")
 bus = &"Music"
 
 [node name="background" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("4_npr8m")
 bus = &"Music"

@@ -25,6 +25,7 @@ func _ready():
 	heartbeat_timer.timeout.connect(_on_heartbeat_timeout)
 	heartbeat_timer.start(_get_heartbeat_interval())
 	if anim_sprite:
+		anim_sprite.speed_scale = 0.0
 		anim_sprite.material.set_shader_parameter("cutoff", 1.0)
 
 
@@ -43,7 +44,8 @@ func _process(delta):
 			MusicManager.set_drums_volume_01(1 - max(health_01 - 0.5, 0.0))
 	
 	if health <= 0:
-		anim_sprite.material.set_shader_parameter("cutoff", 0 )
+		if anim_sprite:
+			anim_sprite.material.set_shader_parameter("cutoff", 0 )
 		health_depleted.emit()
 		Events.level_lose.emit()
 		set_process(false)
@@ -57,6 +59,7 @@ func take_damage(amount: float) -> void:
 func kill():
 	print("Heart killed")
 	take_damage(health)
+	anim_sprite.animation = &"base"
 
 
 func _get_heartbeat_interval() -> float:
@@ -65,7 +68,30 @@ func _get_heartbeat_interval() -> float:
 
 func _on_heartbeat_timeout() -> void:
 	audio_stream_player_heartbeat.play()
-	heartbeat_timer.start(_get_heartbeat_interval())
+	var heart_beat_interval = _get_heartbeat_interval()
+	heartbeat_timer.start(heart_beat_interval)
+	
+	if anim_sprite:
+		anim_sprite.frame = 0
+		var anim_length = get_current_animation_length()
+		anim_sprite.speed_scale = anim_length / heart_beat_interval if anim_length > 0 else 1.0
+
+
+func get_current_animation_length(animated_sprite: AnimatedSprite2D = anim_sprite) -> float:
+	var current_animation_name = animated_sprite.animation
+	if current_animation_name == "":
+		print("No animation is currently playing.")
+		return -1.0
+	var sprite_frames = animated_sprite.sprite_frames
+	if sprite_frames and sprite_frames.has_animation(current_animation_name):
+		var num_frames = sprite_frames.get_frame_count(current_animation_name)
+		var anim_speed = sprite_frames.get_animation_speed(current_animation_name)
+		if anim_speed > 0:
+			return num_frames / anim_speed
+		else:
+			return -1.0
+	else:
+		return -1.0
 
 
 func _on_heart_area_entered(other) -> void:

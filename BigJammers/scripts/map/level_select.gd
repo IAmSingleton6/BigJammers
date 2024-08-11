@@ -7,8 +7,9 @@ static var MAPSAVEUNIQUENAME = "Map"
 @onready var current_level: LevelIcon = $Levels/LevelIcon
 @onready var player_icon: PlayerIcon = $PlayerIcon
 @export var minimum_distance_to_select_again = 15
-var current_world = 0
 
+var current_world := 0
+var transitioning_to_scene := false
 
 func _ready():
 	# Get last completed level and set to first active map node
@@ -47,6 +48,12 @@ func _process(_delta):
 	if player_icon.global_position.distance_to(current_level.global_position) > minimum_distance_to_select_again:
 		return
 	
+	if transitioning_to_scene:
+		return
+	
+	if Input.is_action_just_pressed(InputManager.pause_input):
+		SceneTransitions.change_scene_path("res://scenes/main_menu.tscn")
+		transitioning_to_scene = true
 	if Input.is_action_just_pressed(InputManager.move_right) and current_level.level_right and current_level.level_right.unlocked:
 		current_level = current_level.level_right
 		player_icon.target_position = current_level.global_position
@@ -62,6 +69,7 @@ func _process(_delta):
 	if Input.is_action_just_pressed(InputManager.jump_input):
 		LevelManager.set_current_level(current_level.level_data)
 		SceneTransitions.change_scene_path(current_level.level_data.scene)
+		transitioning_to_scene = true
 
 
 func _get_completed(level_data: LevelData) -> bool:

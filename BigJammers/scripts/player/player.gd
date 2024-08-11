@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 signal jump_started
+signal level_win
 
 @onready var jump_buffer_timer : Timer = $JumpBufferTimer
 @onready var coyote_timer : Timer = $CoyoteTimer
@@ -146,5 +147,6 @@ func kill():
 @onready var jail_cell = $JailCell
 func _on_level_win() -> void:
 	# horrible but speed
+	level_win.emit()
 	if jail_cell.get_child(0) is AnimationPlayer:
 		jail_cell.get_child(0).play("unlock")
