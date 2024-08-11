@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://bkub5eiokjpjj"]
+
+[ext_resource type="TileSet" uid="uid://cx8on48oasopg" path="res://game_settings/main_tileset.tres" id="1_bd8i5"]
+[ext_resource type="PackedScene" uid="uid://dwgdab0endmxb" path="res://scenes/Levels/killzone.tscn" id="2_7hfqd"]
+[ext_resource type="PackedScene" uid="uid://3eg5vctj206g" path="res://scenes/level_mechanics/pressure_plate.tscn" id="3_lgubu"]
+[ext_resource type="PackedScene" uid="uid://cr7mf5hnu22qd" path="res://scenes/level_mechanics/platform_wt.tscn" id="4_u0f06"]
+[ext_resource type="PackedScene" uid="uid://8qb4pv2ttx4v" path="res://scenes/player/player.tscn" id="4_uj4hu"]
+[ext_resource type="PackedScene" uid="uid://c6urmskx7xp83" path="res://scenes/level_mechanics/laser.tscn" id="5_nnme8"]
+[ext_resource type="PackedScene" uid="uid://27dv2va7nifm" path="res://scenes/blocks/timer_block.tscn" id="7_n3fbm"]
+[ext_resource type="PackedScene" uid="uid://c76ksqqw3n176" path="res://scenes/blocks/water_block.tscn" id="8_2c8he"]
+[ext_resource type="PackedScene" uid="uid://msculdcaewa3" path="res://scenes/blocks/fire_block.tscn" id="9_hpq7u"]
+
+[node name="level_pp_intro_b" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_bd8i5")
+format = 2
+layer_0/name = "back"
+layer_1/name = "main"
+layer_1/tile_data = PackedInt32Array(196626, 655361, 5, 196627, 720897, 5, 196628, 720897, 5, 196629, 720897, 5, 262163, 720897, 5, 196610, 786433, 5, 196609, 720897, 5, 196608, 720897, 5, 262143, 720897, 5, 262142, 720897, 5, 262141, 720897, 5, 262140, 720897, 5, 262139, 720897, 5, 262138, 720897, 5, 262137, 720897, 5, 262136, 720897, 5, 262135, 720897, 5, 262134, 720897, 5, 262133, 720897, 5, 262132, 720897, 5, 262131, 720897, 5, 262130, 720897, 5, 262129, 720897, 5, 262128, 720897, 5, 262127, 655361, 5, 327663, 655361, 5, 22, 655361, 5, 23, 720897, 5, -65512, 655361, 5, -65511, 720897, 5, -65510, 720897, 5)
+
+[node name="Killzone_Floor" parent="." instance=ExtResource("2_7hfqd")]
+position = Vector2(0, 200)
+
+[node name="Level_Mechanics" type="Node2D" parent="."]
+
+[node name="PressurePlate" parent="Level_Mechanics" instance=ExtResource("3_lgubu")]
+position = Vector2(204, -45)
+
+[node name="PressurePlate2" parent="Level_Mechanics" instance=ExtResource("3_lgubu")]
+position = Vector2(267, -49)
+
+[node name="Platform_wt" parent="Level_Mechanics" instance=ExtResource("4_u0f06")]
+position = Vector2(63, 52)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Level_Mechanics/Platform_wt"]
+
+[node name="Laser" parent="Level_Mechanics" instance=ExtResource("5_nnme8")]
+position = Vector2(241, -149)
+rotation = 1.5708
+
+[node name="Player" parent="." instance=ExtResource("4_uj4hu")]
+position = Vector2(0, -1)
+
+[node name="TimerBlock" parent="Player" instance=ExtResource("7_n3fbm")]
+position = Vector2(-24, 0)
+
+[node name="WaterBlock" parent="Player" instance=ExtResource("8_2c8he")]
+position = Vector2(24, -22)
+
+[node name="FireBlock" parent="Player" instance=ExtResource("9_hpq7u")]
+position = Vector2(0, 25)
