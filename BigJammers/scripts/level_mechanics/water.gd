@@ -21,11 +21,11 @@ func _on_area_entered(other):
 			other.get_parent().destroy_block(GroupManager.WATERGROUP)
 			print("water evaporates from fire block")
 			destroy()
-		if other.is_in_group(GroupManager.ICEGROUP):
-			if other.get_parent() is Block:
-				print("water freezes over from ice block")
-				other.get_parent().destroy_block(GroupManager.WATERGROUP)
-				_freeze()
+	if other.is_in_group(GroupManager.ICEGROUP):
+		if other.get_parent() is Block:
+			print("water freezes over from ice block")
+			other.get_parent().destroy_block(GroupManager.WATERGROUP)
+			_freeze()
 
 
 func _freeze():

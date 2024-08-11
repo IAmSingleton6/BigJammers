@@ -32,6 +32,7 @@ func destroy_block(group_name: String) -> void:
 		steam.global_position = global_position
 		
 		audio_stream_player_2d.reparent(get_tree().root)
+		audio_stream_player_2d.pitch_scale = randf_range(0.9, 1.1)
 		audio_stream_player_2d.play()
 		audio_stream_player_2d.finished.connect(audio_stream_player_2d.queue_free)
 		var pos = global_position

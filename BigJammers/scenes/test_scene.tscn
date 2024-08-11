@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bjtxawunkxuhh"]
+[gd_scene load_steps=19 format=3 uid="uid://bjtxawunkxuhh"]
 
 [ext_resource type="PackedScene" uid="uid://8qb4pv2ttx4v" path="res://scenes/player/player.tscn" id="1_8vqvh"]
 [ext_resource type="Script" path="res://scripts/level/level.gd" id="1_vlnka"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b2lg5vehvadom" path="res://scenes/blocks/sticky_block.tscn" id="6_28ye2"]
 [ext_resource type="PackedScene" uid="uid://de6165hw10myi" path="res://scenes/blocks/solid_block.tscn" id="6_nhpnj"]
 [ext_resource type="PackedScene" uid="uid://27dv2va7nifm" path="res://scenes/blocks/timer_block.tscn" id="7_aupqg"]
+[ext_resource type="PackedScene" uid="uid://75no6pmiwmm3" path="res://scenes/blocks/ice_block.tscn" id="7_sc37f"]
 [ext_resource type="PackedScene" uid="uid://bk2cqcbyapave" path="res://scenes/level_mechanics/fire.tscn" id="9_nofno"]
 [ext_resource type="PackedScene" uid="uid://c6urmskx7xp83" path="res://scenes/level_mechanics/laser.tscn" id="10_c01wq"]
 [ext_resource type="PackedScene" uid="uid://c5ldectpiibc5" path="res://scenes/level_mechanics/lava.tscn" id="11_cp0h5"]
@@ -35,6 +36,9 @@ position = Vector2(0, -24)
 
 [node name="StickyBlock" parent="Player" instance=ExtResource("6_28ye2")]
 position = Vector2(27, -12)
+
+[node name="IceBlock" parent="Player" instance=ExtResource("7_sc37f")]
+position = Vector2(26, 13)
 
 [node name="floor" type="StaticBody2D" parent="."]
 position = Vector2(0, 40.135)
@@ -92,3 +96,6 @@ position = Vector2(69, -39)
 
 [node name="SadPickup" parent="." instance=ExtResource("15_hk1bo")]
 position = Vector2(-27, 22)
+
+[node name="Water2" parent="." instance=ExtResource("12_wpm0u")]
+position = Vector2(-140, 23)

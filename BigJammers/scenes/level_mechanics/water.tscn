@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://dx8tslqgu5wdu"]
+[gd_scene load_steps=17 format=3 uid="uid://dx8tslqgu5wdu"]
 
 [ext_resource type="Script" path="res://scripts/level_mechanics/water.gd" id="1_alr0o"]
+[ext_resource type="PackedScene" uid="uid://dksj4h11n7g0p" path="res://scenes/particles/steam_2.tscn" id="2_ia66j"]
 [ext_resource type="Texture2D" uid="uid://d3qvdldqfht02" path="res://assets/Sea_water.png" id="2_j0yy6"]
 [ext_resource type="Texture2D" uid="uid://cddmmtx1b13ic" path="res://assets/assets/PNG (Transparent)/flame_04.png" id="3_17c6g"]
 [ext_resource type="Texture2D" uid="uid://qk0uobtsycff" path="res://assets/assets/border.png" id="4_8ivfb"]
@@ -74,6 +75,7 @@ _data = {
 
 [node name="Water" type="Area2D" groups=["Water"]]
 script = ExtResource("1_alr0o")
+steam_particle_scene = ExtResource("2_ia66j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_g2jxg")

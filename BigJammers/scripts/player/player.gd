@@ -18,6 +18,8 @@ signal level_win
 @export var JUMPBUFFERTIME : float = 0.3
 @export var JUMPVELOCITY : float = 150 # was 50
 @export var COYOTETIME : float = 0.3
+@export var JUMP_MULT_ON_STICK : float = 1.5
+
 
 
 var motion: Vector2 = Vector2.ZERO
@@ -69,7 +71,7 @@ func _physics_process(delta):
 	if stuck_to_wall:
 		if Input.is_action_just_pressed(InputManager.jump_input):
 			stuck_to_wall = false
-			_jump()
+			_jump(JUMP_MULT_ON_STICK)
 		return
 	
 	_gravity(delta)
@@ -143,12 +145,12 @@ func _check_jump():
 	
 	was_on_floor = on_floor
 
-func _jump():
+func _jump(jump_mult: float = 1):
 	if not can_jump:
 		return
 	jump_started.emit()
 	jumping = true
-	motion.y = -abs(JUMPVELOCITY)
+	motion.y = -abs(JUMPVELOCITY * jump_mult)
 
 func _gravity(_delta: float):
 	var gravity_multiplier : float = 1.0 if jumping else FALL_GRAVITY_MULTIPLIER
