@@ -23,7 +23,7 @@ layer_1/tile_data = PackedInt32Array(196606, 720897, 5, 196607, 720897, 5, 13107
 [node name="Level_Mechanics" type="Node2D" parent="."]
 
 [node name="Fire" parent="Level_Mechanics" instance=ExtResource("2_kdb47")]
-position = Vector2(273, 7)
+position = Vector2(273, 14)
 target_position = Vector2(1, -49)
 
 [node name="WaterFall" parent="Level_Mechanics" instance=ExtResource("3_e013f")]
