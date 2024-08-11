@@ -24,6 +24,9 @@ func _on_area_entered(other):
 		if other.get_parent() is Block:
 			other.get_parent().destroy_block(GroupManager.FIREGROUP)
 			call_deferred("_solidify")
+	if other.is_in_group(GroupManager.STICKYBLOCK):
+		if other.get_parent() is Block:
+			other.get_parent().destroy_block(GroupManager.FIREGROUP)
 
 
 # Change sprite + make solid with sprite + smoke particles

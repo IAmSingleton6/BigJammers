@@ -99,3 +99,6 @@ position = Vector2(-27, 22)
 
 [node name="Water2" parent="." instance=ExtResource("12_wpm0u")]
 position = Vector2(-140, 23)
+
+[node name="Lava4" parent="." instance=ExtResource("11_cp0h5")]
+position = Vector2(-148, 0)

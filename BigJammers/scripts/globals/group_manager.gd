@@ -21,6 +21,7 @@ static var FIREGROUP = "Fire"
 static var TIMERGROUP = "Timer"
 static var ELECTRICGROUP = "Electric"
 static var ICEGROUP = "Ice"
+static var STICKYBLOCK = "Sticky"
 
 # Level mechanics
 static var LASERGROUP = "Laser"
