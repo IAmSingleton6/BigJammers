@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://de6165hw10myi"]
+
+[ext_resource type="Script" path="res://scripts/blocks/solid_block.gd" id="1_rxbde"]
+[ext_resource type="Texture2D" uid="uid://dpkk52enxywqr" path="res://assets/solid_block.png" id="3_c4vni"]
+[ext_resource type="Texture2D" uid="uid://qk0uobtsycff" path="res://assets/assets/border.png" id="4_2udv4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5a1o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3ryu"]
+
+[node name="SolidBlock" type="CollisionShape2D"]
+shape = SubResource("RectangleShape2D_n5a1o")
+script = ExtResource("1_rxbde")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_y3ryu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("3_c4vni")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0, 4.76837e-07)
+scale = Vector2(0.714286, 0.714286)
+texture = ExtResource("4_2udv4")
+region_enabled = true
+region_rect = Rect2(2, 2, 28, 28)

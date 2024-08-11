@@ -9,6 +9,8 @@ extends Block
 
 func _ready():
 	area_2d.area_entered.connect(_on_area_entered)
+	if not is_in_group(GroupManager.BLOCKGROUP):
+		add_to_group(GroupManager.BLOCKGROUP)
 
 
 func _on_area_entered(_other):
