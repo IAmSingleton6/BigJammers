@@ -76,3 +76,7 @@ func appear():
 
 func disappear():
 	pass
+
+
+func toggle_casting() -> void:
+	is_casting = !is_casting
