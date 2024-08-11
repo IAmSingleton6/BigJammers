@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2lg5vehvadom"]
+[gd_scene load_steps=8 format=3 uid="uid://b2lg5vehvadom"]
 
 [ext_resource type="Script" path="res://scripts/blocks/sticky_block.gd" id="1_ok7m6"]
+[ext_resource type="PackedScene" uid="uid://dksj4h11n7g0p" path="res://scenes/particles/steam_2.tscn" id="2_1fsc3"]
 [ext_resource type="Texture2D" uid="uid://ceem2f8f8ab03" path="res://assets/sticky_block.png" id="4_ak2oj"]
 [ext_resource type="AudioStream" uid="uid://ne3eayhhgge3" path="res://assets/audio/sfx/suck.mp3" id="4_k3l8o"]
 [ext_resource type="Texture2D" uid="uid://qk0uobtsycff" path="res://assets/assets/border.png" id="4_v18cf"]
@@ -12,6 +13,7 @@
 [node name="StickyBlock" type="CollisionShape2D" groups=["Block"]]
 shape = SubResource("RectangleShape2D_i23e2")
 script = ExtResource("1_ok7m6")
+steam_particle_scene = ExtResource("2_1fsc3")
 
 [node name="Area2D" type="Area2D" parent="." groups=["Fire"]]
 

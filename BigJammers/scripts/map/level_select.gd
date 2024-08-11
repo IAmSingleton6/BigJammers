@@ -3,6 +3,8 @@ class_name LevelSelect
 
 static var MAPSAVEUNIQUENAME = "Map"
 
+signal level_selected
+
 @onready var levels = $Levels
 @onready var current_level: LevelIcon = $Levels/LevelIcon
 @onready var player_icon: PlayerIcon = $PlayerIcon
@@ -66,7 +68,8 @@ func _process(_delta):
 	if Input.is_action_just_pressed(InputManager.move_down) and current_level.level_down and current_level.level_down.unlocked:
 		current_level = current_level.level_down
 		player_icon.target_position = current_level.global_position
-	if Input.is_action_just_pressed(InputManager.jump_input):
+	if Input.is_action_just_pressed(InputManager.jump_input) or Input.is_action_just_pressed("ui_accept"):
+		level_selected.emit()
 		LevelManager.set_current_level(current_level.level_data)
 		SceneTransitions.change_scene_path(current_level.level_data.scene)
 		transitioning_to_scene = true
