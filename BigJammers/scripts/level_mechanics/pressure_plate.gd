@@ -37,7 +37,7 @@ func _on_body_entered(other):
 	stepped_on = true
 	var block_count := _get_block_count()
 	_update_label(BLOCKCOUNT - block_count)
-	if block_count < BLOCKCOUNT:
+	if not block_count == BLOCKCOUNT:
 		return
 	
 	pressure_plate_activated.emit()
@@ -62,4 +62,11 @@ func _get_block_count() -> int:
 
 
 func _update_label(count: int) -> void:
-	label.text = str(max(count, 0))
+	var text = str(count) if count >= 0 else "ERROR"
+	label.text = text
+	if count == 0:
+		label.self_modulate = Color.GREEN
+	elif count < 0:
+		label.self_modulate = Color.RED
+	else:
+		label.self_modulate= Color.WHITE

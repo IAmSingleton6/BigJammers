@@ -25,21 +25,6 @@ script = ExtResource("1_vlnka")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("14_5xhf7")]
 
-[node name="Player" parent="." instance=ExtResource("1_8vqvh")]
-position = Vector2(-244, 3)
-
-[node name="SolidBlock" parent="Player" instance=ExtResource("6_nhpnj")]
-position = Vector2(-21, -1)
-
-[node name="TimerBlock" parent="Player" instance=ExtResource("7_aupqg")]
-position = Vector2(0, -24)
-
-[node name="StickyBlock" parent="Player" instance=ExtResource("6_28ye2")]
-position = Vector2(27, -12)
-
-[node name="IceBlock" parent="Player" instance=ExtResource("7_sc37f")]
-position = Vector2(26, 13)
-
 [node name="floor" type="StaticBody2D" parent="."]
 position = Vector2(0, 40.135)
 scale = Vector2(30, 0.6)
@@ -64,7 +49,16 @@ scale = Vector2(0.145, 0.145)
 texture = ExtResource("2_y78ey")
 
 [node name="PressurePlate" parent="." instance=ExtResource("4_hmsqc")]
-position = Vector2(-50, 20)
+position = Vector2(-186, 31)
+BLOCKCOUNT = 5
+
+[node name="PressurePlate2" parent="." instance=ExtResource("4_hmsqc")]
+position = Vector2(-272, 32)
+BLOCKCOUNT = 4
+
+[node name="PressurePlate3" parent="." instance=ExtResource("4_hmsqc")]
+position = Vector2(-111, 30)
+BLOCKCOUNT = 3
 
 [node name="Wind" parent="." instance=ExtResource("6_7a7t6")]
 position = Vector2(172, 21)
@@ -97,8 +91,17 @@ position = Vector2(69, -39)
 [node name="SadPickup" parent="." instance=ExtResource("15_hk1bo")]
 position = Vector2(-27, 22)
 
-[node name="Water2" parent="." instance=ExtResource("12_wpm0u")]
-position = Vector2(-140, 23)
+[node name="Player" parent="." instance=ExtResource("1_8vqvh")]
+position = Vector2(-244, 3)
 
-[node name="Lava4" parent="." instance=ExtResource("11_cp0h5")]
-position = Vector2(-148, 0)
+[node name="SolidBlock" parent="Player" instance=ExtResource("6_nhpnj")]
+position = Vector2(-21, -1)
+
+[node name="TimerBlock" parent="Player" instance=ExtResource("7_aupqg")]
+position = Vector2(0, -24)
+
+[node name="StickyBlock" parent="Player" instance=ExtResource("6_28ye2")]
+position = Vector2(27, -12)
+
+[node name="IceBlock" parent="Player" instance=ExtResource("7_sc37f")]
+position = Vector2(26, 13)
