@@ -5,3 +5,4 @@
 [resource]
 script = ExtResource("1_lnlcm")
 level_name = "Sad tidings"
+scene = "res://scenes/Levels/level_3.tscn"
