@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://c6epm87e743dj"]
+
+[ext_resource type="Script" path="res://scripts/level/level.gd" id="1_tefo0"]
+[ext_resource type="TileSet" uid="uid://cx8on48oasopg" path="res://game_settings/main_tileset.tres" id="1_urjxr"]
+[ext_resource type="PackedScene" uid="uid://bk2cqcbyapave" path="res://scenes/level_mechanics/fire.tscn" id="2_57wah"]
+[ext_resource type="PackedScene" uid="uid://dwgdab0endmxb" path="res://scenes/Levels/killzone.tscn" id="3_ot6fy"]
+[ext_resource type="PackedScene" uid="uid://8qb4pv2ttx4v" path="res://scenes/player/player.tscn" id="4_prsyp"]
+[ext_resource type="PackedScene" uid="uid://msculdcaewa3" path="res://scenes/blocks/fire_block.tscn" id="5_rk5co"]
+
+[node name="level_8" type="Node2D"]
+script = ExtResource("1_tefo0")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_urjxr")
+format = 2
+layer_0/name = "back"
+layer_0/tile_data = PackedInt32Array(-65539, 131072, 1, -65538, 131072, 1, -131073, 131072, 1, -196608, 131072, 1, -196607, 131072, 1, -196606, 131072, 1, -196605, 131072, 1, -196604, 131072, 1, -196603, 131072, 1, -131067, 131072, 1, -131066, 131072, 1, -65530, 131072, 1, 6, 786433, 5, 65542, 131072, 1, 65541, 131072, 1, 131076, 131072, 1, 131075, 131072, 1, 131074, 131072, 1, 65538, 131072, 1, 65537, 131072, 1, 65536, 131072, 1, 131071, 131072, 1, 65534, 131072, 1, 65533, 131072, 1, -4, 131072, 1, -65540, 131072, 1, -131076, 131072, 1, -131075, 131072, 1, -131074, 131072, 1, -196609, 131072, 1, -262144, 131072, 1, -262143, 131072, 1, -262142, 131072, 1, -262141, 131072, 1, -262140, 131072, 1, -131068, 131072, 1, -65533, 131072, 1, 2, 655361, 5, 1, 131072, 1, 0, 131072, 1, 65535, 131072, 1, 65532, 131072, 1, -3, 131072, 1, -196613, 131072, 1, -131077, 131072, 1, -65541, 131072, 1, -5, 131072, 1, 65531, 131072, 1, 131067, 131072, 1, 196603, 131072, 1, 262139, 131072, 1, -196612, 131072, 1, 131068, 131072, 1, 196604, 131072, 1, 262140, 131072, 1, -196611, 131072, 1, 131069, 131072, 1, 196605, 131072, 1, 262141, 131072, 1, -196610, 131072, 1, -2, 131072, 1, 131070, 131072, 1, 196606, 720897, 5, 262142, 131072, 1, -65537, 131072, 1, -1, 131072, 1, 196607, 720897, 5, 262143, 131072, 1, -131072, 131072, 1, -65536, 131072, 1, 131072, 720897, 5, 196608, 131072, 1, -131071, 131072, 1, -65535, 131072, 1, 131073, 720897, 5, 196609, 131072, 1, -131070, 131072, 1, -65534, 131072, 1, 196610, 131072, 1, -131069, 131072, 1, 3, 720897, 5, 65539, 131072, 1, 196611, 131072, 1, -65532, 131072, 1, 4, 720897, 5, 65540, 131072, 1, 196612, 131072, 1, -262139, 131072, 1, -65531, 131072, 1, 5, 720897, 5, 131077, 131072, 1, 196613, 131072, 1, -262138, 131072, 1, -196602, 131072, 1, 131078, 131072, 1, 196614, 131072, 1, -262137, 131072, 1, -196601, 131072, 1, -131065, 131072, 1, -65529, 131072, 1, 7, 131072, 1, 65543, 131072, 1, 131079, 131072, 1, 196615, 131072, 1, -262136, 131072, 1, -196600, 131072, 1, -131064, 131072, 1, -65528, 131072, 1, 8, 131072, 1, 65544, 131072, 1, 131080, 131072, 1, 196616, 131072, 1)
+layer_1/name = "main"
+layer_1/tile_data = PackedInt32Array()
+
+[node name="Level_Mechanics" type="Node2D" parent="."]
+
+[node name="Fire" parent="Level_Mechanics" instance=ExtResource("2_57wah")]
+position = Vector2(109, -18)
+
+[node name="Killzone_Floor" parent="." instance=ExtResource("3_ot6fy")]
+position = Vector2(-2, 140)
+
+[node name="Player" parent="." instance=ExtResource("4_prsyp")]
+position = Vector2(-1, -7)
+
+[node name="FireBlock" parent="Player" instance=ExtResource("5_rk5co")]
+position = Vector2(0, -26)

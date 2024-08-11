@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dwgdab0endmxb" path="res://scenes/Levels/killzone.tscn" id="3_tmygl"]
 [ext_resource type="PackedScene" uid="uid://c5ldectpiibc5" path="res://scenes/level_mechanics/lava.tscn" id="4_g2rws"]
 [ext_resource type="PackedScene" uid="uid://c76ksqqw3n176" path="res://scenes/blocks/water_block.tscn" id="7_3vkjc"]
-[ext_resource type="PackedScene" uid="uid://c6ue3gpxvqsyn" path="res://scenes/level_mechanics/water_fall_straight.tscn" id="8_es23c"]
+[ext_resource type="PackedScene" path="res://scenes/level_mechanics/water_fall_straight.tscn" id="8_es23c"]
 [ext_resource type="PackedScene" uid="uid://msculdcaewa3" path="res://scenes/blocks/fire_block.tscn" id="8_yqhc3"]
 
 [node name="level_3" type="Node2D"]
@@ -29,13 +29,13 @@ position = Vector2(352, 25)
 position = Vector2(1, -21)
 
 [node name="WaterBlock" parent="Player" instance=ExtResource("7_3vkjc")]
-position = Vector2(0, 19)
+position = Vector2(0, 24)
 
 [node name="FireBlock" parent="Player" instance=ExtResource("8_yqhc3")]
 position = Vector2(27, -1)
 
 [node name="Killzone_Floor" parent="." instance=ExtResource("3_tmygl")]
-position = Vector2(0, 152)
+position = Vector2(0, 202)
 
 [node name="WaterFall" parent="." instance=ExtResource("8_es23c")]
 position = Vector2(551, -37)
