@@ -98,7 +98,10 @@ func get_current_animation_length(animated_sprite: AnimatedSprite2D = anim_sprit
 		return -1.0
 
 
-func _on_heart_area_entered(other) -> void:
+func _on_heart_area_entered(other: Node) -> void:
+	if other.get_parent() and other.get_parent() is Block:
+		return
+	
 	if other.is_in_group(GroupManager.FIREGROUP):
 		kill()
 	if other.is_in_group(GroupManager.WATERGROUP):
