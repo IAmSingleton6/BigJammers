@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://c6urmskx7xp83"]
+[gd_scene load_steps=9 format=3 uid="uid://c6urmskx7xp83"]
 
 [ext_resource type="Script" path="res://scripts/level_mechanics/laser.gd" id="1_exmxl"]
-[ext_resource type="Texture2D" uid="uid://ulnbymdr1xoa" path="res://images/glow_circle.png" id="2_bmcu6"]
 
 [sub_resource type="Gradient" id="Gradient_y5svs"]
 offsets = PackedFloat32Array(0, 0.655602, 1)
@@ -26,8 +25,8 @@ initial_velocity_max = 20.0
 gravity = Vector3(0, 0, 0)
 tangential_accel_min = 10.0
 tangential_accel_max = 20.0
-scale_min = 0.01
-scale_max = 0.02
+scale_min = 2.0
+scale_max = 3.0
 scale_curve = SubResource("CurveTexture_sgiko")
 color_ramp = SubResource("GradientTexture1D_xqpl3")
 
@@ -36,8 +35,8 @@ particle_flag_disable_z = true
 initial_velocity_min = 50.0
 initial_velocity_max = 100.0
 gravity = Vector3(0, 0, 0)
-scale_min = 0.01
-scale_max = 0.02
+scale_min = 2.0
+scale_max = 3.0
 scale_curve = SubResource("CurveTexture_sgiko")
 color_ramp = SubResource("GradientTexture1D_xqpl3")
 
@@ -46,8 +45,8 @@ particle_flag_disable_z = true
 initial_velocity_min = 50.0
 initial_velocity_max = 100.0
 gravity = Vector3(0, 0, 0)
-scale_min = 0.01
-scale_max = 0.02
+scale_min = 2.0
+scale_max = 3.0
 scale_curve = SubResource("CurveTexture_sgiko")
 color_ramp = SubResource("GradientTexture1D_xqpl3")
 
@@ -67,7 +66,6 @@ modulate = Color(6, 0, 0, 1)
 emitting = false
 amount = 15
 process_material = SubResource("ParticleProcessMaterial_wl2l3")
-texture = ExtResource("2_bmcu6")
 lifetime = 0.3
 
 [node name="CastingParticles" type="GPUParticles2D" parent="."]
@@ -75,7 +73,6 @@ modulate = Color(6, 0, 0, 1)
 emitting = false
 amount = 5
 process_material = SubResource("ParticleProcessMaterial_145wi")
-texture = ExtResource("2_bmcu6")
 lifetime = 0.3
 
 [node name="CollisionParticles" type="GPUParticles2D" parent="."]
@@ -83,5 +80,4 @@ modulate = Color(6, 0, 0, 1)
 emitting = false
 amount = 5
 process_material = SubResource("ParticleProcessMaterial_nf2dh")
-texture = ExtResource("2_bmcu6")
 lifetime = 0.3

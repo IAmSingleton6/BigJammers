@@ -14,6 +14,7 @@ func _ready():
 
 func _on_play_pressed():
 	print("Pressed Play")
+	SaveSystem.save_all_data()
 	SceneTransitions.change_scene_path(world_map)
 	
 func _on_options_pressed():

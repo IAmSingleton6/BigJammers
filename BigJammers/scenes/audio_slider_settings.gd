@@ -1,5 +1,7 @@
 extends Control
 
+static var BUSVOLUMEUNIQUENAME = "BusVolume"
+
 @onready var audio_name_label = $HBoxContainer/Audio_Name_Label as Label
 @onready var audio_num_label = $HBoxContainer/Audio_Num_Label as Label
 @onready var h_slider = $HBoxContainer/HSlider as HSlider
@@ -24,9 +26,17 @@ func get_bus_name_by_index():
 	bus_index = AudioServer.get_bus_index(bus_name)
 	
 func set_slider_value():
-	h_slider.value = db_to_linear(AudioServer.get_bus_volume_db(bus_index))
+	var save_data = SaveSystem.load_data(BUSVOLUMEUNIQUENAME)
+	var value = save_data[bus_name] if save_data.has(bus_name) \
+		else db_to_linear(AudioServer.get_bus_volume_db(bus_index))
+	h_slider.value = value
 	set_audio_num_label_text()
 	
 func on_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
+	var volume = linear_to_db(value)
+	AudioServer.set_bus_volume_db(bus_index, volume)
 	set_audio_num_label_text()
+	
+	var save_data = SaveSystem.load_data(BUSVOLUMEUNIQUENAME)
+	save_data[bus_name] = volume
+	SaveSystem.save_data(BUSVOLUMEUNIQUENAME, save_data)

@@ -3,9 +3,9 @@ extends Node
 @export var drum_volume_seek_speed := 3
 @export var minimum_drum_volume := 20.0
 
-@onready var intro: AudioStreamPlayer2D = $intro
-@onready var drums: AudioStreamPlayer2D = $drums
-@onready var background: AudioStreamPlayer2D = $background
+@onready var intro: AudioStreamPlayer = $intro
+@onready var drums: AudioStreamPlayer = $drums
+@onready var background: AudioStreamPlayer = $background
 
 var start_drums_volume := 0.0
 var drums_volume_01 := 0.0 : set = set_drums_volume_01

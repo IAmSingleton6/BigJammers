@@ -41,6 +41,7 @@ func _on_level_win() -> void:
 	print("win")
 	level_ended = true
 	
+	SaveSystem.save_all_data()
 	LevelManager.set_current_level_completed()
 	SceneTransitions.change_scene_path(world_scene)
 
@@ -50,6 +51,6 @@ func _on_level_lose() -> void:
 		return
 	print("lose")
 	level_ended = true
+	
+	SaveSystem.save_all_data()
 	SceneTransitions.restart_scene()
-
-

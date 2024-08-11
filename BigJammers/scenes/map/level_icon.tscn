@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/map/level_icon.gd" id="1_jjqia"]
 [ext_resource type="PackedScene" uid="uid://bh2ofek2n0tq8" path="res://scenes/jail_cell.tscn" id="2_cr5wc"]
-
-[sub_resource type="Theme" id="Theme_tgthe"]
+[ext_resource type="Theme" uid="uid://b1xfdyvlbbwvk" path="res://game_settings/bestest_theme.tres" id="2_kramc"]
 
 [node name="LevelIcon" type="Node2D"]
 top_level = true
@@ -15,16 +14,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -73.705
-offset_right = 41.0
-offset_bottom = -25.705
+offset_left = -30.0
+offset_top = -58.0
+offset_right = 138.0
+offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_tgthe")
+scale = Vector2(0.37, 0.37)
+theme = ExtResource("2_kramc")
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="JailCell" parent="." instance=ExtResource("2_cr5wc")]
-scale = Vector2(2.285, 2.285)
