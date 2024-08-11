@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6ue3gpxvqsyn"]
+[gd_scene load_steps=7 format=3 uid="uid://d2p52cxb8p606"]
 
-[ext_resource type="Script" path="res://scripts/level_mechanics/water_fall.gd" id="1_fm26y"]
+[ext_resource type="Script" path="res://scripts/level_mechanics/water_fall.gd" id="1_aen3h"]
 
 [sub_resource type="Gradient" id="Gradient_neylc"]
 offsets = PackedFloat32Array(0.111111, 0.613527, 0.826087, 1)
@@ -18,22 +18,22 @@ curve = SubResource("Curve_ab2gb")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8g6qw"]
 particle_flag_disable_z = true
-direction = Vector3(0, 1, 0)
 spread = 20.0
 initial_velocity_min = 20.0
 initial_velocity_max = 20.0
-gravity = Vector3(0, 98, 0)
+gravity = Vector3(90, 0, 0)
 scale_max = 1.2
 scale_curve = SubResource("CurveTexture_drjcl")
 color_ramp = SubResource("GradientTexture1D_r5t3a")
 
 [node name="WaterFall" type="RayCast2D"]
-target_position = Vector2(0, 90)
+target_position = Vector2(75, 0)
 collide_with_areas = true
 collide_with_bodies = false
-script = ExtResource("1_fm26y")
+script = ExtResource("1_aen3h")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 amount = 100
 process_material = SubResource("ParticleProcessMaterial_8g6qw")
 lifetime = 1.2
+preprocess = 1.0

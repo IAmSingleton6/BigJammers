@@ -19,6 +19,7 @@ signal level_win
 @export var JUMPVELOCITY : float = 150 # was 50
 @export var COYOTETIME : float = 0.3
 @export var JUMP_MULT_ON_STICK : float = 1.5
+@export var TERMINAL_VELOCITY : float = 2000.0
 
 
 
@@ -155,7 +156,7 @@ func _jump(jump_mult: float = 1):
 func _gravity(_delta: float):
 	var gravity_multiplier : float = 1.0 if jumping else FALL_GRAVITY_MULTIPLIER
 	motion.y += GRAVITY * gravity_multiplier
-	motion.y = min(motion.y, 2000.0)
+	motion.y = min(motion.y, TERMINAL_VELOCITY)
 
 func kill():
 	heartbeat.kill()
