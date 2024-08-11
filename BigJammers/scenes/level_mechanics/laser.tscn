@@ -63,7 +63,6 @@ default_color = Color(6, 0, 0, 1)
 
 [node name="BeamParticles" type="GPUParticles2D" parent="."]
 modulate = Color(6, 0, 0, 1)
-emitting = false
 amount = 15
 process_material = SubResource("ParticleProcessMaterial_wl2l3")
 lifetime = 0.3

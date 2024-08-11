@@ -80,7 +80,7 @@ position = Vector2(192, 19)
 position = Vector2(24, -49)
 
 [node name="Laser" parent="." instance=ExtResource("10_c01wq")]
-position = Vector2(99, -61)
+position = Vector2(-95, -63)
 rotation = 1.5708
 
 [node name="WaterFall" parent="." instance=ExtResource("11_kulo0")]

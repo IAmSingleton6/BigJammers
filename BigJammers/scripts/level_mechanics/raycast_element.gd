@@ -1,9 +1,11 @@
 extends RayCast2D
 class_name RaycastElement
 
+@export var time_until_start_firing := 0.0
+@export var start_on := true
 @export var timed := false 
-@export var on_time := 3
-@export var off_time := 2
+@export var on_time := 3.0
+@export var off_time := 2.0
 @export var time_between_successive_hits := 0.1
 
 var fire_timer 
@@ -49,7 +51,12 @@ func _ready():
 	add_child(on_hit_timer)
 	fire_timer.timeout.connect(_on_fire_timer_timeout)
 	
-	is_casting = true
+	
+	is_casting = false
+	if time_until_start_firing > 0:
+		await get_tree().create_timer(time_until_start_firing).timeout
+	
+	is_casting = start_on
 	is_timed = timed
 	if timed:
 		fire_timer.start(on_time)

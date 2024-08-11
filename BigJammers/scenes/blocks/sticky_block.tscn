@@ -18,7 +18,7 @@ steam_particle_scene = ExtResource("2_1fsc3")
 [node name="Area2D" type="Area2D" parent="." groups=["Sticky"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(1.2, 1.2)
+scale = Vector2(1.1, 1.1)
 shape = SubResource("RectangleShape2D_cvrfv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

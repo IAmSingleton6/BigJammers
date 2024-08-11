@@ -20,6 +20,7 @@ func _physics_process(_delta):
 	collision_particles.emitting = is_colliding()
 	if is_colliding():
 		cast_point = to_local(get_collision_point())
+		casting_particles.global_rotation = get_collision_normal().angle() - PI
 		collision_particles.global_rotation = get_collision_normal().angle()
 		collision_particles.position = cast_point
 		
@@ -39,7 +40,9 @@ func _physics_process(_delta):
 
 func _set_is_casting(cast: bool) -> void:
 	super(cast)
-	beam_particles.emitting = is_casting
+	# TODO REMOVE THIS NOT WORKING FOR NOW
+	# beam_particles.emitting = is_casting
+	beam_particles.emitting = false
 	casting_particles.emitting = is_casting
 	if not is_casting:
 		collision_particles.emitting = false
