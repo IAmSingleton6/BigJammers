@@ -144,8 +144,8 @@ radius = 5.0
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 5
 script = ExtResource("1_j518t")
-JUMPBUFFERTIME = 0.15
-COYOTETIME = 0.15
+JUMPBUFFERTIME = 0.1
+COYOTETIME = 0.1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
