@@ -23,7 +23,6 @@ func destroy_block(group_name: String) -> void:
 
 
 func melt() -> void:
-	
 	var water_instance = WATER_BLOCK.instantiate()
 	get_parent().add_child(water_instance)
 	water_instance.global_position = global_position
