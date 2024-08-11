@@ -26,5 +26,8 @@ func _on_area_entered(_other):
 	pass
 
 
+func destroy_block(group_name: String):
+	pass
+
 func _timeout():
 	queue_free()

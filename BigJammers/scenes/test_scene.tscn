@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bjtxawunkxuhh"]
+[gd_scene load_steps=19 format=3 uid="uid://bjtxawunkxuhh"]
 
 [ext_resource type="PackedScene" uid="uid://8qb4pv2ttx4v" path="res://scenes/player/player.tscn" id="1_8vqvh"]
 [ext_resource type="Script" path="res://scripts/level/level.gd" id="1_vlnka"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://msculdcaewa3" path="res://scenes/blocks/fire_block.tscn" id="4_wsiu5"]
 [ext_resource type="PackedScene" uid="uid://bxoy0mykgi768" path="res://scenes/level_mechanics/wind.tscn" id="6_7a7t6"]
 [ext_resource type="PackedScene" uid="uid://de6165hw10myi" path="res://scenes/blocks/solid_block.tscn" id="6_nhpnj"]
+[ext_resource type="PackedScene" uid="uid://27dv2va7nifm" path="res://scenes/blocks/timer_block.tscn" id="7_aupqg"]
 [ext_resource type="PackedScene" uid="uid://bk2cqcbyapave" path="res://scenes/level_mechanics/fire.tscn" id="9_nofno"]
 [ext_resource type="PackedScene" uid="uid://c6urmskx7xp83" path="res://scenes/level_mechanics/laser.tscn" id="10_c01wq"]
 [ext_resource type="PackedScene" uid="uid://c5ldectpiibc5" path="res://scenes/level_mechanics/lava.tscn" id="11_cp0h5"]
@@ -34,6 +35,9 @@ position = Vector2(0, 20.22)
 
 [node name="SolidBlock" parent="Player" instance=ExtResource("6_nhpnj")]
 position = Vector2(-21, -1)
+
+[node name="TimerBlock" parent="Player" instance=ExtResource("7_aupqg")]
+position = Vector2(0, -24)
 
 [node name="floor" type="StaticBody2D" parent="."]
 position = Vector2(0, 40.135)
