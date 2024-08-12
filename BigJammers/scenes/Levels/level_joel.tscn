@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bbsa2ij7hxmbd"]
+[gd_scene load_steps=16 format=3 uid="uid://bbsa2ij7hxmbd"]
 
 [ext_resource type="Script" path="res://scripts/level/level.gd" id="1_3ay3k"]
 [ext_resource type="TileSet" uid="uid://cx8on48oasopg" path="res://game_settings/main_tileset.tres" id="2_4k1ms"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://c5ldectpiibc5" path="res://scenes/level_mechanics/lava.tscn" id="7_ktvvj"]
 [ext_resource type="PackedScene" uid="uid://bk2cqcbyapave" path="res://scenes/level_mechanics/fire.tscn" id="8_opewc"]
 [ext_resource type="Script" path="res://scripts/level_mechanics/water_fall.gd" id="10_bu1gh"]
-[ext_resource type="Theme" uid="uid://b1xfdyvlbbwvk" path="res://game_settings/bestest_theme.tres" id="10_i8g5w"]
 [ext_resource type="PackedScene" uid="uid://1q0ca4lxpoac" path="res://scenes/post_processing.tscn" id="11_4wwuk"]
 
 [sub_resource type="Gradient" id="Gradient_neylc"]
@@ -65,17 +64,6 @@ position = Vector2(520, -78)
 
 [node name="Fire" parent="." instance=ExtResource("8_opewc")]
 position = Vector2(665, -160)
-
-[node name="Label" type="Label" parent="."]
-offset_left = 485.0
-offset_top = -2.0
-offset_right = 656.0
-offset_bottom = 21.0
-theme = ExtResource("10_i8g5w")
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 12
-theme_override_font_sizes/font_size = 8
-text = "Hmmm... doesn't seem to do anything"
 
 [node name="WaterFall2" type="RayCast2D" parent="."]
 position = Vector2(433, -79)
