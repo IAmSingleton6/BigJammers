@@ -2,6 +2,7 @@ extends Node
 
 var _current_level: LevelData
 var current_level_just_completed := false
+var all_levels_completed := false
 
 
 func set_current_level(level: LevelData) -> void:
@@ -18,6 +19,8 @@ func set_current_level_completed():
 		print("No current level to set to complete")
 		return
 	
+	if _current_level.scene == "res://scenes/Levels/level_13.tscn":
+		all_levels_completed = true
 	current_level_just_completed = true
 	var current_save_data = SaveSystem.load_data(LevelData.LEVELSAVEUNIQUENAME)
 	if current_save_data.has(_current_level.level_name):

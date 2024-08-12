@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://bxltmjmeyrjqd"]
+[gd_scene load_steps=50 format=3 uid="uid://bxltmjmeyrjqd"]
 
 [ext_resource type="Script" path="res://scripts/map/level_select.gd" id="1_yr0tu"]
 [ext_resource type="Script" path="res://scripts/map/player_icon.gd" id="3_tjgb5"]
@@ -29,6 +29,8 @@
 [ext_resource type="Resource" uid="uid://2bmqxbb2ixee" path="res://game_settings/Levels/Level16.tres" id="18_3quic"]
 [ext_resource type="Resource" uid="uid://dao7s7lmjtwpx" path="res://game_settings/Levels/Level17.tres" id="19_x7x02"]
 [ext_resource type="PackedScene" uid="uid://b1uaf8b2rlqsq" path="res://scenes/particles/dust.tscn" id="23_6wri5"]
+[ext_resource type="Theme" uid="uid://b1xfdyvlbbwvk" path="res://game_settings/bestest_theme.tres" id="24_pnedo"]
+[ext_resource type="Script" path="res://scripts/show_on_all_levels_complete.gd" id="25_1o6dr"]
 [ext_resource type="Texture2D" uid="uid://duvdrj0he03dc" path="res://assets/pixel.png" id="29_7jp6p"]
 [ext_resource type="PackedScene" uid="uid://b1veukb6rj2un" path="res://scenes/fly.tscn" id="30_rudyj"]
 [ext_resource type="PackedScene" uid="uid://1q0ca4lxpoac" path="res://scenes/post_processing.tscn" id="32_0yqrs"]
@@ -148,6 +150,8 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_86kvl"]
+
 [sub_resource type="Environment" id="Environment_kfxrd"]
 adjustment_enabled = true
 adjustment_brightness = 6.97
@@ -263,6 +267,26 @@ animation = &"happy"
 autoplay = "happy"
 
 [node name="Dust" parent="PlayerIcon" instance=ExtResource("23_6wri5")]
+
+[node name="Node2D" type="Node2D" parent="PlayerIcon"]
+visible = false
+script = ExtResource("25_1o6dr")
+
+[node name="Label" type="Label" parent="PlayerIcon/Node2D"]
+offset_left = -197.0
+offset_top = -110.0
+offset_right = 1993.0
+offset_bottom = 519.0
+scale = Vector2(0.601111, 0.601111)
+theme = ExtResource("24_pnedo")
+text = "Thank you for playing our game! 
+We hope you enjoyed it, this is only a fraction 
+of the ideas we had, and hope you see the 
+potential we see in the project. 
+
+It's been a tonne of fun, and I hope you enjoy it 
+as much as we did. Thank you!"
+label_settings = SubResource("LabelSettings_86kvl")
 
 [node name="Line2D" type="Line2D" parent="."]
 texture_repeat = 2

@@ -31,8 +31,6 @@ func _ready():
 				level_set = true
 				if LevelManager.current_level_just_completed:
 					last_level_just_completed = true
-					
-			
 			
 			level.completed = _get_completed(level.level_data)
 			level.unlocked = level.completed or last_level_completed
