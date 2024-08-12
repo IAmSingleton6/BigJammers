@@ -5,17 +5,19 @@ extends Control
 @onready var options_menu = $options_menu
 
 var paused := false : set = _on_pause
-
+var exiting := false
 
 func _on_pause(value) -> void:
 	paused = value
 	if paused:
-		MusicManager.on_pause_start()
-		get_tree().paused = true
+		if not exiting:
+			MusicManager.on_pause_start()
+			get_tree().paused = true
 		visible = value
 	else:
-		MusicManager.on_pause_end()
-		get_tree().paused = false
+		if not exiting:
+			MusicManager.on_pause_end()
+			get_tree().paused = false
 		_on_exit_options_menu()
 		visible = false
 
@@ -36,6 +38,7 @@ func _on_exit_options_menu():
 
 func _on_exit_to_main_menu_pressed():
 	paused = false
+	exiting = true
 	SceneTransitions.change_scene_path("res://scenes/map/world1.tscn")
 
 func _on_options_menu_pressed():
