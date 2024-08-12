@@ -148,7 +148,7 @@ size = Vector2(23, 23)
 z_index = 5
 script = ExtResource("1_j518t")
 JUMPBUFFERTIME = 0.1
-COYOTETIME = 0.1
+COYOTETIME = 0.2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
@@ -171,8 +171,10 @@ autoplay = "happy"
 shape = SubResource("CircleShape2D_0hfov")
 
 [node name="CoyoteTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="JumpBufferTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="Heartbeat" type="Node2D" parent="." node_paths=PackedStringArray("anim_sprite")]
 script = ExtResource("3_yjc7d")
