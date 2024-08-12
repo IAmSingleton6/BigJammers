@@ -65,7 +65,7 @@ off_time = 2.1
 position = Vector2(41, -41)
 
 [node name="StickyBlock" parent="Player" instance=ExtResource("4_3weqc")]
-position = Vector2(24, 0)
+position = Vector2(24, -3)
 
 [node name="WaterBlock" parent="Player" instance=ExtResource("30_f8f6b")]
 position = Vector2(0, 25)

@@ -99,30 +99,34 @@ theme_override_constants/separation = 30
 layout_mode = 2
 
 [node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme = ExtResource("2_fxyad")
 theme_override_colors/font_shadow_color = Color(0.514776, 0.13394, 0.0486896, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 10
 theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 100
-text = "Heartbreak Escape"
+theme_override_font_sizes/font_size = 64
+text = "HeartBreak Escape"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 48
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="seperator" type="Control" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+
+[node name="seperator2" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
 theme_override_constants/separation = 32
-alignment = 2
+alignment = 1
 
 [node name="Seperator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Seperator5" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="Seperator3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
@@ -132,25 +136,25 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Play" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme = ExtResource("2_fxyad")
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 48
 text = "Play"
-alignment = 0
 
 [node name="Options" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme = ExtResource("2_fxyad")
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 48
 text = "Options"
-alignment = 0
 
 [node name="Exit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme = ExtResource("2_fxyad")
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 48
 text = "Exit"
-alignment = 0
 
 [node name="options_menu" parent="." instance=ExtResource("4_ou2x4")]
 visible = false
