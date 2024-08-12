@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bb44kbqryg4g8"]
+[gd_scene load_steps=14 format=3 uid="uid://bb44kbqryg4g8"]
 
 [ext_resource type="Script" path="res://scripts/level/level.gd" id="1_jcx5p"]
 [ext_resource type="TileSet" uid="uid://cx8on48oasopg" path="res://game_settings/main_tileset.tres" id="2_5yd8d"]
@@ -9,6 +9,23 @@
 [ext_resource type="PackedScene" uid="uid://dwgdab0endmxb" path="res://scenes/Levels/killzone.tscn" id="7_fbi5i"]
 [ext_resource type="PackedScene" uid="uid://27dv2va7nifm" path="res://scenes/blocks/timer_block.tscn" id="7_tr4wf"]
 [ext_resource type="PackedScene" uid="uid://de6165hw10myi" path="res://scenes/blocks/solid_block.tscn" id="8_llkxa"]
+[ext_resource type="Script" path="res://scripts/utility/feel/FeelScenes/FeelPostProcess/FeelWorldEnvironment.gd" id="10_5b7q5"]
+[ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="11_slhys"]
+
+[sub_resource type="Environment" id="Environment_6trcp"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 2.78
+glow_strength = 1.21
+glow_blend_mode = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u14vk"]
+shader = ExtResource("11_slhys")
+shader_parameter/inner_radius = 0.2
+shader_parameter/outer_radius = 1.0
+shader_parameter/intensity = 0.0
+shader_parameter/dither_strength = 0.03
+shader_parameter/vignette_color = null
 
 [node name="level_joel" type="Node2D"]
 script = ExtResource("1_jcx5p")
@@ -67,3 +84,28 @@ position = Vector2(-23, 0)
 
 [node name="Killzone_Floor" parent="." instance=ExtResource("7_fbi5i")]
 position = Vector2(0, 133)
+
+[node name="PostProcessing" type="Node2D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="PostProcessing"]
+environment = SubResource("Environment_6trcp")
+script = ExtResource("10_5b7q5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="PostProcessing"]
+
+[node name="ColorRect" type="ColorRect" parent="PostProcessing/CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_u14vk")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="PostProcessing/CanvasLayer"]
+material = SubResource("ShaderMaterial_u14vk")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bsi5pacva333s"]
+[gd_scene load_steps=11 format=3 uid="uid://bsi5pacva333s"]
 
 [ext_resource type="Script" path="res://scripts/level/level.gd" id="1_5c8dc"]
 [ext_resource type="TileSet" uid="uid://cx8on48oasopg" path="res://game_settings/main_tileset.tres" id="1_fm1ux"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dwgdab0endmxb" path="res://scenes/Levels/killzone.tscn" id="7_17vjk"]
 [ext_resource type="PackedScene" uid="uid://msculdcaewa3" path="res://scenes/blocks/fire_block.tscn" id="7_l85gj"]
 [ext_resource type="PackedScene" uid="uid://b1veukb6rj2un" path="res://scenes/fly.tscn" id="9_3p1tu"]
+[ext_resource type="PackedScene" uid="uid://1q0ca4lxpoac" path="res://scenes/post_processing.tscn" id="10_jlvsh"]
 
 [node name="level_2" type="Node2D"]
 script = ExtResource("1_5c8dc")
@@ -49,3 +50,5 @@ position = Vector2(50, -86)
 
 [node name="Fly3" parent="." instance=ExtResource("9_3p1tu")]
 position = Vector2(321, 96)
+
+[node name="PostProcessing" parent="." instance=ExtResource("10_jlvsh")]

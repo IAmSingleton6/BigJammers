@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bxltmjmeyrjqd"]
+[gd_scene load_steps=47 format=3 uid="uid://bxltmjmeyrjqd"]
 
 [ext_resource type="Script" path="res://scripts/map/level_select.gd" id="1_yr0tu"]
 [ext_resource type="Script" path="res://scripts/map/player_icon.gd" id="3_tjgb5"]
@@ -28,8 +28,10 @@
 [ext_resource type="Resource" uid="uid://bb1t0ar1oa1t5" path="res://game_settings/Levels/Level15.tres" id="17_x87wt"]
 [ext_resource type="Resource" uid="uid://2bmqxbb2ixee" path="res://game_settings/Levels/Level16.tres" id="18_3quic"]
 [ext_resource type="Resource" uid="uid://dao7s7lmjtwpx" path="res://game_settings/Levels/Level17.tres" id="19_x7x02"]
+[ext_resource type="PackedScene" uid="uid://b1uaf8b2rlqsq" path="res://scenes/particles/dust.tscn" id="23_6wri5"]
 [ext_resource type="Texture2D" uid="uid://duvdrj0he03dc" path="res://assets/pixel.png" id="29_7jp6p"]
 [ext_resource type="PackedScene" uid="uid://b1veukb6rj2un" path="res://scenes/fly.tscn" id="30_rudyj"]
+[ext_resource type="PackedScene" uid="uid://1q0ca4lxpoac" path="res://scenes/post_processing.tscn" id="32_0yqrs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x02hn"]
 shader = ExtResource("8_0xcih")
@@ -260,6 +262,8 @@ sprite_frames = SubResource("SpriteFrames_bl6or")
 animation = &"happy"
 autoplay = "happy"
 
+[node name="Dust" parent="PlayerIcon" instance=ExtResource("23_6wri5")]
+
 [node name="Line2D" type="Line2D" parent="."]
 texture_repeat = 2
 position = Vector2(-194, 5.29999)
@@ -391,10 +395,18 @@ texture_mode = 1
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kfxrd")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+z_index = -5
+position = Vector2(13, -13)
+scale = Vector2(10000, 10000)
+texture = ExtResource("29_7jp6p")
+
 [node name="TileMap" type="TileMap" parent="."]
+z_index = 1
 tile_set = ExtResource("10_exrgs")
 format = 2
-layer_0/z_index = -1
+layer_0/tile_data = PackedInt32Array(-786442, 917505, 17, -720906, 917505, 18, -655370, 917505, 19, -786441, 983041, 17, -720905, 983041, 18, -655369, 983041, 19, -851976, 524289, 12, -786440, 1048577, 17, -720904, 1048577, 18, -655368, 1048577, 19, -1114119, 262145, 3, -1114118, 327681, 3, -1114117, 393217, 3, -1179654, 1114113, 0, -1310750, 393217, 9, -1245214, 393217, 10, -1179678, 1114113, 5, -1048601, 917505, 0, -983065, 917505, 1, -917530, 458753, 4, -851994, 458753, 5, -786458, 458753, 6, -917529, 524289, 4, -851993, 524289, 5, -786457, 524289, 6, -917528, 589825, 4, -851992, 589825, 5, -786456, 589825, 6, -983064, 1048577, 0, -1376275, 983041, 9, -1310739, 983041, 10, -1245203, 983041, 11, -1376274, 1048577, 9, -1310738, 1048577, 10, -1245202, 1048577, 11, -1376273, 1114113, 9, -1310737, 1114113, 10, -1245201, 1114113, 11, -1179667, 1245185, 1, -1179680, 983041, 5, -1114144, 983041, 6, -1048608, 983041, 7, -1179679, 1048577, 5, -1114143, 1048577, 6, -1048607, 1048577, 7, -1114142, 1114113, 6, -1048606, 1114113, 7, -917503, 655361, 13, -851967, 655361, 14, -786431, 655361, 15, -917502, 720897, 13, -851966, 720897, 14, -786430, 720897, 15, -917501, 786433, 13, -851965, 786433, 14, -786429, 786433, 15, -1507318, 983041, 13, -1441782, 983041, 14, -1376246, 983041, 15, -1507317, 1048577, 13, -1441781, 1048577, 14, -1376245, 1048577, 15, -1507316, 1114113, 13, -1441780, 1114113, 14, -1376244, 1114113, 15, -983022, 1114113, 17, -917486, 1114113, 18, -851950, 1114113, 19, -983021, 1179649, 17, -917485, 1179649, 18, -851949, 1179649, 19, -983020, 1245185, 17, -917484, 1245185, 18, -851948, 1245185, 19, -1048545, 720897, 17, -983009, 720897, 18, -917473, 720897, 19, -1048544, 786433, 17, -983008, 786433, 18, -917472, 786433, 19, -1048543, 851969, 17, -983007, 851969, 18, -917471, 851969, 19, -851927, 1, 9, -786391, 1, 10, -720855, 1, 11, -851925, 131073, 9, -786389, 131073, 10, -720853, 131073, 11, -851926, 65537, 9, -655319, 1, 11, -589783, 1, 11, -524247, 1, 11, -458711, 1, 11, -393175, 1, 11, -327639, 1, 11, -262103, 1, 11, -196567, 1, 11, -131031, 1, 11, -65495, 1, 11, 41, 1, 11, -655317, 131073, 10, -589781, 131073, 10, -524245, 131073, 10, -458709, 131073, 10, -393173, 131073, 10, -327637, 131073, 10, -262101, 131073, 10, -196565, 131073, 10, -131029, 131073, 10, -65493, 131073, 10, 43, 131073, 10, -917461, 851969, 4, -917463, 1114113, 0, -1048558, 1179649, 1, -1114093, 983041, 0, -1048557, 983041, 1, -1048556, 851969, 3, -1310710, 327681, 16, -1245174, 327681, 17, -1048520, 458753, 11, -982984, 458753, 12, -917448, 458753, 13, -1048519, 524289, 11, -917447, 524289, 13, -1048518, 589825, 11, -982982, 589825, 12, -917446, 589825, 13, -786412, 393217, 8, -982983, 851969, 1, -1245127, 327681, 9, -1179591, 327681, 10, -1114055, 327681, 11)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_8iv17")
@@ -411,13 +423,6 @@ zoom_scale = 5.0
 duration = 2.0
 restore_original_zoom = false
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0, 0, 0, 1)
-z_index = -5
-position = Vector2(13, -13)
-scale = Vector2(10000, 10000)
-texture = ExtResource("29_7jp6p")
-
 [node name="Fly" parent="." instance=ExtResource("30_rudyj")]
 position = Vector2(-345, -347)
 
@@ -428,10 +433,12 @@ position = Vector2(-107, -172)
 position = Vector2(336, -351)
 
 [node name="Fly4" parent="." instance=ExtResource("30_rudyj")]
-position = Vector2(687, -209)
+position = Vector2(681, -264)
 
 [node name="Fly5" parent="." instance=ExtResource("30_rudyj")]
-position = Vector2(1082, -325)
+position = Vector2(1070, -309)
+
+[node name="PostProcessing" parent="." instance=ExtResource("32_0yqrs")]
 
 [connection signal="level_selected" from="." to="AudioStreamPlayer" method="play"]
 [connection signal="level_selected" from="." to="FeelController" method="play"]

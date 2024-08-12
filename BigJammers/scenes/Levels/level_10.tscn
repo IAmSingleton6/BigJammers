@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1m7rja0cthxf"]
+[gd_scene load_steps=12 format=3 uid="uid://c1m7rja0cthxf"]
 
 [ext_resource type="Script" path="res://scripts/level/level.gd" id="1_6jvoh"]
 [ext_resource type="TileSet" uid="uid://cx8on48oasopg" path="res://game_settings/main_tileset.tres" id="2_3sepk"]
@@ -6,7 +6,24 @@
 [ext_resource type="PackedScene" uid="uid://b2lg5vehvadom" path="res://scenes/blocks/sticky_block.tscn" id="4_3weqc"]
 [ext_resource type="PackedScene" uid="uid://c6urmskx7xp83" path="res://scenes/level_mechanics/laser.tscn" id="5_16s4n"]
 [ext_resource type="PackedScene" uid="uid://dwgdab0endmxb" path="res://scenes/Levels/killzone.tscn" id="6_tiqia"]
+[ext_resource type="Script" path="res://scripts/utility/feel/FeelScenes/FeelPostProcess/FeelWorldEnvironment.gd" id="8_b6qm5"]
+[ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="9_hoeac"]
 [ext_resource type="PackedScene" uid="uid://c76ksqqw3n176" path="res://scenes/blocks/water_block.tscn" id="30_f8f6b"]
+
+[sub_resource type="Environment" id="Environment_2xogl"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 2.78
+glow_strength = 1.21
+glow_blend_mode = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gf1mx"]
+shader = ExtResource("9_hoeac")
+shader_parameter/inner_radius = 0.2
+shader_parameter/outer_radius = 1.0
+shader_parameter/intensity = 0.0
+shader_parameter/dither_strength = 0.03
+shader_parameter/vignette_color = null
 
 [node name="level_joel" type="Node2D"]
 script = ExtResource("1_6jvoh")
@@ -58,3 +75,29 @@ position = Vector2(0, -26)
 
 [node name="Killzone_Floor" parent="." instance=ExtResource("6_tiqia")]
 position = Vector2(0, 133)
+
+[node name="PostProcessing" type="Node2D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="PostProcessing" node_paths=PackedStringArray("vignette")]
+environment = SubResource("Environment_2xogl")
+script = ExtResource("8_b6qm5")
+vignette = NodePath("")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="PostProcessing"]
+
+[node name="ColorRect" type="ColorRect" parent="PostProcessing/CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_gf1mx")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="PostProcessing/CanvasLayer"]
+material = SubResource("ShaderMaterial_gf1mx")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

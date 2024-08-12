@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctn7oo4llxrtf"]
+[gd_scene load_steps=10 format=3 uid="uid://ctn7oo4llxrtf"]
 
 [ext_resource type="Script" path="res://scripts/level/level.gd" id="1_76sjf"]
 [ext_resource type="PackedScene" uid="uid://8qb4pv2ttx4v" path="res://scenes/player/player.tscn" id="1_ldlky"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://27dv2va7nifm" path="res://scenes/blocks/timer_block.tscn" id="5_e2ndk"]
 [ext_resource type="PackedScene" uid="uid://c5ldectpiibc5" path="res://scenes/level_mechanics/lava.tscn" id="5_ydpp2"]
 [ext_resource type="PackedScene" uid="uid://c76ksqqw3n176" path="res://scenes/blocks/water_block.tscn" id="6_hchde"]
+[ext_resource type="PackedScene" uid="uid://1q0ca4lxpoac" path="res://scenes/post_processing.tscn" id="9_4twfq"]
 
 [node name="level_4" type="Node2D"]
 script = ExtResource("1_76sjf")
@@ -50,3 +51,5 @@ position = Vector2(0, 26)
 
 [node name="Killzone_Floor" parent="." instance=ExtResource("2_epeu8")]
 position = Vector2(0, 155)
+
+[node name="PostProcessing" parent="." instance=ExtResource("9_4twfq")]

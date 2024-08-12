@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b07h3wgpify4b"]
+[gd_scene load_steps=16 format=3 uid="uid://b07h3wgpify4b"]
 
 [ext_resource type="Script" path="res://scripts/level/level.gd" id="1_qpawl"]
 [ext_resource type="TileSet" uid="uid://cx8on48oasopg" path="res://game_settings/main_tileset.tres" id="2_3pl3a"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scripts/level_mechanics/play_animation.gd" id="10_1rlwn"]
 [ext_resource type="PackedScene" uid="uid://c76ksqqw3n176" path="res://scenes/blocks/water_block.tscn" id="10_nw5g4"]
 [ext_resource type="PackedScene" uid="uid://dwgdab0endmxb" path="res://scenes/Levels/killzone.tscn" id="11_fo2wv"]
+[ext_resource type="PackedScene" uid="uid://1q0ca4lxpoac" path="res://scenes/post_processing.tscn" id="12_cgotr"]
 
 [sub_resource type="Animation" id="Animation_oxpae"]
 length = 0.001
@@ -114,6 +115,8 @@ libraries = {
 }
 script = ExtResource("10_1rlwn")
 animation_name = &"move"
+
+[node name="PostProcessing" parent="." instance=ExtResource("12_cgotr")]
 
 [connection signal="pressure_plate_activated" from="Level_Mechanics/PressurePlate" to="Platform_wt/AnimationPlayer" method="play_anim"]
 [connection signal="pressure_plate_activated" from="Level_Mechanics/PressurePlate2" to="Level_Mechanics/Laser" method="toggle_casting"]

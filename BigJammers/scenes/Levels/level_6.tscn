@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://7wntjr7v5pe"]
+[gd_scene load_steps=11 format=3 uid="uid://7wntjr7v5pe"]
 
 [ext_resource type="Script" path="res://scripts/level/level.gd" id="1_1saib"]
 [ext_resource type="TileSet" uid="uid://cx8on48oasopg" path="res://game_settings/main_tileset.tres" id="1_h14cr"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://msculdcaewa3" path="res://scenes/blocks/fire_block.tscn" id="6_owdbf"]
 [ext_resource type="PackedScene" uid="uid://dwgdab0endmxb" path="res://scenes/Levels/killzone.tscn" id="7_8tn64"]
 [ext_resource type="PackedScene" uid="uid://b1veukb6rj2un" path="res://scenes/fly.tscn" id="9_u2kn0"]
+[ext_resource type="PackedScene" uid="uid://1q0ca4lxpoac" path="res://scenes/post_processing.tscn" id="10_waikn"]
 
 [node name="level_6" type="Node2D"]
 script = ExtResource("1_1saib")
@@ -46,14 +47,7 @@ position = Vector2(0, 201)
 [node name="Fly" parent="." instance=ExtResource("9_u2kn0")]
 position = Vector2(-386, -18)
 
-[node name="Fly2" parent="." instance=ExtResource("9_u2kn0")]
-position = Vector2(-143, 62)
-
 [node name="Fly3" parent="." instance=ExtResource("9_u2kn0")]
-position = Vector2(142, -51)
+position = Vector2(201, -88)
 
-[node name="Fly4" parent="." instance=ExtResource("9_u2kn0")]
-position = Vector2(-124, -161)
-
-[node name="Fly5" parent="." instance=ExtResource("9_u2kn0")]
-position = Vector2(421, 73)
+[node name="PostProcessing" parent="." instance=ExtResource("10_waikn")]

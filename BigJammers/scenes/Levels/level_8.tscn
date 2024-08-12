@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c6epm87e743dj"]
+[gd_scene load_steps=20 format=3 uid="uid://c6epm87e743dj"]
 
 [ext_resource type="Script" path="res://scripts/level/level.gd" id="1_tefo0"]
 [ext_resource type="TileSet" uid="uid://cx8on48oasopg" path="res://game_settings/main_tileset.tres" id="1_urjxr"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://3eg5vctj206g" path="res://scenes/level_mechanics/pressure_plate.tscn" id="7_atygb"]
 [ext_resource type="Script" path="res://scripts/level_mechanics/play_animation.gd" id="7_ihpl2"]
 [ext_resource type="PackedScene" uid="uid://c6urmskx7xp83" path="res://scenes/level_mechanics/laser.tscn" id="8_mxdr4"]
+[ext_resource type="PackedScene" uid="uid://1q0ca4lxpoac" path="res://scenes/post_processing.tscn" id="13_3iu1o"]
 
 [sub_resource type="Animation" id="Animation_v30t0"]
 length = 0.001
@@ -162,6 +163,8 @@ position = Vector2(1, 25)
 
 [node name="FireBlock" parent="Player" instance=ExtResource("5_rk5co")]
 position = Vector2(26, 0)
+
+[node name="PostProcessing" parent="." instance=ExtResource("13_3iu1o")]
 
 [connection signal="pressure_plate_activated" from="Level_Mechanics/PressurePlate" to="Level_Mechanics/Platform_wt/AnimationPlayer" method="play_anim"]
 [connection signal="pressure_plate_activated" from="Level_Mechanics/PressurePlate2" to="Level_Mechanics/Platform_wt2/AnimationPlayer2" method="play_anim"]

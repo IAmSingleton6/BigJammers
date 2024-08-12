@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bbsa2ij7hxmbd"]
+[gd_scene load_steps=17 format=3 uid="uid://bbsa2ij7hxmbd"]
 
 [ext_resource type="Script" path="res://scripts/level/level.gd" id="1_3ay3k"]
 [ext_resource type="TileSet" uid="uid://cx8on48oasopg" path="res://game_settings/main_tileset.tres" id="2_4k1ms"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bk2cqcbyapave" path="res://scenes/level_mechanics/fire.tscn" id="8_opewc"]
 [ext_resource type="Script" path="res://scripts/level_mechanics/water_fall.gd" id="10_bu1gh"]
 [ext_resource type="Theme" uid="uid://b1xfdyvlbbwvk" path="res://game_settings/bestest_theme.tres" id="10_i8g5w"]
+[ext_resource type="PackedScene" uid="uid://1q0ca4lxpoac" path="res://scenes/post_processing.tscn" id="11_4wwuk"]
 
 [sub_resource type="Gradient" id="Gradient_neylc"]
 offsets = PackedFloat32Array(0.111111, 0.613527, 0.826087, 1)
@@ -88,3 +89,5 @@ position = Vector2(-15, 8)
 amount = 100
 process_material = SubResource("ParticleProcessMaterial_8g6qw")
 lifetime = 1.5
+
+[node name="PostProcessing" parent="." instance=ExtResource("11_4wwuk")]
