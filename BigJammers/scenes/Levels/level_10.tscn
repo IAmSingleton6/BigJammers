@@ -65,7 +65,7 @@ off_time = 2.1
 position = Vector2(41, -41)
 
 [node name="StickyBlock" parent="Player" instance=ExtResource("4_3weqc")]
-position = Vector2(24, 0)
+position = Vector2(24, -3)
 
 [node name="WaterBlock" parent="Player" instance=ExtResource("30_f8f6b")]
 position = Vector2(0, 25)
@@ -78,10 +78,9 @@ position = Vector2(0, 133)
 
 [node name="PostProcessing" type="Node2D" parent="."]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="PostProcessing" node_paths=PackedStringArray("vignette")]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="PostProcessing"]
 environment = SubResource("Environment_2xogl")
 script = ExtResource("8_b6qm5")
-vignette = NodePath("")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="PostProcessing"]
 
