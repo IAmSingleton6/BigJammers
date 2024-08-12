@@ -73,10 +73,9 @@ position = Vector2(824, 123)
 
 [node name="PostProcessing" type="Node2D" parent="."]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="PostProcessing" node_paths=PackedStringArray("vignette")]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="PostProcessing"]
 environment = SubResource("Environment_wtkwx")
 script = ExtResource("10_pcb11")
-vignette = NodePath("")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="PostProcessing"]
 
@@ -88,6 +87,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="ColorRect2" type="ColorRect" parent="PostProcessing/CanvasLayer"]
 material = SubResource("ShaderMaterial_gf1mx")
@@ -96,3 +96,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2

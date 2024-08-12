@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://0es4popx7x31"]
+[gd_scene load_steps=65 format=3 uid="uid://0es4popx7x31"]
 
 [ext_resource type="Script" path="res://scripts/level/level.gd" id="1_lbvyd"]
 [ext_resource type="TileSet" uid="uid://cx8on48oasopg" path="res://game_settings/main_tileset.tres" id="2_ur68u"]
@@ -29,7 +29,6 @@
 [ext_resource type="AudioStream" uid="uid://cmvx55t5obsuf" path="res://assets/audio/sfx/win.wav" id="27_sllxm"]
 [ext_resource type="PackedScene" uid="uid://eveulyut3a7u" path="res://scripts/utility/feel/FeelScenes/FeelComponentScenes/feel_squash_and_stretch.tscn" id="28_eyial"]
 [ext_resource type="PackedScene" uid="uid://bh2ofek2n0tq8" path="res://scenes/jail_cell.tscn" id="29_7eqvp"]
-[ext_resource type="PackedScene" uid="uid://urfilus65567" path="res://scenes/pause_menu.tscn" id="30_m4f7l"]
 
 [sub_resource type="Gradient" id="Gradient_h2pl3"]
 offsets = PackedFloat32Array(0.0241546, 0.299517, 1)
@@ -462,8 +461,6 @@ order = "Parallel"
 [node name="JailCell" parent="Player" instance=ExtResource("29_7eqvp")]
 modulate = Color(1, 1, 1, 0.509804)
 scale = Vector2(0.745, 0.745)
-
-[node name="PauseMenu" parent="Player" instance=ExtResource("30_m4f7l")]
 
 [node name="FireBlock" parent="Player" instance=ExtResource("6_amu0o")]
 position = Vector2(24, -1)

@@ -44,7 +44,7 @@ point_count = 4
 [sub_resource type="CurveTexture" id="CurveTexture_3h0xq"]
 curve = SubResource("Curve_vo0v5")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dk3bv"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qxy6b"]
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(860, 540, 1)
@@ -105,7 +105,7 @@ theme_override_colors/font_shadow_color = Color(0.514776, 0.13394, 0.0486896, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 10
 theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 100
 text = "Heartbreak Escape"
 horizontal_alignment = 1
 
@@ -134,21 +134,21 @@ layout_mode = 2
 [node name="Play" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_fxyad")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 80
 text = "Play"
 alignment = 0
 
 [node name="Options" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_fxyad")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 80
 text = "Options"
 alignment = 0
 
 [node name="Exit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_fxyad")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 80
 text = "Exit"
 alignment = 0
 
@@ -172,7 +172,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control"]
-position = Vector2(171, 6.00001)
+position = Vector2(211, 32)
 rotation = 0.548176
 scale = Vector2(18.2427, 18.2427)
 sprite_frames = SubResource("SpriteFrames_hq15x")
@@ -181,12 +181,12 @@ amplitude = 5.0
 frequency = 0.8
 
 [node name="JailCell" parent="Control" instance=ExtResource("6_ic40t")]
-position = Vector2(-221, 323)
+position = Vector2(-246, 286)
 rotation = -0.323108
 scale = Vector2(8.37854, 8.37854)
 
 [node name="Dust" type="GPUParticles2D" parent="Control"]
 amount = 500
-process_material = SubResource("ParticleProcessMaterial_dk3bv")
+process_material = SubResource("ParticleProcessMaterial_qxy6b")
 lifetime = 5.0
-preprocess = 1.0
+preprocess = 5.0
