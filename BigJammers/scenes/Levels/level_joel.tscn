@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bbsa2ij7hxmbd"]
+[gd_scene load_steps=17 format=3 uid="uid://bbsa2ij7hxmbd"]
 
 [ext_resource type="Script" path="res://scripts/level/level.gd" id="1_3ay3k"]
 [ext_resource type="TileSet" uid="uid://cx8on48oasopg" path="res://game_settings/main_tileset.tres" id="2_4k1ms"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bk2cqcbyapave" path="res://scenes/level_mechanics/fire.tscn" id="8_opewc"]
 [ext_resource type="Script" path="res://scripts/level_mechanics/water_fall.gd" id="10_bu1gh"]
 [ext_resource type="PackedScene" uid="uid://1q0ca4lxpoac" path="res://scenes/post_processing.tscn" id="11_4wwuk"]
+[ext_resource type="Texture2D" uid="uid://ch4avyqtxipb7" path="res://assets/assets/mono/Tilemap/monochrome_tilemap.png" id="11_t5brv"]
 
 [sub_resource type="Gradient" id="Gradient_neylc"]
 offsets = PackedFloat32Array(0.111111, 0.613527, 0.826087, 1)
@@ -79,3 +80,19 @@ process_material = SubResource("ParticleProcessMaterial_8g6qw")
 lifetime = 1.5
 
 [node name="PostProcessing" parent="." instance=ExtResource("11_4wwuk")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(338, -155)
+rotation = 2.33748
+texture = ExtResource("11_t5brv")
+hframes = 20
+vframes = 20
+frame = 92
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(336, -102)
+rotation = 0.545448
+texture = ExtResource("11_t5brv")
+hframes = 20
+vframes = 20
+frame = 92

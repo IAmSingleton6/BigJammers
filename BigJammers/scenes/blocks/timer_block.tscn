@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://27dv2va7nifm"]
+[gd_scene load_steps=7 format=3 uid="uid://27dv2va7nifm"]
 
 [ext_resource type="Script" path="res://scripts/blocks/timer_block.gd" id="1_2m85q"]
 [ext_resource type="Texture2D" uid="uid://13g7cghgud74" path="res://assets/assets/clk.png" id="2_upee5"]
+[ext_resource type="Theme" uid="uid://b1xfdyvlbbwvk" path="res://game_settings/bestest_theme.tres" id="3_k6yk4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8j68n"]
 
@@ -31,16 +32,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -285.5
-offset_top = -681.0
-offset_right = 285.5
-offset_bottom = 681.0
+offset_left = -333.5
+offset_top = -600.0
+offset_right = 333.5
+offset_bottom = 762.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_k6yk4")
 text = "8
 "
 label_settings = SubResource("LabelSettings_bqlvd")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Area2D" type="Area2D" parent="." groups=["Timer"]]
 

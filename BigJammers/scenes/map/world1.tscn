@@ -12,7 +12,6 @@
 [ext_resource type="Resource" uid="uid://bq4lorr8ar761" path="res://game_settings/Levels/Level6.tres" id="8_o6tfx"]
 [ext_resource type="Resource" uid="uid://cfypyfoiaksny" path="res://game_settings/Levels/Level7.tres" id="9_55upk"]
 [ext_resource type="Texture2D" uid="uid://iqxbsocm5o85" path="res://assets/heart_pulse_row.png" id="9_cj82g"]
-[ext_resource type="Texture2D" uid="uid://bhtc1mo4tjele" path="res://images/dashed_line.png" id="9_dw1jk"]
 [ext_resource type="TileSet" uid="uid://cx8on48oasopg" path="res://game_settings/main_tileset.tres" id="10_exrgs"]
 [ext_resource type="Resource" uid="uid://6i3dllmxflww" path="res://game_settings/Levels/Level8.tres" id="10_jmsq1"]
 [ext_resource type="Resource" uid="uid://ddo08wm8nn5qo" path="res://game_settings/Levels/Level9.tres" id="11_2uj3h"]
@@ -31,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://b1uaf8b2rlqsq" path="res://scenes/particles/dust.tscn" id="23_6wri5"]
 [ext_resource type="Theme" uid="uid://b1xfdyvlbbwvk" path="res://game_settings/bestest_theme.tres" id="24_pnedo"]
 [ext_resource type="Script" path="res://scripts/show_on_all_levels_complete.gd" id="25_1o6dr"]
+[ext_resource type="Texture2D" uid="uid://bntbssyp8q0ym" path="res://assets/dashed_line.png" id="26_c0r0b"]
 [ext_resource type="Texture2D" uid="uid://duvdrj0he03dc" path="res://assets/pixel.png" id="29_7jp6p"]
 [ext_resource type="PackedScene" uid="uid://b1veukb6rj2un" path="res://scenes/fly.tscn" id="30_rudyj"]
 [ext_resource type="PackedScene" uid="uid://1q0ca4lxpoac" path="res://scenes/post_processing.tscn" id="32_0yqrs"]
@@ -293,7 +293,7 @@ texture_repeat = 2
 position = Vector2(-194, 5.29999)
 points = PackedVector2Array(-223, -303, -181, -302)
 width = 9.3
-texture = ExtResource("9_dw1jk")
+texture = ExtResource("26_c0r0b")
 texture_mode = 1
 
 [node name="Line2D2" type="Line2D" parent="."]
@@ -301,7 +301,7 @@ texture_repeat = 2
 position = Vector2(-525, -50.7)
 points = PackedVector2Array(239, -196, 186, -243)
 width = 9.3
-texture = ExtResource("9_dw1jk")
+texture = ExtResource("26_c0r0b")
 texture_mode = 1
 
 [node name="Line2D3" type="Line2D" parent="."]
@@ -309,7 +309,7 @@ texture_repeat = 2
 position = Vector2(-436, -3.70001)
 points = PackedVector2Array(231, -255, 186, -240)
 width = 9.3
-texture = ExtResource("9_dw1jk")
+texture = ExtResource("26_c0r0b")
 texture_mode = 1
 
 [node name="Line2D4" type="Line2D" parent="."]
@@ -317,7 +317,7 @@ texture_repeat = 2
 position = Vector2(-267, -49)
 points = PackedVector2Array(205, -175, 96, -210)
 width = 9.3
-texture = ExtResource("9_dw1jk")
+texture = ExtResource("26_c0r0b")
 texture_mode = 1
 
 [node name="Line2D5" type="Line2D" parent="."]
@@ -325,7 +325,7 @@ texture_repeat = 2
 position = Vector2(-223, 86)
 points = PackedVector2Array(195, -312, 232, -356)
 width = 9.3
-texture = ExtResource("9_dw1jk")
+texture = ExtResource("26_c0r0b")
 texture_mode = 1
 
 [node name="Line2D6" type="Line2D" parent="."]
@@ -333,7 +333,7 @@ texture_repeat = 2
 position = Vector2(-120, -30)
 points = PackedVector2Array(220, -283, 162, -241)
 width = 9.3
-texture = ExtResource("9_dw1jk")
+texture = ExtResource("26_c0r0b")
 texture_mode = 1
 
 [node name="Line2D7" type="Line2D" parent="."]
@@ -341,7 +341,7 @@ texture_repeat = 2
 position = Vector2(-51, -72)
 points = PackedVector2Array(225, -203, 186, -240)
 width = 9.3
-texture = ExtResource("9_dw1jk")
+texture = ExtResource("26_c0r0b")
 texture_mode = 1
 
 [node name="Line2D8" type="Line2D" parent="."]
@@ -349,7 +349,7 @@ texture_repeat = 2
 position = Vector2(23, -34)
 points = PackedVector2Array(235, -276, 186, -240)
 width = 9.3
-texture = ExtResource("9_dw1jk")
+texture = ExtResource("26_c0r0b")
 texture_mode = 1
 
 [node name="Line2D9" type="Line2D" parent="."]
@@ -357,7 +357,7 @@ texture_repeat = 2
 position = Vector2(107, -68)
 points = PackedVector2Array(248, -183, 186, -240)
 width = 9.3
-texture = ExtResource("9_dw1jk")
+texture = ExtResource("26_c0r0b")
 texture_mode = 1
 
 [node name="Line2D10" type="Line2D" parent="."]
@@ -365,7 +365,7 @@ texture_repeat = 2
 position = Vector2(205, -10)
 points = PackedVector2Array(231, -279, 186, -240)
 width = 9.3
-texture = ExtResource("9_dw1jk")
+texture = ExtResource("26_c0r0b")
 texture_mode = 1
 
 [node name="Line2D11" type="Line2D" parent="."]
@@ -373,7 +373,7 @@ texture_repeat = 2
 position = Vector2(287, -47)
 points = PackedVector2Array(229, -270, 186, -240)
 width = 9.3
-texture = ExtResource("9_dw1jk")
+texture = ExtResource("26_c0r0b")
 texture_mode = 1
 
 [node name="Line2D12" type="Line2D" parent="."]
@@ -381,7 +381,7 @@ texture_repeat = 2
 position = Vector2(366, -76)
 points = PackedVector2Array(213, -194, 186, -240)
 width = 9.3
-texture = ExtResource("9_dw1jk")
+texture = ExtResource("26_c0r0b")
 texture_mode = 1
 
 [node name="Line2D13" type="Line2D" parent="."]
@@ -389,7 +389,7 @@ texture_repeat = 2
 position = Vector2(428, -26)
 points = PackedVector2Array(237, -284, 186, -240)
 width = 9.3
-texture = ExtResource("9_dw1jk")
+texture = ExtResource("26_c0r0b")
 texture_mode = 1
 
 [node name="Line2D14" type="Line2D" parent="."]
@@ -397,7 +397,7 @@ texture_repeat = 2
 position = Vector2(515, -67)
 points = PackedVector2Array(225, -203, 186, -240)
 width = 9.3
-texture = ExtResource("9_dw1jk")
+texture = ExtResource("26_c0r0b")
 texture_mode = 1
 
 [node name="Line2D15" type="Line2D" parent="."]
@@ -405,7 +405,7 @@ texture_repeat = 2
 position = Vector2(591, -19)
 points = PackedVector2Array(244, -277, 186, -240)
 width = 9.3
-texture = ExtResource("9_dw1jk")
+texture = ExtResource("26_c0r0b")
 texture_mode = 1
 
 [node name="Line2D16" type="Line2D" parent="."]
@@ -413,7 +413,7 @@ texture_repeat = 2
 position = Vector2(685, -57)
 points = PackedVector2Array(290, -213, 186, -240)
 width = 9.3
-texture = ExtResource("9_dw1jk")
+texture = ExtResource("26_c0r0b")
 texture_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
