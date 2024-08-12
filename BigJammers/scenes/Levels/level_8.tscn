@@ -155,7 +155,7 @@ HEARTBEAT_TIME = 40.0
 
 [node name="TimerBlock" parent="Player" instance=ExtResource("5_67d6f")]
 position = Vector2(-23, -22)
-timeout = 17.0
+timeout = 19.0
 
 [node name="WaterBlock" parent="Player" instance=ExtResource("6_1jo20")]
 position = Vector2(1, 25)

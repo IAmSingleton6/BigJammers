@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://menu.gd" id="1_eji27"]
 [ext_resource type="Theme" uid="uid://b1xfdyvlbbwvk" path="res://game_settings/bestest_theme.tres" id="2_fxyad"]
 [ext_resource type="PackedScene" uid="uid://b2jkbsmq6fwxr" path="res://scenes/ui/UISounds.tscn" id="2_h2i7y"]
+[ext_resource type="Texture2D" uid="uid://dfo47lwgk4q0t" path="res://assets/menu_bg_black.png" id="3_fmjho"]
 [ext_resource type="PackedScene" uid="uid://d2lk208ksndml" path="res://scenes/options_menu.tscn" id="4_ou2x4"]
 [ext_resource type="Texture2D" uid="uid://bhc3sftg15ijl" path="res://assets/heart_pulse.png" id="6_hrho8"]
 [ext_resource type="PackedScene" uid="uid://bh2ofek2n0tq8" path="res://scenes/jail_cell.tscn" id="6_ic40t"]
@@ -78,7 +79,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 10
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 48
-text = "Heart Jailbreak"
+text = "Heart JailBreak"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
