@@ -85,21 +85,16 @@ horizontal_alignment = 1
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 48
-
-[node name="Seperator3" type="Control" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="Seperator4" type="Control" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="Seperator5" type="Control" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
+alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 32
 
 [node name="Seperator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Seperator5" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="Seperator3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
@@ -146,8 +141,8 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control"]
-position = Vector2(34, 45)
-rotation = -0.252703
+position = Vector2(300, 15)
+rotation = 0.436332
 scale = Vector2(11.9528, 11.9528)
 sprite_frames = SubResource("SpriteFrames_hq15x")
 script = ExtResource("6_ljcwt")
@@ -155,6 +150,6 @@ amplitude = 5.0
 frequency = 0.8
 
 [node name="JailCell" parent="Control" instance=ExtResource("6_ic40t")]
-position = Vector2(437, 204)
-rotation = 0.217349
-scale = Vector2(6.59424, 6.59424)
+position = Vector2(33, 199)
+rotation = 0.436332
+scale = Vector2(6.5, 6.5)
