@@ -251,7 +251,7 @@ script = ExtResource("3_tjgb5")
 speed = 8
 
 [node name="Camera2D" type="Camera2D" parent="PlayerIcon"]
-zoom = Vector2(3.54, 3.54)
+zoom = Vector2(4.765, 4.765)
 position_smoothing_enabled = true
 
 [node name="Feels" type="AnimatedSprite2D" parent="PlayerIcon"]

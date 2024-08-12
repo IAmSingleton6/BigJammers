@@ -24,6 +24,12 @@ LevelManager="*res://scripts/globals/level_manager.gd"
 TimeManager="*res://scripts/globals/time_manager.gd"
 MusicManager="*res://scenes/globals/music_manager.tscn"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="viewport"
+
 [input]
 
 Jump={

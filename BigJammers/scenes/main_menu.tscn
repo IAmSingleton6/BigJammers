@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bp2ox0krkfd7q"]
+[gd_scene load_steps=16 format=3 uid="uid://bp2ox0krkfd7q"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_eji27"]
 [ext_resource type="Theme" uid="uid://b1xfdyvlbbwvk" path="res://game_settings/bestest_theme.tres" id="2_fxyad"]
@@ -29,6 +29,33 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Gradient" id="Gradient_h7oq0"]
+offsets = PackedFloat32Array(0, 0.169082, 0.743961, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.690196, 0.690196, 0.690196, 0.411765, 0.745098, 0.745098, 0.745098, 0.529412, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_r7onk"]
+gradient = SubResource("Gradient_h7oq0")
+
+[sub_resource type="Curve" id="Curve_vo0v5"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.238298, 1), 0.0, 0.0, 0, 0, Vector2(0.795745, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_3h0xq"]
+curve = SubResource("Curve_vo0v5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dk3bv"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(860, 540, 1)
+spread = 180.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_3h0xq")
+color = Color(1, 1, 1, 0.541176)
+color_ramp = SubResource("GradientTexture1D_r7onk")
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
@@ -79,17 +106,18 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 10
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 48
-text = "Heart JailBreak"
+text = "Heartbreak Escape"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 48
-alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 32
+alignment = 2
 
 [node name="Seperator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -108,18 +136,21 @@ layout_mode = 2
 theme = ExtResource("2_fxyad")
 theme_override_font_sizes/font_size = 32
 text = "Play"
+alignment = 0
 
 [node name="Options" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_fxyad")
 theme_override_font_sizes/font_size = 32
 text = "Options"
+alignment = 0
 
 [node name="Exit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_fxyad")
 theme_override_font_sizes/font_size = 32
 text = "Exit"
+alignment = 0
 
 [node name="options_menu" parent="." instance=ExtResource("4_ou2x4")]
 visible = false
@@ -141,15 +172,21 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control"]
-position = Vector2(300, 15)
-rotation = 0.436332
-scale = Vector2(11.9528, 11.9528)
+position = Vector2(171, 6.00001)
+rotation = 0.548176
+scale = Vector2(18.2427, 18.2427)
 sprite_frames = SubResource("SpriteFrames_hq15x")
 script = ExtResource("6_ljcwt")
 amplitude = 5.0
 frequency = 0.8
 
 [node name="JailCell" parent="Control" instance=ExtResource("6_ic40t")]
-position = Vector2(33, 199)
-rotation = 0.436332
-scale = Vector2(6.5, 6.5)
+position = Vector2(-221, 323)
+rotation = -0.323108
+scale = Vector2(8.37854, 8.37854)
+
+[node name="Dust" type="GPUParticles2D" parent="Control"]
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_dk3bv")
+lifetime = 5.0
+preprocess = 1.0

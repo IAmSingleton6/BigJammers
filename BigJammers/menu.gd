@@ -14,6 +14,10 @@ var transitioning_scenes := false
 func _ready():
 	handle_connecting_signals()
 
+func _process(_delta) -> void:
+	if Input.is_action_just_pressed("ui_cancel"):
+		_on_exit_pressed()
+
 func _on_play_pressed():
 	print("Pressed Play")
 	if transitioning_scenes:
