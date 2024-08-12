@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_lnlcm")
-level_name = "Sad tidings"
-scene = "res://scenes/Levels/level_3.tscn"
+level_name = "3"
+scene = "res://scenes/Levels/level_6.tscn"

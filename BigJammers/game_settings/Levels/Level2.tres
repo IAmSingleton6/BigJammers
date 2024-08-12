@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_m3kjf")
-level_name = "Happy Beginnings"
+level_name = "2"
 scene = "res://scenes/Levels/level_2.tscn"

@@ -22,6 +22,18 @@ var level_just_completed := false
 
 func _ready():
 	level_label.text = str(level_data.level_name)
+	var prev_level = null
+	var get_next_level := false
+	for child in get_parent().get_children():
+		if child is LevelIcon:
+			if get_next_level:
+				level_right = child
+				return
+			if child == self:
+				level_left = prev_level
+				get_next_level = true
+				continue
+			prev_level = child
 
 
 func set_just_completed() -> void:

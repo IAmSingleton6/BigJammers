@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_owmkq")
-level_name = "Big minds"
+level_name = "1"
 scene = "res://scenes/Levels/level_1.tscn"

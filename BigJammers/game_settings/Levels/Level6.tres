@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://bq4lorr8ar761"]
+
+[ext_resource type="Script" path="res://scripts/map/level_resource.gd" id="1_0kpva"]
+
+[resource]
+script = ExtResource("1_0kpva")
+level_name = "6"
+scene = "res://scenes/Levels/level_7.tscn"
