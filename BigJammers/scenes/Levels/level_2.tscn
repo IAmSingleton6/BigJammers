@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c76ksqqw3n176" path="res://scenes/blocks/water_block.tscn" id="5_2uxaf"]
 [ext_resource type="PackedScene" uid="uid://dwgdab0endmxb" path="res://scenes/Levels/killzone.tscn" id="7_17vjk"]
 [ext_resource type="PackedScene" uid="uid://msculdcaewa3" path="res://scenes/blocks/fire_block.tscn" id="7_l85gj"]
-[ext_resource type="PackedScene" path="res://scenes/fly.tscn" id="9_3p1tu"]
+[ext_resource type="PackedScene" uid="uid://b1veukb6rj2un" path="res://scenes/fly.tscn" id="9_3p1tu"]
 [ext_resource type="PackedScene" uid="uid://1q0ca4lxpoac" path="res://scenes/post_processing.tscn" id="10_jlvsh"]
 
 [node name="level_2" type="Node2D"]

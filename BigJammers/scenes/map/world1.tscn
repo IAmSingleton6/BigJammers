@@ -32,7 +32,7 @@
 [ext_resource type="Theme" uid="uid://b1xfdyvlbbwvk" path="res://game_settings/bestest_theme.tres" id="24_pnedo"]
 [ext_resource type="Script" path="res://scripts/show_on_all_levels_complete.gd" id="25_1o6dr"]
 [ext_resource type="Texture2D" uid="uid://duvdrj0he03dc" path="res://assets/pixel.png" id="29_7jp6p"]
-[ext_resource type="PackedScene" path="res://scenes/fly.tscn" id="30_rudyj"]
+[ext_resource type="PackedScene" uid="uid://b1veukb6rj2un" path="res://scenes/fly.tscn" id="30_rudyj"]
 [ext_resource type="PackedScene" uid="uid://1q0ca4lxpoac" path="res://scenes/post_processing.tscn" id="32_0yqrs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x02hn"]

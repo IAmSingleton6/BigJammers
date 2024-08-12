@@ -1,5 +1,5 @@
 extends Node
-const DEBUG_DISABLE: bool = true
+const DEBUG_DISABLE: bool = false
 
 # TODO: Pass the whole system through an encryption algorithm
 # That will scramble and unscramble the JSON
