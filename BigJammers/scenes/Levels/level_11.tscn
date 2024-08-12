@@ -50,20 +50,20 @@ off_time = 2.1
 position = Vector2(-142, -21)
 
 [node name="StickyBlock" parent="Player" instance=ExtResource("5_w32k7")]
-position = Vector2(24, 0)
+position = Vector2(24, -10)
 
 [node name="WaterBlock" parent="Player" instance=ExtResource("6_pd06l")]
-position = Vector2(0, 25)
+position = Vector2(0, 22)
 
 [node name="WaterBlock2" parent="Player" instance=ExtResource("6_pd06l")]
-position = Vector2(0, -26)
+position = Vector2(0, -23)
 
 [node name="TimerBlock" parent="Player" instance=ExtResource("7_tr4wf")]
-position = Vector2(-37, -25)
+position = Vector2(-37, -20)
 timeout = 12.0
 
 [node name="SolidBlock" parent="Player" instance=ExtResource("8_llkxa")]
-position = Vector2(-25, 0)
+position = Vector2(-23, 0)
 
 [node name="Killzone_Floor" parent="." instance=ExtResource("7_fbi5i")]
 position = Vector2(0, 133)

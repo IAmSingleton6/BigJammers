@@ -50,14 +50,17 @@ texture = ExtResource("2_y78ey")
 
 [node name="PressurePlate" parent="." instance=ExtResource("4_hmsqc")]
 position = Vector2(-186, 31)
+EXACT_AMOUNT_NEEDED = false
 BLOCKCOUNT = 5
 
 [node name="PressurePlate2" parent="." instance=ExtResource("4_hmsqc")]
 position = Vector2(-272, 32)
+EXACT_AMOUNT_NEEDED = false
 BLOCKCOUNT = 4
 
 [node name="PressurePlate3" parent="." instance=ExtResource("4_hmsqc")]
 position = Vector2(-111, 30)
+EXACT_AMOUNT_NEEDED = false
 BLOCKCOUNT = 3
 
 [node name="Wind" parent="." instance=ExtResource("6_7a7t6")]

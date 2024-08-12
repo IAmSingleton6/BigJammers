@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://b1veukb6rj2un"]
+
+[ext_resource type="Texture2D" uid="uid://16t46suqtfgu" path="res://assets/assets/mono/Tilemap/monochrome_tilemap_transparent.png" id="1_pvlf8"]
+[ext_resource type="Script" path="res://scenes/level_mechanics/bob_up_and_down.gd" id="2_wwk24"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a42ff"]
+atlas = ExtResource("1_pvlf8")
+region = Rect2(102, 272, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cn4va"]
+atlas = ExtResource("1_pvlf8")
+region = Rect2(102, 289, 17, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tfa5y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a42ff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cn4va")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_8p1x3"]
+resource_name = "move"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(3, 0), Vector2(2.6, 0), Vector2(-3, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gnco8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g0yyb"]
+_data = {
+"RESET": SubResource("Animation_gnco8"),
+"move": SubResource("Animation_8p1x3")
+}
+
+[node name="Fly" type="Node2D"]
+script = ExtResource("2_wwk24")
+frequency = 3.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tfa5y")
+frame = 1
+frame_progress = 0.474535
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_g0yyb")
+}
+autoplay = "move"
+speed_scale = 0.7

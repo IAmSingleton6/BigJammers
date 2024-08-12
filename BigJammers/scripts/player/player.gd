@@ -75,6 +75,8 @@ func _physics_process(delta):
 			_jump(JUMP_MULT_ON_STICK)
 		if Input.is_action_just_pressed(InputManager.move_down):
 			stuck_to_wall = false
+			velocity = Vector2.ZERO
+			velocity.y = 10
 		return
 	
 	_gravity(delta)
